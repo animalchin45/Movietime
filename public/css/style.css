@@ -245,6 +245,8 @@ header {
     height: 95vh;
     width: 30%;
     float: left; }
+  .now-showing__wrapper {
+    display: flex; }
   .now-showing__movies {
     display: flex;
     justify-content: center;
