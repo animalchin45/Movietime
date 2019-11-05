@@ -1,0 +1,11 @@
+header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+
+    & div {
+        display: flex;
+        justify-content: flex-end;
+        width: 50%;
+    }
+}

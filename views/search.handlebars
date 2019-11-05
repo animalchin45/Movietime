@@ -1,0 +1,15 @@
+<section class="results">
+
+    {{#each search}}
+        <div class="movie-card">
+            <h3 class="heading-card u-text-center u-padding-bottom">{{Title}}</h3>
+            
+            <a href="/movies/details/{{imdbID}}">
+                <li class="movie-card__poster" style="background-image: url({{Poster}});">
+                    <h3 class="movie-card__link">Details</h3>
+                </li>
+            </a>
+        </div>
+    {{/each}}
+
+</section>

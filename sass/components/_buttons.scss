@@ -1,0 +1,68 @@
+// SEARCH BAR
+.search-bar {
+    margin: 2rem;
+    width: 40rem;
+    display: flex;
+
+    &__entry, &__btn {
+        // display: inline-block;
+        border-width: 0;
+        padding: 1rem;
+    }
+
+    &__entry {
+        background-color: $color-white;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        margin-right: -5px;
+        width: 75%;
+        outline: none;
+        transition: box-shadow .5s ease-in-out;
+        &:focus {
+            box-shadow: 0 0 5px rgba($color-black, .8);
+        }
+    }
+
+    &__btn {
+        background-color: $color-primary;
+        color: $color-white;
+        text-transform: uppercase;
+        cursor: pointer;
+        border: none;
+        border-bottom-right-radius: 6px;
+        border-top-right-radius: 6px;
+        width: 25%;
+    }
+}
+
+button {
+    font-size: 1.6rem;
+    font-family: "Roboto-Regular", sans-serif;
+}
+
+.btn-link {
+    // text-decoration: none;
+    color: $color-black;
+}
+
+.btn {
+    background-color: $color-primary;
+    color: $color-white;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+}
+
+.btn-remove {
+    background-color: $color-warn;
+    color: $color-white;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+}

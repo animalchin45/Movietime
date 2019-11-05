@@ -1,0 +1,32 @@
+.account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 105px);
+
+    &__box{
+        padding: 15rem;
+        // border: 1px solid $color-black;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    & input {
+        background-color: $color-light-gray;
+        border-radius: 6px;
+        border-width: 0;
+        padding: 1rem;
+        outline: none;
+        transition: box-shadow .5s ease-in-out;
+        &:focus {
+            box-shadow: 0 0 5px rgba($color-black, .8);
+        }
+    }
+
+    & h2, label, input {
+        margin-bottom: 1rem;
+    }
+}

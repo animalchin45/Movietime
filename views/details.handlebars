@@ -1,0 +1,28 @@
+<section class="details">
+
+    <div class="movie-card__details">
+        <li class="movie-card__details__poster" style="background-image: url({{details.Poster}});"></li>
+
+        <div class="movie-card__details__info">
+            <h2>{{details.Title}}</h2>
+            <p><em>{{details.Plot}}</em></p>
+            <p>Starring: {{details.Actors}}</p>
+            <p>Director: {{details.Director}}</p>
+            <p>Year: {{details.Year}}</p>
+            <p>Genre: {{details.Genre}}</p>
+            <p>Rated: {{details.Rated}}</p>
+            {{#each details.Ratings}}
+            <p>{{this.Source}}: {{this.Value}}</p>
+            {{/each}}
+            <div class="movie-card__details__btns">
+                <form action="/" method="GET">
+                    <button class="btn" type="submit">Back</button>
+                </form>
+                <form action="/movies/{{details.imdbID}}" method="POST">
+                    <button class="btn" type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
