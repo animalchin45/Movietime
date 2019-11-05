@@ -9,9 +9,13 @@
         </form>
         
         <div class="landing__user">
-            <p class="u-padding-bottom">Not currently a user? <a href="/signup" class="btn-link">Sign up here!</a></p>
+            {{#unless user}}
+            <p class="u-padding-bottom">Not currently a user? <a href="/signup" class="btn-link">Sign up here</a></p>
             <p class="u-padding-bottom">Existing users <a href="/login" class="btn-link">Login here</a></p>
-            <a href="/movies" class="btn-link">Now Showing</a>
+            {{/unless}}
+            {{#if user}}
+            <p>Welcome back, {{user.userName}}! <a href="/movies" class="btn-link">Now Showing</a></p>
+            {{/if}}
         </div>
     </div>
 

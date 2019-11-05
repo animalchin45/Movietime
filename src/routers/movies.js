@@ -3,12 +3,13 @@ const express       = require('express'),
       urlSearch     = require('../urlSearch'),
       urlDetails    = require ('../urlDetails'),
       auth          = require('../middleware/auth'),
+      isAuth        = require('../middleware/isAuth')
       validateSearch   = require('../middleware/validateSearch'),
       Movie         = require('../models/movie')
 const router = new express.Router()
 
 // ROUTES - SEARCH
-router.get('/movies/search', validateSearch, async (req, res) => {
+router.get('/movies/search', validateSearch, isAuth, async (req, res) => {
     
     const query = req.query.search
     
@@ -19,6 +20,7 @@ router.get('/movies/search', validateSearch, async (req, res) => {
         if (data1.Error) {
             return res.render('movie404', {
                 movie404: `The film ${query} was not found...`,
+                user: req.user,
                 layout: 'secondary'
             })
         }
@@ -37,6 +39,7 @@ router.get('/movies/search', validateSearch, async (req, res) => {
         res.render('search', {
             search: filteredData,
             pageTitle: 'Movietime!',
+            user: req.user,
             layout: 'secondary'
         })
     } catch (e) {
@@ -46,7 +49,7 @@ router.get('/movies/search', validateSearch, async (req, res) => {
 })
 
 // ROUTES - SEARCH DETAILS
-router.get('/movies/details/:imdbID', async (req, res) => {
+router.get('/movies/details/:imdbID', isAuth, async (req, res) => {
     const query = req.params.imdbID
     
     try {
@@ -56,6 +59,7 @@ router.get('/movies/details/:imdbID', async (req, res) => {
         res.render('details', {
             details: data,
             pageTitle: data.Title,
+            user: req.user,
             layout: 'secondary'
         })
     } catch (e) {
@@ -102,12 +106,12 @@ router.post('/movies/:imdbID', auth, async (req, res) => {
 })
 
 // ROUTES - NOW SHOWING
-router.get('/movies', auth, async (req, res) => {
+router.get('/movies', auth, isAuth, async (req, res) => {
     try {
         await req.user.populate('movies').execPopulate()
         res.render('now-showing', { 
             movies: req.user.movies,
-            profile: req.user,
+            user: req.user,
             layout: 'secondary' 
         })
     } catch (e) {

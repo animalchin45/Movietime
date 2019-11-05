@@ -18,9 +18,11 @@
                 <form action="/" method="GET">
                     <button class="btn" type="submit">Back</button>
                 </form>
+                {{#if user}}
                 <form action="/movies/{{details.imdbID}}" method="POST">
                     <button class="btn" type="submit">Add</button>
                 </form>
+                {{/if}}
             </div>
         </div>
     </div>

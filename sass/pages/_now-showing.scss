@@ -1,16 +1,5 @@
 .now-showing {
-    width: calc(100vw - 2rem);
-
-    &__heading {
-        display: flex;
-        align-items: center;
-        margin-bottom: 2rem;
-
-        & h2 {
-            display: inline-block;
-            margin-right: 2rem;
-        }
-    }
+    width: calc(100vw - 3rem);
 
     &__profile {
         display: flex;
@@ -27,13 +16,12 @@
     }
 
     &__wrapper {
-        display: flex;
-        min-height: 100vh;
+        // display: flex;
     }
 
     &__movies {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         flex-wrap: wrap;
         width: 70%;
         float: right;

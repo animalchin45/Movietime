@@ -233,14 +233,7 @@ header {
     margin-bottom: 1rem; }
 
 .now-showing {
-  width: calc(100vw - 2rem); }
-  .now-showing__heading {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem; }
-    .now-showing__heading h2 {
-      display: inline-block;
-      margin-right: 2rem; }
+  width: calc(100vw - 3rem); }
   .now-showing__profile {
     display: flex;
     flex-direction: column;
@@ -252,12 +245,9 @@ header {
     height: 95vh;
     width: 30%;
     float: left; }
-  .now-showing__wrapper {
-    display: flex;
-    min-height: 100vh; }
   .now-showing__movies {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     flex-wrap: wrap;
     width: 70%;
     float: right; }
@@ -265,4 +255,12 @@ header {
 .details {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  height: calc(100vh - 105px); }
+
+.movie404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: calc(100vh - 105px); }

@@ -1,14 +1,4 @@
 <section class="now-showing">
-
-    <div class="now-showing__heading">
-
-        <h2>Now Showing for {{profile.userName}}</h2>
-        
-        <form action="/users/logout" method="POST">
-            <button class="btn" type="submit">Logout</button>
-        </form>
-
-    </div>
     
     <div class="now-showing__wrapper">
 
@@ -16,9 +6,12 @@
 
             <div class="now-showing__profile-info">
 
-                <h2>{{profile.userName}}</h2>
-                <p>Favorite Movie: {{profile.favoriteMovie}}</p>
-                <p>Favorite Genre: {{profile.favoriteGenre}}</p>
+                <h2>{{user.userName}}</h2>
+                <p>Favorite Movie: {{user.favoriteMovie}}</p>
+                <p>Favorite Genre: {{user.favoriteGenre}}</p>
+                <form action="/users/logout" method="POST">
+                    <button class="btn" type="submit">Logout</button>
+                </form>
 
             </div>
 

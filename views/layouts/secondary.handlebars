@@ -15,7 +15,11 @@
         </form>
         
         <div>
-            <a class="btn" href="/movies">Now Showing...</a>
+            {{#if user}}
+            <a class="btn-link" href="/movies">Now Showing for {{user.userName}}</a>
+            {{else}}
+            <a class="btn-link" href="/login">Login here</a>
+            {{/if}}
         </div>
     </header>
     

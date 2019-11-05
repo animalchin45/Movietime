@@ -1,11 +1,12 @@
 const express = require('express'),
-      auth    = require('../middleware/auth')
+      isAuth    = require('../middleware/isAuth')
 const router = new express.Router()
 
 // ROUTES - HOME
-router.get('/', (req, res) => {
+router.get('/', isAuth, (req, res) => {
     res.render('index', {
-        pageTitle: 'Movietime!'
+        pageTitle: 'Movietime!',
+        user: req.user
     })
 })
 
