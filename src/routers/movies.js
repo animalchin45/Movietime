@@ -68,12 +68,13 @@ router.get('/movies/details/:imdbID', isAuth, async (req, res) => {
 })
 
 // ROUTES - NOW SHOWING DETAILS
-router.get('/movies/:id', auth, async (req, res) => {
+router.get('/movies/:id', auth, isAuth, async (req, res) => {
     try {
         const data = await Movie.findById(req.params.id)
         res.render('details-now-showing', {
             details: data,
             pageTitle:data.Title,
+            user: req.user,
             layout: 'secondary'
         })
     } catch (e) {
