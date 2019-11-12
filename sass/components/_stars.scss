@@ -25,6 +25,7 @@ $star-off-color: #CCCCCC;
 			font-size: $star-size + 2px;
 			color: $star-off-color;
 			line-height: 1;
+			transition: color .25s;
 		}
 	}
 	
