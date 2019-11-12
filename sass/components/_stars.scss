@@ -1,24 +1,40 @@
-:root {
-    --star-size: 4rem;
-    --star-color: #fff;
-    --star-background: #fc0;
-}
+$stars: 5;
+$star-size: 35px;
+$star-spacing: 2px;
+$star-on-color: #F9DF4A;
+$star-off-color: #CCCCCC;
 
-.stars {
-    --percent: calc(var(--rating) / 5 * 100%);
+.rating {
+	width: ($star-size * $stars) + ($star-spacing * ($stars - 1));
+	height: $star-size;
+    margin: 0 auto;
 
-    display: inline-block;
-    padding-bottom: 3px;
-    font-size: var(--star-size);
-    font-family: Times;
-    line-height: 1;
-
-    &::before {
-        content: '★★★★★';
-        letter-spacing: 3px;
-        background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+	label {
+		float: right;
+		position: relative;
+		width: $star-size;
+		height: $star-size;
+		cursor: pointer;
+		
+		&:not(:first-of-type) {
+			padding-right: $star-spacing;
+		}
+		
+		&:before {
+			content: "\2605";
+			font-size: $star-size + 2px;
+			color: $star-off-color;
+			line-height: 1;
+		}
+	}
+	
+	input {
+		display: none;
+	}
+	
+	input:checked ~ label:before,
+	&:not(:checked) > label:hover:before,
+	&:not(:checked) > label:hover ~ label:before {
+		color: $star-on-color;
+	}
 }

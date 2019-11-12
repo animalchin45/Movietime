@@ -1,4 +1,4 @@
 node_modules
-/src/db
+/src/db/mongoose.js
 # /src/urlDetails.js
 # /src/urlSearch.js
