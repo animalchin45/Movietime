@@ -6,16 +6,40 @@
 
     &__box{
         padding: 15rem;
+        width: 70rem;
         // border: 1px solid $color-black;
     }
 
     &__form {
         display: flex;
         flex-direction: column;
+
+        & label {
+            font-size: 1.2rem;
+            color: $color-warn;
+            margin-left: 2rem;
+        }
+
+        & #passwordError {
+            opacity: 0;
+            transition: opacity .5s;
+        }
+
+        & #verifyError {
+            opacity: 0;
+            transition: opacity .5s;
+        }
+    }
+
+    &__error {
+        font-size: 1.2rem;
+        color: $color-warn;
+        margin-top: 2rem;
     }
 
     & input {
         background-color: $color-light-gray;
+        width: 20rem;
         border-radius: 6px;
         border-width: 0;
         padding: 1rem;
@@ -26,7 +50,11 @@
         }
     }
 
+    & button {
+        width: 20rem;
+    }
+
     & h2, label, input {
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
     }
 }

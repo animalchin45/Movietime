@@ -1,6 +1,10 @@
 .now-showing {
     width: calc(100vw - 3rem);
 
+    &__wrapper {
+        display: flex;
+    }
+
     &__profile {
         display: flex;
         flex-direction: column;
@@ -8,22 +12,22 @@
         align-items: center;
         position: -webkit-sticky;
         position: sticky;
-        top: 0;
-        height: 95vh;
-        width: 30%;
+        top: 15%;
+        height: 80vh;
+        width: 20%;
         float: left;
+        border-right: 1px solid rgba($color-black, .8);
 
-    }
-
-    &__wrapper {
-        display: flex;
+        & * {
+            margin-bottom: 2rem;
+        }
     }
 
     &__movies {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        width: 70%;
+        width: 80%;
         float: right;
     }
 }

@@ -1,12 +1,17 @@
-const express      = require('express'),
-      cookieParser = require('cookie-parser'),
-      User         = require('../models/user'),
-      auth         = require('../middleware/auth')
+const express         = require('express'),
+      User            = require('../models/user'),
+      auth            = require('../middleware/auth')
 const router = new express.Router()
 
 // CREATE NEW USER
 router.post('/users', async (req, res) => {
-    console.log(req.body)
+    if (req.body.password !== req.body.verifyPassword) {
+        return res.render('signup', {
+            layout: 'secondary',
+            error: `Passwords do not match. Try again.`
+        })
+    }
+
     const user = new User(req.body)
 
     try {
@@ -15,6 +20,19 @@ router.post('/users', async (req, res) => {
         res.cookie('auth_token', token)
         res.status(201).redirect('/movies')
     } catch (e) {
+        if (e.errmsg) {
+            return res.status(400).render('signup', {
+                layout: 'secondary',
+                error: `Username already taken. Try again.`
+            })
+        }
+
+        if (e.errors) {
+            return res.status(400).render('signup', {
+                layout: 'secondary',
+                error: `Username, password, and email required to sign up. Try again.`
+            })
+        }
         res.status(400).send(e)
     }
 })
@@ -23,6 +41,12 @@ router.post('/users', async (req, res) => {
 router.post('/users/login', async (req, res) => {
     try {
         const user = await User.findByCredentials(req.body.userName, req.body.password)
+        if (user === 'error') {
+            return res.render('login', {
+                layout: 'secondary',
+                error: `Invalid username or password. Please try again.`
+            })
+        }
         const token = await user.generateAuthToken()
         res.cookie('auth_token', token)
         res.redirect('/movies')

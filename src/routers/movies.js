@@ -1,7 +1,7 @@
 const express       = require('express'),
       fetch         = require('node-fetch'),
       urlSearch     = require('../urlSearch'),
-      urlDetails    = require ('../urlDetails'),
+      urlDetails    = require('../urlDetails'),
       auth          = require('../middleware/auth'),
       isAuth        = require('../middleware/isAuth')
       validateSearch   = require('../middleware/validateSearch'),

@@ -18,11 +18,7 @@ const movieSchema = new mongoose.Schema({
     Genre: String,
     Writer: String,
     Actors: String,
-    userReviews: [
-        {
-            Review: String
-        }
-    ],
+    Stars: Number,
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,

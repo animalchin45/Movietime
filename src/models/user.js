@@ -1,5 +1,5 @@
-const mongoose  = require('mongoose'),
-      validator = require('validator')
+const mongoose  = require('mongoose'),  
+      validator = require('validator'),
       bcrypt    = require('bcrypt'),
       jwt       = require('jsonwebtoken')
 
@@ -23,7 +23,6 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        unique: true,
         required: true,
         trim: true,
         lowercase: true,
@@ -79,13 +78,13 @@ userSchema.statics.findByCredentials = async (userName, password) => {
     const user = await User.findOne({ userName })
 
     if (!user) {
-        throw new Error('Not a valid username or password, please try again.')
+        return `error`
     }
 
     const isMatch = await bcrypt.compare(password, user.password)
 
     if (!isMatch) {
-        throw new Error('Not a valid username or password, please try again.')
+        return `error`
     }
 
     return user

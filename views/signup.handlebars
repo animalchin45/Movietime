@@ -5,16 +5,26 @@
         <h2>New Account Sign Up</h2>
 
         <form class="account__form" action="/users" method="POST">
-            <input type="text" placeholder="Username" name="userName" autocomplete="off">
-            <input type="password" placeholder="Password" name="password" autocomplete="off">
-            <input type="text" placeholder="Email" name="email" autocomplete="off">
-            <input type="text" placeholder="Favorite Genre" name="favoriteGenre" autocomplete="off">
-            <input type="text" placeholder="Favorite Movie" name="favoriteMovie"
+            <input type="text" placeholder="Username" id="userName" name="userName" autocomplete="off">
+            <div>
+                <input type="password" placeholder="Password" id="password" name="password" autocomplete="off">
+                <label id="passwordError" for="password">Must be at least 7 characters</label>
+            </div>
+            <div>
+                <input type="password" placeholder="Verify Password" id="verifyPassword" name="verifyPassword" autocomplete="off">
+                <label id="verifyError" for="verifyPassword">Password does not match</label>
+            </div>
+            <input type="text" placeholder="Email" id="email" name="email" autocomplete="off">
+            <input type="text" placeholder="Favorite Genre: optional" name="favoriteGenre" autocomplete="off">
+            <input type="text" placeholder="Favorite Movie: optional" name="favoriteMovie"
             autocomplete="off">
 
             <button class="btn" type="submit">Submit</button>
         </form>
-
+        {{#if error}}
+        <p class="account__error">{{error}}</p>
+        {{/if}}
     </div>
 
+    <script src="/js/signup.js"></script>
 </section>

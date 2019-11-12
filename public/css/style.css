@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 *::after,
 *::before {
@@ -14,7 +15,8 @@ body {
   font-family: "Roboto-Regular", sans-serif; }
 
 section {
-  padding: 1rem; }
+  padding: 1rem;
+  animation: fadeIn .5s; }
 
 @keyframes moveInTop {
   0% {
@@ -23,6 +25,12 @@ section {
   100% {
     opacity: 1;
     transform: translateY(0); } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 @font-face {
   font-family: "LemonMilk";
@@ -180,14 +188,37 @@ button {
     .movie-card__details__info * {
       margin-bottom: 1rem; }
   .movie-card__details__btns {
-    display: flex; }
+    display: flex;
+    align-items: center; }
     .movie-card__details__btns form {
       margin-right: 2rem; }
 
+:root {
+  --star-size: 4rem;
+  --star-color: #fff;
+  --star-background: #fc0; }
+
+.stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  padding-bottom: 3px;
+  font-size: var(--star-size);
+  font-family: Times;
+  line-height: 1; }
+  .stars::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; }
+
 header {
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 1rem; }
+  padding: 1rem;
+  z-index: 2; }
   header div {
     display: flex;
     justify-content: flex-end;
@@ -216,12 +247,28 @@ header {
   justify-content: center;
   height: calc(100vh - 105px); }
   .account__box {
-    padding: 15rem; }
+    padding: 15rem;
+    width: 70rem; }
   .account__form {
     display: flex;
     flex-direction: column; }
+    .account__form label {
+      font-size: 1.2rem;
+      color: #c14748;
+      margin-left: 2rem; }
+    .account__form #passwordError {
+      opacity: 0;
+      transition: opacity .5s; }
+    .account__form #verifyError {
+      opacity: 0;
+      transition: opacity .5s; }
+  .account__error {
+    font-size: 1.2rem;
+    color: #c14748;
+    margin-top: 2rem; }
   .account input {
     background-color: #f7f7f5;
+    width: 20rem;
     border-radius: 6px;
     border-width: 0;
     padding: 1rem;
@@ -229,11 +276,15 @@ header {
     transition: box-shadow .5s ease-in-out; }
     .account input:focus {
       box-shadow: 0 0 5px rgba(23, 23, 19, 0.8); }
+  .account button {
+    width: 20rem; }
   .account h2, .account label, .account input {
-    margin-bottom: 1rem; }
+    margin-bottom: 2rem; }
 
 .now-showing {
   width: calc(100vw - 3rem); }
+  .now-showing__wrapper {
+    display: flex; }
   .now-showing__profile {
     display: flex;
     flex-direction: column;
@@ -241,24 +292,25 @@ header {
     align-items: center;
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
-    height: 95vh;
-    width: 30%;
-    float: left; }
-  .now-showing__wrapper {
-    display: flex; }
+    top: 15%;
+    height: 80vh;
+    width: 20%;
+    float: left;
+    border-right: 1px solid rgba(23, 23, 19, 0.8); }
+    .now-showing__profile * {
+      margin-bottom: 2rem; }
   .now-showing__movies {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 70%;
+    width: 80%;
     float: right; }
 
 .details {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 105px); }
+  margin-top: 3rem; }
 
 .movie404 {
   display: flex;
