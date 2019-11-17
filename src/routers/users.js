@@ -7,7 +7,6 @@ const router = new express.Router()
 router.post('/users', async (req, res) => {
     if (req.body.password !== req.body.verifyPassword) {
         return res.render('signup', {
-            layout: 'secondary',
             error: `Passwords do not match. Try again.`
         })
     }
@@ -22,14 +21,12 @@ router.post('/users', async (req, res) => {
     } catch (e) {
         if (e.errmsg) {
             return res.status(400).render('signup', {
-                layout: 'secondary',
                 error: `Username already taken. Try again.`
             })
         }
 
         if (e.errors) {
             return res.status(400).render('signup', {
-                layout: 'secondary',
                 error: `Username, password, and email required to sign up. Try again.`
             })
         }
@@ -43,7 +40,6 @@ router.post('/users/login', async (req, res) => {
         const user = await User.findByCredentials(req.body.userName, req.body.password)
         if (user === 'error') {
             return res.render('login', {
-                layout: 'secondary',
                 error: `Invalid username or password. Please try again.`
             })
         }

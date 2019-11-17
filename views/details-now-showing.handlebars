@@ -1,35 +1,42 @@
 <section class="details">
 
     <div class="movie-card__details">
-        <li class="movie-card__details__poster" style="background-image: url({{details.Poster}});"></li>
+        <li class="movie-card__details__poster" style="background-image: url({{data.Poster}});"></li>
         
         <div class="movie-card__details__info">
-            <h2>{{details.Title}}</h2>
-            <p><em>{{details.Plot}}</em></p>
-            <p>Starring: {{details.Actors}}</p>
-            <p>Director: {{details.Director}}</p>
-            <p>Year: {{details.Year}}</p>
-            <p>Genre: {{details.Genre}}</p>
-            <p>Rated: {{details.Rated}}</p>
-            {{#each details.Ratings}}
+            <h2>{{data.Title}}</h2>
+            <p><em>{{data.Plot}}</em></p>
+            <p>Starring: {{data.Actors}}</p>
+            <p>Director: {{data.Director}}</p>
+            <p>Year: {{data.Year}}</p>
+            <p>Genre: {{data.Genre}}</p>
+            <p>Rated: {{data.Rated}}</p>
+            {{#each data.Ratings}}
                 <p>{{this.Source}}: {{this.Value}}</p>
             {{/each}}
             <div class="movie-card__details__btns">
                 <form action="/movies" method="GET">
                     <button class="btn" type="submit">Back</button>
                 </form>
-                <form action="/movies/{{details._id}}?_method=DELETE" method="POST">
+                <form action="/movies/{{data._id}}?_method=DELETE" method="POST">
                     <button class="btn-remove" type="submit">Remove</button>
                 </form>
                 <div class="rating">
-                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+                    <form action="/movies/{{data._id}}" method="POST" id="rating">
+
+                        <input type="radio" id="star5" name="Stars" value="5" {{#compare data.Stars 5 operator="==="}} checked {{/compare}} /><label for="star5"></label>
+                        <input type="radio" id="star4" name="Stars" value="4" {{#compare data.Stars 4 operator="==="}} checked {{/compare}} /><label for="star4"></label>
+                        <input type="radio" id="star3" name="Stars" value="3" {{#compare data.Stars 3 operator="==="}} checked {{/compare}} /><label for="star3"></label>
+                        <input type="radio" id="star2" name="Stars" value="2" {{#compare data.Stars 2 operator="==="}} checked {{/compare}} /><label for="star2"></label>
+                        <input type="radio" id="star1" name="Stars" value="1" {{#compare data.Stars 1 operator="==="}} checked {{/compare}} /><label for="star1"></label>
+
+                    </form>
+                    
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="/js/stars.js"></script>
 
 </section>

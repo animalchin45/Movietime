@@ -6,7 +6,8 @@ const router = new express.Router()
 router.get('/', isAuth, (req, res) => {
     res.render('index', {
         pageTitle: 'Movietime!',
-        user: req.user
+        user: req.user,
+        layout: 'landing'
     })
 })
 
@@ -14,7 +15,6 @@ router.get('/', isAuth, (req, res) => {
 router.get('/signup', (req, res) => {
     res.render('signup', {
         pageTitle: 'Movietime! - Sign up',
-        layout: 'secondary'
     })
 })
 
@@ -22,8 +22,14 @@ router.get('/signup', (req, res) => {
 router.get('/login', (req, res) => {
     res.render('login', {
         pageTitle: 'Movietime! - Log in',
-        layout: 'secondary'
     })
 })
+
+// router.get('*', (req, res) => {
+//     res.render('404', {
+//         pageTitle: 'Movietime! - 404',
+//         layout: 'secondary'
+//     })
+// })
 
 module.exports = router

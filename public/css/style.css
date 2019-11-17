@@ -198,26 +198,28 @@ button {
   width: 183px;
   height: 35px;
   margin: 0 auto; }
-  .rating label {
-    float: right;
-    position: relative;
-    width: 35px;
-    height: 35px;
-    cursor: pointer; }
-    .rating label:not(:first-of-type) {
-      padding-right: 2px; }
-    .rating label:before {
-      content: "\2605";
-      font-size: 37px;
-      color: #CCCCCC;
-      line-height: 1;
-      transition: color .25s; }
-  .rating input {
-    display: none; }
-  .rating input:checked ~ label:before,
-  .rating:not(:checked) > label:hover:before,
-  .rating:not(:checked) > label:hover ~ label:before {
-    color: #F9DF4A; }
+  .rating form {
+    margin: 0; }
+    .rating form label {
+      float: right;
+      position: relative;
+      width: 35px;
+      height: 35px;
+      cursor: pointer; }
+      .rating form label:not(:first-of-type) {
+        padding-right: 2px; }
+      .rating form label:before {
+        content: "\2605";
+        font-size: 37px;
+        color: #CCCCCC;
+        line-height: 1;
+        transition: color .25s; }
+    .rating form input {
+      display: none; }
+    .rating form input:checked ~ label:before,
+    .rating form:not(:checked) > label:hover:before,
+    .rating form:not(:checked) > label:hover ~ label:before {
+      color: #F9DF4A; }
 
 header {
   display: flex;
@@ -316,7 +318,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem; }
+  margin-top: 3rem;
+  animation: none; }
 
 .movie404 {
   display: flex;

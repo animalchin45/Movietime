@@ -1,15 +1,12 @@
-$stars: 5;
-$star-size: 35px;
-$star-spacing: 2px;
-$star-on-color: #F9DF4A;
-$star-off-color: #CCCCCC;
-
 .rating {
 	width: ($star-size * $stars) + ($star-spacing * ($stars - 1));
 	height: $star-size;
-    margin: 0 auto;
+	margin: 0 auto;
+	
+	form {
+		margin: 0;
 
-	label {
+		label {
 		float: right;
 		position: relative;
 		width: $star-size;
@@ -38,4 +35,8 @@ $star-off-color: #CCCCCC;
 	&:not(:checked) > label:hover ~ label:before {
 		color: $star-on-color;
 	}
+
+	}
+
+	
 }

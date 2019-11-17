@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>{{pageTitle}}</title>
-        <link rel="stylesheet" href="/css/style.css">
-    </head>
-    <body>
+<head>
+    <title>{{pageTitle}}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
 
-        {{{body}}}
+<body>
+    <header>
+        <h1 class="heading-primary"><a href="/">Movietime!</a></h1>
+        <form action="/movies/search" method="GET" class="search-bar">
+            <input type="text" name="search" autocomplete="off" class="search-bar__entry">
+            <button type="submit" class="search-bar__btn">Search</button>
+        </form>
+        
+        <div>
+            {{#if user}}
+            <a class="btn-link" href="/movies">Now Showing for {{user.userName}}</a>
+            {{else}}
+            <a class="btn-link" href="/login">Login here</a>
+            {{/if}}
+        </div>
+    </header>
+    
 
-    </body>
-            
+    {{{body}}}
+
+</body>
+
 </html>

@@ -30,7 +30,10 @@ const publicPath = path.join(__dirname, '/public')
 app.use(express.static(publicPath))
 
 // APP ENGINE
-app.engine('handlebars', exphbs({ defaultLayout: 'primary' }))
+app.engine('handlebars', exphbs({
+    defaultLayout: 'primary',
+    helpers: require('./src/helpers/operators')
+}))
 app.set('view engine', 'handlebars')
 
 

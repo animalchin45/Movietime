@@ -21,7 +21,7 @@ router.get('/movies/search', validateSearch, isAuth, async (req, res) => {
             return res.render('movie404', {
                 movie404: `The film ${query} was not found...`,
                 user: req.user,
-                layout: 'secondary'
+
             })
         }
 
@@ -40,7 +40,6 @@ router.get('/movies/search', validateSearch, isAuth, async (req, res) => {
             search: filteredData,
             pageTitle: 'Movietime!',
             user: req.user,
-            layout: 'secondary'
         })
     } catch (e) {
         console.log(e)
@@ -57,10 +56,9 @@ router.get('/movies/details/:imdbID', isAuth, async (req, res) => {
         const data = await details.json()
 
         res.render('details', {
-            details: data,
+            data,
             pageTitle: data.Title,
             user: req.user,
-            layout: 'secondary'
         })
     } catch (e) {
         res.status(500).send(e)
@@ -72,10 +70,26 @@ router.get('/movies/:id', auth, isAuth, async (req, res) => {
     try {
         const data = await Movie.findById(req.params.id)
         res.render('details-now-showing', {
-            details: data,
+            data,
             pageTitle:data.Title,
             user: req.user,
-            layout: 'secondary'
+        })
+    } catch (e) {
+        res.status(500).send(e)
+    }
+})
+
+// ROUTES - CHANGE RATING
+router.post('/movies/:id', auth, isAuth, async (req, res) => {
+    const stars = req.body
+
+    try {
+        await Movie.findByIdAndUpdate(req.params.id, stars)
+        const data = await Movie.findById(req.params.id)
+        res.render('details-now-showing', {
+            data,
+            pageTitle: data.Title,
+            user: req.user,
         })
     } catch (e) {
         res.status(500).send(e)
@@ -112,8 +126,7 @@ router.get('/movies', auth, isAuth, async (req, res) => {
         await req.user.populate('movies').execPopulate()
         res.render('now-showing', { 
             movies: req.user.movies,
-            user: req.user,
-            layout: 'secondary' 
+            user: req.user, 
         })
     } catch (e) {
         res.status(500).send(e)
