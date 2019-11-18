@@ -16,7 +16,6 @@ router.get('/movies/search', validateSearch, isAuth, async (req, res) => {
     try {
         const search1 = await fetch(urlSearch(query, 1))
         const data1 = await search1.json()
-
         if (data1.Error) {
             return res.render('movie404', {
                 movie404: `The film ${query} was not found...`,
@@ -34,15 +33,18 @@ router.get('/movies/search', validateSearch, isAuth, async (req, res) => {
         const dataTrimmed = dataRaw.filter((data) => data != undefined)
         const data = dataTrimmed.filter((data) => data.Type !== 'game')
  
-        const filteredData = data.filter((data) => data.Poster !== 'N/A')
+        data.forEach((movie) => {
+            if(movie.Poster === 'N/A') {
+                movie.Poster = '/img/posternotfound.jpg'
+            }
+        })
 
         res.render('search', {
-            search: filteredData,
+            search: data,
             pageTitle: 'Movietime!',
             user: req.user,
         })
     } catch (e) {
-        console.log(e)
         res.status(500).send(e)
     }
 })
@@ -54,9 +56,11 @@ router.get('/movies/details/:imdbID', isAuth, async (req, res) => {
     try {
         const details = await fetch(urlDetails(query))
         const data = await details.json()
-
+        if (data.Poster === 'N/A') {
+            data.Poster = '/img/posternotfound.jpg'
+        }
         res.render('details', {
-            data,
+            details: data,
             pageTitle: data.Title,
             user: req.user,
         })
@@ -80,7 +84,7 @@ router.get('/movies/:id', auth, isAuth, async (req, res) => {
 })
 
 // ROUTES - CHANGE RATING
-router.post('/movies/:id', auth, isAuth, async (req, res) => {
+router.post('/movies/rating/:id', auth, isAuth, async (req, res) => {
     const stars = req.body
 
     try {
@@ -99,11 +103,9 @@ router.post('/movies/:id', auth, isAuth, async (req, res) => {
 // ROUTES - ADD MOVIE
 router.post('/movies/:imdbID', auth, async (req, res) => {
     const query = req.params.imdbID
-
     try {
         const movie = await fetch(urlDetails(query))
         const data = await movie.json()
-
         const addMovie = new Movie({
             ...data,
             owner: req.user._id

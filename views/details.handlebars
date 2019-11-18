@@ -1,17 +1,17 @@
 <section class="details">
 
     <div class="movie-card__details">
-        <li class="movie-card__details__poster" style="background-image: url({{data.Poster}});"></li>
+        <li class="movie-card__details__poster" style="background-image: url({{details.Poster}});"></li>
 
         <div class="movie-card__details__info">
-            <h2>{{data.Title}}</h2>
-            <p><em>{{data.Plot}}</em></p>
-            <p>Starring: {{data.Actors}}</p>
-            <p>Director: {{data.Director}}</p>
-            <p>Year: {{data.Year}}</p>
-            <p>Genre: {{data.Genre}}</p>
-            <p>Rated: {{data.Rated}}</p>
-            {{#each data.Ratings}}
+            <h2>{{details.Title}}</h2>
+            <p><em>{{details.Plot}}</em></p>
+            <p>Starring: {{details.Actors}}</p>
+            <p>Director: {{details.Director}}</p>
+            <p>Year: {{details.Year}}</p>
+            <p>Genre: {{details.Genre}}</p>
+            <p>Rated: {{details.Rated}}</p>
+            {{#each details.Ratings}}
             <p>{{this.Source}}: {{this.Value}}</p>
             {{/each}}
             <div class="movie-card__details__btns">
@@ -19,7 +19,7 @@
                     <button class="btn" type="submit">Back</button>
                 </form>
                 {{#if user}}
-                <form action="/movies/{{data.imdbID}}" method="POST">
+                <form action="/movies/{{details.imdbID}}" method="POST">
                     <button class="btn" type="submit">Add</button>
                 </form>
                 {{/if}}

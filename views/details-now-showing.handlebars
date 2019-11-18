@@ -22,7 +22,7 @@
                     <button class="btn-remove" type="submit">Remove</button>
                 </form>
                 <div class="rating">
-                    <form action="/movies/{{data._id}}" method="POST" id="rating">
+                    <form action="/movies/rating/{{data._id}}" method="POST" id="rating">
 
                         <input type="radio" id="star5" name="Stars" value="5" {{#compare data.Stars 5 operator="==="}} checked {{/compare}} /><label for="star5"></label>
                         <input type="radio" id="star4" name="Stars" value="4" {{#compare data.Stars 4 operator="==="}} checked {{/compare}} /><label for="star4"></label>

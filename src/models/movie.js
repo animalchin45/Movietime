@@ -4,7 +4,10 @@ const mongoose = require("mongoose")
 const movieSchema = new mongoose.Schema({
     imdbID: String,
     Title: String,
-    Poster: String,
+    Poster: {
+        type: String,
+        default: `/img/movienotfound.jpg`
+    },
     Director: String,
     Year: String,
     Plot: String,
