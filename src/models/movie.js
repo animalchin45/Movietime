@@ -22,6 +22,10 @@ const movieSchema = new mongoose.Schema({
     Writer: String,
     Actors: String,
     Stars: Number,
+    Watched: {
+        type: Boolean,
+        default: false
+    },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,

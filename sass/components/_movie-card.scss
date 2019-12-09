@@ -97,9 +97,10 @@
 
     &__btns {
         display: flex;
+        justify-content: center;
         
         & form {
-            margin-right: 2rem;
+            margin: 1rem;
         }
     }
 }

@@ -57,10 +57,19 @@ section {
   text-align: center; }
 
 .u-padding-bottom {
-  padding-bottom: 1.5rem; }
+  padding-bottom: 2rem; }
 
 .u-padding-top {
   padding-top: 1.5rem; }
+
+.u-color-primary {
+  background-color: #0758A8; }
+
+.u-color-warn {
+  background-color: #c14748; }
+
+.u-color-watched {
+  background-color: #4bc147; }
 
 .search-bar {
   margin: 2rem;
@@ -97,24 +106,20 @@ button {
   color: #171713; }
 
 .btn {
-  background-color: #0758A8;
   color: #f8f8f8;
   text-decoration: none;
   text-transform: uppercase;
   padding: 1rem;
   cursor: pointer;
-  border: none;
+  border: 2px solid rgba(0, 0, 0, 0);
   border-radius: 6px; }
-
-.btn-remove {
-  background-color: #c14748;
-  color: #f8f8f8;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 1rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 6px; }
+  .btn--unwatched {
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid #c14748;
+    width: 119px; }
+  .btn--watched {
+    background-color: #4bc147;
+    width: 119px; }
 
 .movie-card {
   display: flex;
@@ -190,14 +195,16 @@ button {
     .movie-card__details__info * {
       margin-bottom: 1rem; }
   .movie-card__details__btns {
-    display: flex; }
+    display: flex;
+    justify-content: center; }
     .movie-card__details__btns form {
-      margin-right: 2rem; }
+      margin: 1rem; }
 
 .rating {
   width: 183px;
   height: 35px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  transform: translateY(-1rem); }
   .rating form {
     margin: 0; }
     .rating form label {

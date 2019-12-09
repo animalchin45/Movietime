@@ -25,11 +25,4 @@ router.get('/login', (req, res) => {
     })
 })
 
-// router.get('*', (req, res) => {
-//     res.render('404', {
-//         pageTitle: 'Movietime! - 404',
-//         layout: 'secondary'
-//     })
-// })
-
 module.exports = router

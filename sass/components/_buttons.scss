@@ -5,7 +5,6 @@
     display: flex;
 
     &__entry, &__btn {
-        // display: inline-block;
         border-width: 0;
         padding: 1rem;
     }
@@ -41,28 +40,26 @@ button {
 }
 
 .btn-link {
-    // text-decoration: none;
     color: $color-black;
 }
 
 .btn {
-    background-color: $color-primary;
     color: $color-white;
     text-decoration: none;
     text-transform: uppercase;
     padding: 1rem;
     cursor: pointer;
-    border: none;
+    border: 2px solid rgba(0,0,0,0);
     border-radius: 6px;
-}
 
-.btn-remove {
-    background-color: $color-warn;
-    color: $color-white;
-    text-decoration: none;
-    text-transform: uppercase;
-    padding: 1rem;
-    cursor: pointer;
-    border: none;
-    border-radius: 6px;
+    &--unwatched {
+        background-color: rgba(0,0,0,0);
+        border: 2px solid $color-warn;
+        width: 119px;
+    }
+
+    &--watched {
+        background-color: $color-watched;
+        width: 119px;
+    }
 }

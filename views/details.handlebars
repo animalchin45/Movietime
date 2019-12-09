@@ -16,11 +16,11 @@
             {{/each}}
             <div class="movie-card__details__btns">
                 <form action="/" method="GET">
-                    <button class="btn" type="submit">Back</button>
+                    <button class="btn u-color-primary" type="submit">Back</button>
                 </form>
                 {{#if user}}
                 <form action="/movies/{{details.imdbID}}" method="POST">
-                    <button class="btn" type="submit">Add</button>
+                    <button class="btn u-color-primary" type="submit">Add</button>
                 </form>
                 {{/if}}
             </div>

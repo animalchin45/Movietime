@@ -1,11 +1,11 @@
-const express       = require('express'),
-      fetch         = require('node-fetch'),
-      urlSearch     = require('../urlSearch'),
-      urlDetails    = require('../urlDetails'),
-      auth          = require('../middleware/auth'),
-      isAuth        = require('../middleware/isAuth')
+const express          = require('express'),
+      fetch            = require('node-fetch'),
+      urlSearch        = require('../urlSearch'),
+      urlDetails       = require('../urlDetails'),
+      auth             = require('../middleware/auth'),
+      isAuth           = require('../middleware/isAuth')
       validateSearch   = require('../middleware/validateSearch'),
-      Movie         = require('../models/movie')
+      Movie            = require('../models/movie')
 const router = new express.Router()
 
 // ROUTES - SEARCH
@@ -76,6 +76,7 @@ router.get('/movies/:id', auth, isAuth, async (req, res) => {
         res.render('details-now-showing', {
             data,
             pageTitle:data.Title,
+            watch: data.Watched,
             user: req.user,
         })
     } catch (e) {
@@ -93,6 +94,23 @@ router.post('/movies/rating/:id', auth, isAuth, async (req, res) => {
         res.render('details-now-showing', {
             data,
             pageTitle: data.Title,
+            watch: data.Watched,
+            user: req.user,
+        })
+    } catch (e) {
+        res.status(500).send(e)
+    }
+})
+
+// ROUTES - WATCHED
+router.post('/movies/watched/:id', auth, isAuth, async (req,res) => {
+    try {
+        await Movie.findByIdAndUpdate(req.params.id, req.body)
+        const data = await Movie.findById(req.params.id)
+        res.render('details-now-showing', {
+            data,
+            pageTitle: data.Title,
+            watch: data.Watched,
             user: req.user,
         })
     } catch (e) {

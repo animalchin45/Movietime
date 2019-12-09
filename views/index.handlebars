@@ -2,16 +2,17 @@
 
     <div>
         <h1 class="heading-primary u-text-center landing__title">Movietime!</h1>
+        <p class="u-padding-bottom u-text-center">Welcome to your premiere movie watchlist</p>
         
-        <form action="/movies/search" method="GET" class="search-bar">
-            <input type="text" name="search" autocomplete="off" placeholder="Got popcorn?" class="search-bar__entry">
+        <form class="u-padding-bottom" action="/movies/search" method="GET" class="search-bar">
+            <input type="text" name="search" autocomplete="off" placeholder="Got popcorn?" class="search-bar__entry" autofocus>
             <button type="submit" class="search-bar__btn">Search</button>
         </form>
         
         <div class="landing__user">
             {{#unless user}}
-            <p class="u-padding-bottom">Not currently a user? <a href="/signup" class="btn-link">Sign up here</a></p>
-            <p class="u-padding-bottom">Existing users <a href="/login" class="btn-link">Login here</a></p>
+            <p class="u-padding-bottom">New to Movietime? <a href="/signup" class="btn-link">Sign up here</a></p>
+            <p class="u-padding-bottom">Existing users <a href="/login" class="btn-link">login here</a></p>
             {{/unless}}
             {{#if user}}
             <p>Welcome back, {{user.userName}}! <a href="/movies" class="btn-link">Now Showing</a></p>

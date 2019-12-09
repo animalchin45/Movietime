@@ -16,27 +16,37 @@
             {{/each}}
             <div class="movie-card__details__btns">
                 <form action="/movies" method="GET">
-                    <button class="btn" type="submit">Back</button>
+                    <button class="btn u-color-primary" type="submit">Back</button>
                 </form>
                 <form action="/movies/{{data._id}}?_method=DELETE" method="POST">
-                    <button class="btn-remove" type="submit">Remove</button>
+                    <button class="btn u-color-warn" type="submit">Remove</button>
                 </form>
-                <div class="rating">
-                    <form action="/movies/rating/{{data._id}}" method="POST" id="rating">
-
-                        <input type="radio" id="star5" name="Stars" value="5" {{#compare data.Stars 5 operator="==="}} checked {{/compare}} /><label for="star5"></label>
-                        <input type="radio" id="star4" name="Stars" value="4" {{#compare data.Stars 4 operator="==="}} checked {{/compare}} /><label for="star4"></label>
-                        <input type="radio" id="star3" name="Stars" value="3" {{#compare data.Stars 3 operator="==="}} checked {{/compare}} /><label for="star3"></label>
-                        <input type="radio" id="star2" name="Stars" value="2" {{#compare data.Stars 2 operator="==="}} checked {{/compare}} /><label for="star2"></label>
-                        <input type="radio" id="star1" name="Stars" value="1" {{#compare data.Stars 1 operator="==="}} checked {{/compare}} /><label for="star1"></label>
-
-                    </form>
-                    
-                </div>
+                <form action="/movies/watched/{{data._id}}" method="POST" id="watched">
+                    <button class="btn btn--{{#if watch}}watched{{else}}unwatched{{/if}}" id="watched" type="submit" name="Watched" value={{#if watch}}"false"{{else}}"true"{{/if}}>
+                    {{#if watch}}watched{{else}}unwatched{{/if}}
+                    </button>
+                </form>
+            </div>
+            <div class="rating">
+                <form action="/movies/rating/{{data._id}}" method="POST" id="rating">
+            
+                    <input type="radio" id="star5" name="Stars" value="5" {{#compare data.Stars 5 operator="==="}} checked
+                        {{/compare}} /><label for="star5"></label>
+                    <input type="radio" id="star4" name="Stars" value="4" {{#compare data.Stars 4 operator="==="}} checked
+                        {{/compare}} /><label for="star4"></label>
+                    <input type="radio" id="star3" name="Stars" value="3" {{#compare data.Stars 3 operator="==="}} checked
+                        {{/compare}} /><label for="star3"></label>
+                    <input type="radio" id="star2" name="Stars" value="2" {{#compare data.Stars 2 operator="==="}} checked
+                        {{/compare}} /><label for="star2"></label>
+                    <input type="radio" id="star1" name="Stars" value="1" {{#compare data.Stars 1 operator="==="}} checked
+                        {{/compare}} /><label for="star1"></label>
+            
+                </form>
             </div>
         </div>
     </div>
 
     <script src="/js/stars.js"></script>
+    {{!-- <script src="/js/watched.js"></script> --}}
 
 </section>

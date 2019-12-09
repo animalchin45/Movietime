@@ -2,6 +2,7 @@
 	width: ($star-size * $stars) + ($star-spacing * ($stars - 1));
 	height: $star-size;
 	margin: 0 auto;
+	transform: translateY(-1rem);
 	
 	form {
 		margin: 0;
