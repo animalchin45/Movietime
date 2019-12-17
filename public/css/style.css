@@ -266,6 +266,12 @@ header {
     justify-content: flex-end;
     width: 50%; }
 
+@media (max-width: 1200px) {
+  header {
+    flex-direction: column; }
+    header div {
+      justify-content: flex-start; } }
+
 .landing {
   display: flex;
   align-items: center;
@@ -312,12 +318,29 @@ header {
     font-size: 1.2rem;
     color: #c14748;
     margin-top: 2rem; }
+  .account input {
+    background-color: #f7f7f5;
+    width: 20rem;
+    border-radius: 6px;
+    border-width: 0;
+    padding: 1rem;
+    outline: none;
+    transition: box-shadow .5s ease-in-out; }
+    .account input:focus {
+      box-shadow: 0 0 5px rgba(23, 23, 19, 0.8); }
   .account option {
     padding: 1rem; }
   .account button {
     width: 20rem; }
   .account h2, .account label, .account input, .account select {
     margin-bottom: 2rem; }
+
+@media (max-width: 1200px) {
+  .account__box {
+    width: 90vw;
+    padding: 0; }
+  .account input, .account button {
+    width: 90vw; } }
 
 .now-showing {
   width: calc(100vw - 3rem); }

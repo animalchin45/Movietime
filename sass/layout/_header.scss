@@ -3,12 +3,21 @@ header {
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    // position: absolute;
     z-index: 2;
 
     & div {
         display: flex;
         justify-content: flex-end;
         width: 50%;
+    }
+}
+
+@media (max-width: $mobile-break) {
+    header {
+        flex-direction: column;
+
+        & div {
+            justify-content: flex-start;
+        }
     }
 }
