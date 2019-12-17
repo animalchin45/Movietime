@@ -37,24 +37,28 @@
         margin-top: 2rem;
     }
 
-    & input {
-        background-color: $color-light-gray;
-        width: 20rem;
-        border-radius: 6px;
-        border-width: 0;
+    // & input, select {
+    //     background-color: $color-light-gray;
+    //     width: 20rem;
+    //     border-radius: 6px;
+    //     border-width: 0;
+    //     padding: 1rem;
+    //     outline: none;
+    //     transition: box-shadow .5s ease-in-out;
+    //     &:focus {
+    //         box-shadow: 0 0 5px rgba($color-black, .8);
+    //     }
+    // }
+
+    & option {
         padding: 1rem;
-        outline: none;
-        transition: box-shadow .5s ease-in-out;
-        &:focus {
-            box-shadow: 0 0 5px rgba($color-black, .8);
-        }
     }
 
     & button {
         width: 20rem;
     }
 
-    & h2, label, input {
+    & h2, label, input, select {
         margin-bottom: 2rem;
     }
 }

@@ -4,7 +4,7 @@
 
         <h2>New Account Sign Up</h2>
 
-        <form class="account__form" action="/users" method="POST">
+        <form class="account__form input" action="/users" method="POST">
             <input type="text" placeholder="Username" id="userName" name="userName" autocomplete="off" autofocus>
             <div>
                 <input type="password" placeholder="Password" id="password" name="password" autocomplete="off">
@@ -15,7 +15,20 @@
                 <label id="verifyError" for="verifyPassword">Password does not match</label>
             </div>
             <input type="text" placeholder="Email" id="email" name="email" autocomplete="off">
-            <input type="text" placeholder="Favorite Genre: optional" name="favoriteGenre" autocomplete="off">
+            {{!-- <input type="text" placeholder="Favorite Genre: optional" name="favoriteGenre" autocomplete="off"> --}}
+            <select name="favoriteGenre">
+                <option value="" selected disabled>Favorite Genre: optional</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Sci Fi">Sci Fi</option>
+                <option value="Horror">Horror</option>
+                <option value="Action">Action</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Crime">Crime</option>
+                <option value="Animation">Animation</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Western">Western</option>
+            </select>
             <input type="text" placeholder="Favorite Movie: optional" name="favoriteMovie"
             autocomplete="off">
 

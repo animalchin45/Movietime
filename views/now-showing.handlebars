@@ -8,7 +8,32 @@
 
                 <h2>{{user.userName}}</h2>
                 <p>Favorite Movie: {{user.favoriteMovie}}</p>
+                <form class="input" action="">
+                    <select class="input" name="favoritMovie" id="">
+                        <option value="" selected disabled>Movies</option>
+                        {{#each movies}}
+                            <option value="{{this.Title}}">{{this.Title}}</option>
+                        {{/each}}
+                    </select>
+                </form>
+                
                 <p>Favorite Genre: {{user.favoriteGenre}}</p>
+                <form class="input" action="">
+                    <select name="favoriteGenre">
+                        <option value="" selected disabled>Genres</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Sci Fi">Sci Fi</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Action">Action</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Crime">Crime</option>
+                        <option value="Animation">Animation</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Western">Western</option>
+                    </select>
+                </form>
+                
                 <form action="/users/logout" method="POST">
                     <button class="btn u-color-primary" type="submit">Logout</button>
                 </form>

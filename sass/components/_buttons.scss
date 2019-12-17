@@ -34,6 +34,20 @@
     }
 }
 
+@media (max-width: $mobile-break) {
+    .search-bar {
+        width: 30rem;
+
+        &__entry {
+            width: 65%;
+        }
+
+        &__btn {
+            width: 35%;
+        }
+    }
+}
+
 button {
     font-size: 1.6rem;
     font-family: "Roboto-Regular", sans-serif;

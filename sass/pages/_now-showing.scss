@@ -21,6 +21,10 @@
         & * {
             margin-bottom: 2rem;
         }
+
+        & select option[disabled]:first-child {
+            display: none;
+        }
     }
 
     &__movies {

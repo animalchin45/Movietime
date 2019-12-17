@@ -25,3 +25,10 @@
     letter-spacing: 1px;
     width: 30rem;
 }
+
+@media (max-width: $mobile-break) {
+    .heading-primary {
+        font-size: 4.5rem;
+        letter-spacing: 2px;
+    }
+}

@@ -9,10 +9,15 @@ $color-black: #171713;
 
 $color-white: #f8f8f8;
 
-// STARS
+// FONT SIZE
+$default-font-size: 1.6rem;
 
+// STARS
 $stars: 5;
 $star-size: 35px;
 $star-spacing: 2px;
 $star-on-color: #F9DF4A;
 $star-off-color: #CCCCCC;
+
+// Breakpoint
+$mobile-break: 1200px;

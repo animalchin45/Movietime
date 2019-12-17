@@ -53,6 +53,11 @@ section {
   letter-spacing: 1px;
   width: 30rem; }
 
+@media (max-width: 1200px) {
+  .heading-primary {
+    font-size: 4.5rem;
+    letter-spacing: 2px; } }
+
 .u-text-center {
   text-align: center; }
 
@@ -61,6 +66,9 @@ section {
 
 .u-padding-top {
   padding-top: 1.5rem; }
+
+.u-margin-top {
+  margin-top: 2rem; }
 
 .u-color-primary {
   background-color: #0758A8; }
@@ -98,6 +106,14 @@ section {
     border-top-right-radius: 6px;
     width: 25%; }
 
+@media (max-width: 1200px) {
+  .search-bar {
+    width: 30rem; }
+    .search-bar__entry {
+      width: 65%; }
+    .search-bar__btn {
+      width: 35%; } }
+
 button {
   font-size: 1.6rem;
   font-family: "Roboto-Regular", sans-serif; }
@@ -120,6 +136,17 @@ button {
   .btn--watched {
     background-color: #4bc147;
     width: 119px; }
+
+.input {
+  background-color: #f7f7f5;
+  width: 20rem;
+  border-radius: 6px;
+  border-width: 0;
+  padding: 1rem;
+  outline: none;
+  transition: box-shadow .5s ease-in-out; }
+  .input:focus {
+    box-shadow: 0 0 5px rgba(23, 23, 19, 0.8); }
 
 .movie-card {
   display: flex;
@@ -243,7 +270,11 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh; }
+  height: 100vh;
+  background-image: url(/img/reel_bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -8rem 57rem; }
   .landing__title {
     animation: moveInTop 1s; }
   .landing__user {
@@ -281,19 +312,11 @@ header {
     font-size: 1.2rem;
     color: #c14748;
     margin-top: 2rem; }
-  .account input {
-    background-color: #f7f7f5;
-    width: 20rem;
-    border-radius: 6px;
-    border-width: 0;
-    padding: 1rem;
-    outline: none;
-    transition: box-shadow .5s ease-in-out; }
-    .account input:focus {
-      box-shadow: 0 0 5px rgba(23, 23, 19, 0.8); }
+  .account option {
+    padding: 1rem; }
   .account button {
     width: 20rem; }
-  .account h2, .account label, .account input {
+  .account h2, .account label, .account input, .account select {
     margin-bottom: 2rem; }
 
 .now-showing {
@@ -314,6 +337,8 @@ header {
     border-right: 1px solid rgba(23, 23, 19, 0.8); }
     .now-showing__profile * {
       margin-bottom: 2rem; }
+    .now-showing__profile select option[disabled]:first-child {
+      display: none; }
   .now-showing__movies {
     display: flex;
     justify-content: center;
