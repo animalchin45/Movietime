@@ -4,8 +4,8 @@
     flex-direction: column;
     justify-content: center;
     background-color: $color-dark-gray;
-    padding: 2rem;
-    margin: 0 2rem 3rem 0;
+    padding: 1rem;
+    margin: 1.5rem;
     -webkit-box-shadow: 9px 9px 21px -10px rgba($color-black, .75);
     -moz-box-shadow: 9px 9px 21px -10px rgba($color-black, .75);
     box-shadow: 9px 9px 21px -10px rgba($color-black, .75);
@@ -60,6 +60,23 @@
         top: 90%;
     }
 
+}
+
+@media (max-width: $mobile-break) {
+    .movie-card {
+        align-items: center;
+        width: 38rem;
+
+        & a {
+            display: flex;
+            justify-content: center;
+        }
+
+        &__poster {
+            height: 30rem;
+            width: 30rem;
+        }
+    }
 }
 
 .movie-card__details {

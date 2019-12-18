@@ -56,7 +56,9 @@ section {
 @media (max-width: 1200px) {
   .heading-primary {
     font-size: 4.5rem;
-    letter-spacing: 2px; } }
+    letter-spacing: 2px; }
+  .heading-card {
+    width: 80%; } }
 
 .u-text-center {
   text-align: center; }
@@ -154,8 +156,8 @@ button {
   flex-direction: column;
   justify-content: center;
   background-color: #323d47;
-  padding: 2rem;
-  margin: 0 2rem 3rem 0;
+  padding: 1rem;
+  margin: 1.5rem;
   -webkit-box-shadow: 9px 9px 21px -10px rgba(23, 23, 19, 0.75);
   -moz-box-shadow: 9px 9px 21px -10px rgba(23, 23, 19, 0.75);
   box-shadow: 9px 9px 21px -10px rgba(23, 23, 19, 0.75); }
@@ -194,6 +196,17 @@ button {
     transition: all .5s; }
   .movie-card:hover h3 {
     top: 90%; }
+
+@media (max-width: 1200px) {
+  .movie-card {
+    align-items: center;
+    width: 38rem; }
+    .movie-card a {
+      display: flex;
+      justify-content: center; }
+    .movie-card__poster {
+      height: 30rem;
+      width: 30rem; } }
 
 .movie-card__details {
   display: flex;
