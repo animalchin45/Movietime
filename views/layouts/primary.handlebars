@@ -16,11 +16,15 @@
             <button type="submit" class="search-bar__btn">Search</button>
         </form>
         
-        <div>
+        <div class="option">
             {{#if user}}
-            <a class="btn-link" href="/movies">Now Showing for {{user.userName}}</a>
+            <div>
+                <a class="btn-link" href="/movies">Now Showing for {{user.userName}}</a>
+            </div>
             {{else}}
-            <a class="btn-link" href="/login">Login here</a>
+            <div>
+                <a class="btn-link" href="/login">Login here</a>
+            </div>
             {{/if}}
         </div>
     </header>

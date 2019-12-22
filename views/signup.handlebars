@@ -5,18 +5,19 @@
         <h2>New Account Sign Up</h2>
 
         <form class="account__form" action="/users" method="POST">
-            <input type="text" placeholder="Username" id="userName" name="userName" autocomplete="off" autofocus>
+            <input class="input" type="text" placeholder="Username" id="userName" name="userName" autocomplete="off" autofocus>
             <div>
-                <input type="password" placeholder="Password" id="password" name="password" autocomplete="off">
+                <input class="input" type="password" placeholder="Password" id="password" name="password" autocomplete="off">
                 <label id="passwordError" for="password">Must be at least 7 characters</label>
             </div>
             <div>
-                <input type="password" placeholder="Verify Password" id="verifyPassword" name="verifyPassword" autocomplete="off">
+                <input class="input" type="password" placeholder="Verify Password" id="verifyPassword" name="verifyPassword" autocomplete="off">
                 <label id="verifyError" for="verifyPassword">Password does not match</label>
             </div>
-            <input type="text" placeholder="Email" id="email" name="email" autocomplete="off">
+            <input class="input" type="text" placeholder="Email" id="email" name="email" autocomplete="off">
             {{!-- <input type="text" placeholder="Favorite Genre: optional" name="favoriteGenre" autocomplete="off"> --}}
-            <select name="favoriteGenre">
+            <div class="select-input">
+                <select class="input" name="favoriteGenre">
                 <option value="" selected disabled>Favorite Genre: optional</option>
                 <option value="Comedy">Comedy</option>
                 <option value="Sci Fi">Sci Fi</option>
@@ -29,7 +30,8 @@
                 <option value="Fantasy">Fantasy</option>
                 <option value="Western">Western</option>
             </select>
-            <input type="text" placeholder="Favorite Movie: optional" name="favoriteMovie"
+            </div>
+            <input class="input" type="text" placeholder="Favorite Movie: optional" name="favoriteMovie"
             autocomplete="off">
 
             <button class="btn u-color-primary" type="submit">Submit</button>

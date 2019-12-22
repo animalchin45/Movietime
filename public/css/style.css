@@ -150,6 +150,16 @@ button {
   .input:focus {
     box-shadow: 0 0 5px rgba(23, 23, 19, 0.8); }
 
+.select-input {
+  position: relative;
+  display: inline; }
+  .select-input:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    pointer-events: none; }
+
 .movie-card {
   display: flex;
   position: relative;
@@ -197,17 +207,6 @@ button {
   .movie-card:hover h3 {
     top: 90%; }
 
-@media (max-width: 1200px) {
-  .movie-card {
-    align-items: center;
-    width: 38rem; }
-    .movie-card a {
-      display: flex;
-      justify-content: center; }
-    .movie-card__poster {
-      height: 30rem;
-      width: 30rem; } }
-
 .movie-card__details {
   display: flex;
   position: relative;
@@ -239,6 +238,24 @@ button {
     justify-content: center; }
     .movie-card__details__btns form {
       margin: 1rem; }
+
+@media (max-width: 1200px) {
+  .movie-card {
+    align-items: center;
+    width: 38rem; }
+    .movie-card a {
+      display: flex;
+      justify-content: center; }
+    .movie-card__poster {
+      height: 30rem;
+      width: 30rem; }
+    .movie-card__details {
+      flex-direction: column; }
+      .movie-card__details__info {
+        width: 80%;
+        margin-top: 1rem;
+        margin-left: 0;
+        align-items: flex-start; } }
 
 .rating {
   width: 183px;
@@ -274,16 +291,18 @@ header {
   align-items: center;
   padding: 1rem;
   z-index: 2; }
-  header div {
-    display: flex;
-    justify-content: flex-end;
-    width: 50%; }
+
+.option {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%; }
 
 @media (max-width: 1200px) {
   header {
     flex-direction: column; }
-    header div {
-      justify-content: flex-start; } }
+  .option {
+    justify-content: flex-start;
+    width: 100%; } }
 
 .landing {
   display: flex;
@@ -331,16 +350,6 @@ header {
     font-size: 1.2rem;
     color: #c14748;
     margin-top: 2rem; }
-  .account input {
-    background-color: #f7f7f5;
-    width: 20rem;
-    border-radius: 6px;
-    border-width: 0;
-    padding: 1rem;
-    outline: none;
-    transition: box-shadow .5s ease-in-out; }
-    .account input:focus {
-      box-shadow: 0 0 5px rgba(23, 23, 19, 0.8); }
   .account option {
     padding: 1rem; }
   .account button {
@@ -349,11 +358,13 @@ header {
     margin-bottom: 2rem; }
 
 @media (max-width: 1200px) {
-  .account__box {
-    width: 90vw;
-    padding: 0; }
-  .account input, .account button {
-    width: 90vw; } }
+  .account {
+    height: auto; }
+    .account__box {
+      width: 90vw;
+      padding: 0; }
+    .account input, .account button {
+      width: 90vw; } }
 
 .now-showing {
   width: calc(100vw - 3rem); }

@@ -8,7 +8,7 @@
 
                 <h2>{{user.userName}}</h2>
                 <p>Favorite Movie: {{user.favoriteMovie}}</p>
-                <form class="input" action="">
+                <form action="">
                     <select class="input" name="favoritMovie" id="">
                         <option value="" selected disabled>Movies</option>
                         {{#each movies}}
@@ -18,8 +18,8 @@
                 </form>
                 
                 <p>Favorite Genre: {{user.favoriteGenre}}</p>
-                <form class="input" action="">
-                    <select name="favoriteGenre">
+                <form action="">
+                    <select class="input" name="favoriteGenre">
                         <option value="" selected disabled>Genres</option>
                         <option value="Comedy">Comedy</option>
                         <option value="Sci Fi">Sci Fi</option>

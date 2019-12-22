@@ -62,23 +62,6 @@
 
 }
 
-@media (max-width: $mobile-break) {
-    .movie-card {
-        align-items: center;
-        width: 38rem;
-
-        & a {
-            display: flex;
-            justify-content: center;
-        }
-
-        &__poster {
-            height: 30rem;
-            width: 30rem;
-        }
-    }
-}
-
 .movie-card__details {
     display: flex;
     position: relative;
@@ -118,6 +101,34 @@
         
         & form {
             margin: 1rem;
+        }
+    }
+}
+
+@media (max-width: $mobile-break) {
+    .movie-card {
+        align-items: center;
+        width: 38rem;
+
+        & a {
+            display: flex;
+            justify-content: center;
+        }
+
+        &__poster {
+            height: 30rem;
+            width: 30rem;
+        }
+
+        &__details {
+            flex-direction: column;
+
+            &__info {
+                width: 80%;
+                margin-top: 1rem;
+                margin-left: 0;
+                align-items: flex-start;
+            }
         }
     }
 }

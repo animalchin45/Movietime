@@ -37,19 +37,6 @@
         margin-top: 2rem;
     }
 
-    & input {
-        background-color: $color-light-gray;
-        width: 20rem;
-        border-radius: 6px;
-        border-width: 0;
-        padding: 1rem;
-        outline: none;
-        transition: box-shadow .5s ease-in-out;
-        &:focus {
-            box-shadow: 0 0 5px rgba($color-black, .8);
-        }
-    }
-
     & option {
         padding: 1rem;
     }
@@ -65,6 +52,7 @@
 
 @media (max-width: $mobile-break) {
     .account {
+        height: auto;
 
         &__box {
             width: 90vw;

@@ -11,3 +11,16 @@
         box-shadow: 0 0 5px rgba($color-black, .8);
     }
 }
+
+.select-input {
+    position: relative;
+    display: inline;
+
+    &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+}

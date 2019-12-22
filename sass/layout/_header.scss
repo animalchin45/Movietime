@@ -4,20 +4,21 @@ header {
     align-items: center;
     padding: 1rem;
     z-index: 2;
+}
 
-    & div {
-        display: flex;
-        justify-content: flex-end;
-        width: 50%;
-    }
+.option {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
 }
 
 @media (max-width: $mobile-break) {
     header {
         flex-direction: column;
+    }
 
-        & div {
-            justify-content: flex-start;
-        }
+    .option {
+        justify-content: flex-start;
+        width: 100%;
     }
 }
