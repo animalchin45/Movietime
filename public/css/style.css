@@ -121,7 +121,10 @@ button {
   font-family: "Roboto-Regular", sans-serif; }
 
 .btn-link {
-  color: #171713; }
+  color: #171713;
+  cursor: pointer; }
+  .btn-link--p {
+    text-decoration: underline; }
 
 .btn {
   color: #f8f8f8;
@@ -146,7 +149,7 @@ button {
   border-width: 0;
   padding: 1rem;
   outline: none;
-  transition: box-shadow .5s ease-in-out; }
+  transition: box-shadow .5s; }
   .input:focus {
     box-shadow: 0 0 5px rgba(23, 23, 19, 0.8); }
 
@@ -363,7 +366,15 @@ header {
     .account__box {
       width: 90vw;
       padding: 0; }
-    .account input, .account button {
+    .account__form div {
+      position: relative; }
+    .account__form label {
+      position: absolute;
+      top: 17.5px;
+      right: 5%;
+      transform: translateY(-50%);
+      margin: 0; }
+    .account .input, .account button {
       width: 90vw; } }
 
 .now-showing {
@@ -382,6 +393,8 @@ header {
     width: 20%;
     float: left;
     border-right: 1px solid rgba(23, 23, 19, 0.8); }
+    .now-showing__profile-info form {
+      transition: opacity .5s; }
     .now-showing__profile * {
       margin-bottom: 2rem; }
     .now-showing__profile select option[disabled]:first-child {

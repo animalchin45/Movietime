@@ -5,7 +5,7 @@
     border-width: 0;
     padding: 1rem;
     outline: none;
-    transition: box-shadow .5s ease-in-out;
+    transition: box-shadow .5s;
 
     &:focus {
         box-shadow: 0 0 5px rgba($color-black, .8);

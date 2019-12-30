@@ -59,7 +59,22 @@
             padding: 0;
         }
 
-        & input, button {
+        &__form {
+
+            & div {
+                position: relative;
+            }
+
+            & label {
+                position: absolute;
+                top: 17.5px;
+                right:5%;
+                transform: translateY(-50%);
+                margin: 0;
+            }
+        }
+
+        & .input, button {
             width: 90vw;
         }
     }

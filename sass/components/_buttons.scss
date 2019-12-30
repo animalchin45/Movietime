@@ -55,6 +55,11 @@ button {
 
 .btn-link {
     color: $color-black;
+    cursor: pointer;
+
+    &--p {
+        text-decoration: underline;
+    }
 }
 
 .btn {
