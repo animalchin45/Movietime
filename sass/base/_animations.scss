@@ -19,3 +19,13 @@
         opacity: 1;
     }
 }
+
+@keyframes flicker {
+    0%, 100% {
+        text-shadow: none;
+    }
+
+    50% {
+        text-shadow: 1px 0px 3px rgba($color-black, .8);
+    }
+}

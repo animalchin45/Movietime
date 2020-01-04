@@ -31,6 +31,12 @@ section {
   100% {
     opacity: 1; } }
 
+@keyframes flicker {
+  0%, 100% {
+    text-shadow: none; }
+  50% {
+    text-shadow: 1px 0px 3px rgba(23, 23, 19, 0.8); } }
+
 @font-face {
   font-family: "LemonMilk";
   src: url(../font/LemonMilk.otf) format("truetype"); }
@@ -46,6 +52,8 @@ section {
   .heading-primary a {
     text-decoration: none;
     color: inherit; }
+    .heading-primary a:hover {
+      animation: flicker 1s steps(24); }
 
 .heading-card {
   font-size: 1.6rem;
@@ -124,6 +132,7 @@ button {
   color: #171713;
   cursor: pointer; }
   .btn-link--p {
+    display: inline-block;
     text-decoration: underline; }
 
 .btn {
@@ -294,6 +303,8 @@ header {
   align-items: center;
   padding: 1rem;
   z-index: 2; }
+  header h1 {
+    margin-right: 2rem; }
 
 .option {
   display: flex;

@@ -9,8 +9,9 @@
                 <h2>{{user.userName}}</h2>
                 <p>Favorite Movie: {{user.favoriteMovie}}</p>
                 <p id="editFavMovie" class="btn-link btn-link--p">Edit</p>
-                <form id="favMovie" style="opacity: 0;" action="">
-                    <select class="input" name="favoritMovie" id="">
+
+                <form id="favMovie" style="opacity: 0;" action="/users/me" method="POST">
+                    <select class="input" name="favoriteMovie" onchange="this.form.submit()">
                         <option value="" selected disabled>Movies</option>
                         {{#each movies}}
                             <option value="{{this.Title}}">{{this.Title}}</option>
@@ -20,8 +21,8 @@
                 
                 <p>Favorite Genre: {{user.favoriteGenre}}</p>
                 <p id="editFavGenre" class="btn-link btn-link--p">Edit</p>
-                <form id="favGenre" style="opacity: 0;" action="">
-                    <select class="input" name="favoriteGenre">
+                <form id="favGenre" style="opacity: 0;" action="/users/me" method="POST">
+                    <select class="input" name="favoriteGenre" onchange="this.form.submit()">
                         <option value="" selected disabled>Genres</option>
                         <option value="Comedy">Comedy</option>
                         <option value="Sci Fi">Sci Fi</option>

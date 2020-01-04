@@ -58,6 +58,7 @@ button {
     cursor: pointer;
 
     &--p {
+        display: inline-block;
         text-decoration: underline;
     }
 }

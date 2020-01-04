@@ -83,22 +83,16 @@ router.get('/users/me', auth, async (req, res) => {
     res.send(req.user)
 })
 
-// USER EDIT
-router.patch('/users/me', auth, async (req, res) => {
+// USER EDIT FAVORITES
+router.post('/users/me', auth, async (req, res) => {
     const updates = Object.keys(req.body)
-    const allowedUpdates = ['email', 'password', 'favoriteGenre', 'favoriteMovie']
-    const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
-
-    if (!isValidOperation) {
-        return res.status(400).send({ error: 'Invalid Updates!' })
-    }
-
     try {
-        updates.forEach((update) => req.user[update] = req.body[update])
+        updates.forEach((update) => req.user[update] = req.body[updates])
         await req.user.save()
-        res.send(req.user)
+        res.redirect('/movies')
     } catch (e) {
-        res.status(400).send()
+        res.status(500).send(e)
+        console.log(e)
     }
 })
 

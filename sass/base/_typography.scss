@@ -16,6 +16,10 @@
     & a {
         text-decoration: none;
         color: inherit;
+
+        &:hover {
+            animation: flicker 1s steps(24);
+        }
     }
 }
 
