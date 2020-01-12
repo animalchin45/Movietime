@@ -38,6 +38,9 @@
             opacity: 0;
             transition: all .5s;
         }
+        &:hover h3 {
+            top: 90%;
+        }
     }
 
     &__link {
@@ -56,14 +59,15 @@
         transition: all .5s;
     }
 
-    &:hover h3 {
-        top: 90%;
-    }
+    // &:hover h3 {
+    //     top: 90%;
+    // }
 
 }
 
 .movie-card__details {
     display: flex;
+    z-index: 2;
     position: relative;
     width: 80rem;
     align-items: center;

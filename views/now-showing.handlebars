@@ -1,11 +1,14 @@
 <section class="now-showing">
     
     <div class="now-showing__wrapper">
-
-        <div class="now-showing__profile">
+        <button id="hamburger" class="hamburger hamburger--arrow" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+        <div id="profile" class="now-showing__profile">
 
             <div class="now-showing__profile-info">
-
                 <h2>{{user.userName}}</h2>
                 <p>Favorite Movie: {{user.favoriteMovie}}</p>
                 <p id="editFavMovie" class="btn-link btn-link--p">Edit</p>
@@ -38,7 +41,7 @@
                 </form>
                 
                 <form action="/users/logout" method="POST">
-                    <button class="btn u-color-primary" type="submit">Logout</button>
+                    <button id="logout" class="btn u-color-primary" type="submit">Logout</button>
                 </form>
 
             </div>
@@ -67,5 +70,5 @@
 
     </div>
 
-    <script src="/js/now-showing.js"></script>
+    <script src="/js/user-menu.js"></script>
 </section>
