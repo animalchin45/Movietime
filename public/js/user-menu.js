@@ -39,6 +39,7 @@ window.addEventListener('load', () => {
 
 window.addEventListener('resize', () => {
     const w = this.document.documentElement.clientWidth
+
     if(w >= 1200){
         hamburger.style.display = 'none'
         hamburger.className = 'hamburger hamburger--arrow'
