@@ -49,23 +49,30 @@
         </div>
 
         <div class="now-showing__movies">
-        
-            {{#each movies}}
-                <div>
 
-                    <div class="movie-card">
-                        <h3 class="heading-card u-text-center u-padding-bottom">{{this.Title}}</h3>
-                        <a href="/movies/{{this._id}}">
-                            <li class="movie-card__poster" style="background-image: url({{this.Poster}});">
-                                <h3 class="movie-card__link">Details</h3>
-                            </li>
-                        </a>
+            {{#if movies}}
+                {{#each movies}}
+                    <div>
+
+                        <div class="movie-card">
+                            <h3 class="heading-card u-text-center u-padding-bottom">{{this.Title}}</h3>
+                            <a href="/movies/{{this._id}}">
+                                <li class="movie-card__poster" style="background-image: url({{this.Poster}});">
+                                    <h3 class="movie-card__link">Details</h3>
+                                </li>
+                            </a>
+                        </div>
+
                     </div>
-
+                    
+                {{/each}}
+                {{else}}
+                <div class="message">
+                    <h2 class="heading-secondary">Ready to add movies to your watchlist? Use the search bar above to begin.</h2>
                 </div>
-                
-            {{/each}}
-        
+            {{/if}}
+
+
         </div>
 
     </div>

@@ -27,13 +27,11 @@ editFavGenre.addEventListener('click', () => {
 window.addEventListener('load', () => {
     const w = this.document.documentElement.clientWidth
     if(w >= 1200){
-        hamburger.style.display = 'none'
         hamburger.className = 'hamburger hamburger--arrow'
         profile.style.opacity = '1'
         profile.style.left = 'auto'
-        profile.style.transform = 'none'
     } else {
-        hamburger.style.display = 'inline-block'
+        hamburger.style.opacity = '1'
     }
 })
 
@@ -41,16 +39,15 @@ window.addEventListener('resize', () => {
     const w = this.document.documentElement.clientWidth
 
     if(w >= 1200){
-        hamburger.style.display = 'none'
+        hamburger.style.opacity = '0'
         hamburger.className = 'hamburger hamburger--arrow'
         profile.style.opacity = '1'
         profile.style.left = 'auto'
-        profile.style.transform = 'none'
-    } else {
-        hamburger.style.display = 'inline-block'
-        hamburger.className = 'hamburger hamburger--arrow'
-        profile.style.opacity = '0'
+    } else if(w <= 1200 &&  hamburger.className === 'hamburger hamburger--arrow') {
         profile.style.left = '-1200px'
+        hamburger.style.opacity = '1'
+    } else {
+        hamburger.style.opacity = '1'
     }
 })
 
@@ -58,8 +55,7 @@ hamburger.addEventListener('click', (e) => {
     if(hamburger.className === 'hamburger hamburger--arrow') {
         hamburger.className += ' is-active'
         profile.style.opacity = '1'
-        profile.style.left = '50%'
-        profile.style.transform = 'translateX(-50%)'
+        profile.style.left = '0'
     } else {
         hamburger.className = 'hamburger hamburger--arrow'
         profile.style.opacity = '0'
