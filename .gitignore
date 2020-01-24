@@ -1,5 +1,4 @@
 node_modules
-src/db/mongoose.js
 sass/
-# /src/urlDetails.js
-# /src/urlSearch.js
+# src/urlDetails.js
+# src/urlSearch.js
