@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 //     useFindAndModify: false
 // })
 
-mongoose.connect('mongodb://timo:beatrix976@ds125381.mlab.com:25381/movietime-api', {
+mongoose.connect(`mongodb://${process.env.MONGO_PW}@ds125381.mlab.com:25381/movietime-api`, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,

@@ -6,6 +6,8 @@ const express        = require('express'),
       methodOverride = require('method-override'),
       exphbs         = require('express-handlebars')
 
+require('dotenv').config({path: './keys.env'})
+
 // ROUTER REQUIRE
 require('./src/db/mongoose')
 const indexRouter = require('./src/routers/index')
