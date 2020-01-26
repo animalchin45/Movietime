@@ -1,0 +1,19 @@
+.landing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;  
+    background-image: url(/img/reel_bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -8rem 57rem;
+
+    &__title {
+        animation: moveInTop 1s;
+    }
+
+    &__user {
+        display: flex;
+        flex-direction: column;
+    }
+}

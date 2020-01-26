@@ -1,0 +1,28 @@
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    z-index: 2;
+
+    & h1 {
+        margin-right: 2rem;
+    }
+}
+
+.option {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+}
+
+@media (max-width: $mobile-break) {
+    header {
+        flex-direction: column;
+    }
+
+    .option {
+        justify-content: flex-start;
+        width: 100%;
+    }
+}

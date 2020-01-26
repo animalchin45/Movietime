@@ -1,4 +1,2 @@
 node_modules
-sass/
-src/urlDetails.js
-src/urlSearch.js
+keys.env

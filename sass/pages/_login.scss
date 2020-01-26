@@ -1,0 +1,81 @@
+.account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 105px);
+
+    &__box{
+        padding: 15rem;
+        width: 70rem;
+        // border: 1px solid $color-black;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+
+        & label {
+            font-size: 1.2rem;
+            color: $color-warn;
+            margin-left: 2rem;
+        }
+
+        & #passwordError {
+            opacity: 0;
+            transition: opacity .5s;
+        }
+
+        & #verifyError {
+            opacity: 0;
+            transition: opacity .5s;
+        }
+    }
+
+    &__error {
+        font-size: 1.2rem;
+        color: $color-warn;
+        margin-top: 2rem;
+    }
+
+    & option {
+        padding: 1rem;
+    }
+
+    & button {
+        width: 20rem;
+    }
+
+    & h2, label, input, select {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: $mobile-break) {
+    .account {
+        height: auto;
+
+        &__box {
+            width: 90vw;
+            padding: 0;
+        }
+
+        &__form {
+
+            & div {
+                position: relative;
+            }
+
+            & label {
+                position: absolute;
+                top: 17.5px;
+                right:5%;
+                transform: translateY(-50%);
+                margin: 0;
+            }
+        }
+
+        & .input, button {
+            width: 90vw;
+        }
+    }
+}
