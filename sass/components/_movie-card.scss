@@ -26,10 +26,13 @@
         }
 
         &::after {
-            content: linear-gradient(
-                to top,
-                rgba($color-primary, 0.5),
-                rgba($color-light-gray, 0.5));
+            content: "";
+            background-image:
+                linear-gradient(
+                    to top,
+                    rgba($color-primary, 0.5),
+                    rgba($color-light-gray, 0.5)
+                );
             width: 100%;
             height: 100%;
             display: inline-block;
