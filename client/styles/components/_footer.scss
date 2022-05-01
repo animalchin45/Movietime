@@ -1,0 +1,28 @@
+.footer {
+    padding: $padding-small;
+
+    &__copy {
+        align-items: end;
+        display: grid;
+        grid-column: center-start / center-end;
+        justify-content: center;
+        padding: $padding-small;
+    }
+
+    &__tmdb {
+        grid-column: center-end / -1;
+    }
+}
+
+@media (max-width: $first-break) {
+    .footer {
+        
+        &__copy {
+            grid-column: col-start 2 / col-end 7;
+        }
+
+        &__tmdb {
+            grid-column: col-end 7 / -1;
+        }
+    }
+}

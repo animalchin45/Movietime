@@ -1,0 +1,34 @@
+.home {
+    animation: fadeIn 400ms ease-out;
+    display: grid;
+    grid-template-rows: 70rem 5rem max-content;
+
+    &__trending {
+        grid-column: center-start / center-end;
+        grid-row: 3 / 4;
+    }
+
+    &--title {
+        align-items: center;
+        display: grid;
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        justify-content: end;
+        width: 100%;
+    }
+}
+
+@media (max-width: $first-break) {
+    .home {
+        
+        &__trending {
+            grid-column: full-start / full-end;
+        }
+
+        &--title {
+            grid-column: 1 / 5;
+            justify-content: start;
+            margin-left: $margin-small;
+        }
+    }
+}

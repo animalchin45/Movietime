@@ -1,0 +1,17 @@
+.show-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 15.4rem);
+    grid-column: center-start / center-end;
+    justify-content: center;
+    margin: $margin-small 0 $margin-small 0;
+
+    &--search-results {
+        grid-row: 2 / 3;
+    }
+}
+
+@media (max-width: $first-break) {
+    .show-grid {
+        grid-column: 1 / -1;
+    }
+}

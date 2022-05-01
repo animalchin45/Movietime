@@ -1,0 +1,13 @@
+.header {
+
+    &__logo {
+        align-items: center;
+        display: grid;
+        justify-content: end;
+        width: 100%;
+
+        & img {
+            height: 9rem;
+        }
+    }
+}

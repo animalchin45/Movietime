@@ -1,0 +1,37 @@
+.hero {
+    align-items: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    justify-content: center;
+    margin-bottom: $margin-small;
+    overflow: hidden;
+    padding: $padding-medium 0 $padding-medium 0;
+    position: relative;
+
+    &__logo {
+        animation: fadeUp 400ms ease-out;
+        background-color: rgba($color-gray-light, 0.4);
+        border: 1.2rem solid $color-gray-dark;
+        box-shadow: 0px 0px 5px rgba($color-black,0.7);
+        margin: $margin-medium;
+        padding: $padding-large;
+        z-index: 3;
+    }
+
+    &__text {
+        animation: fadeUp 400ms ease-out;
+        margin: $margin-medium;
+        z-index: 3;
+    }
+
+    &__overlay {
+        background: $gradient;
+        grid-row: 1 / 2;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+    }
+}

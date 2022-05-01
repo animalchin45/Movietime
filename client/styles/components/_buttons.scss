@@ -1,0 +1,53 @@
+.btn {
+    // border-radius: 2rem;
+    cursor: pointer;
+    height: 3.5rem;
+    width: 10rem;
+
+    &--active {
+        background-color: $color-secondary;
+    }
+
+    &--search-options {
+        height: 3rem;
+        margin-right: $margin-small;
+        width: 8rem;
+    }
+
+    &--card {
+        border: none;
+        cursor: pointer;
+        height: 21rem;
+        width: 100%;
+    }
+
+    &--media-card {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: none;
+        border-radius: $border-radius;
+        cursor: pointer;
+        height: 9rem;
+        // margin: $margin-small;
+        width: 15rem;
+    }
+
+    &--media-viewer {
+        background-color: rgba($color-white, 0);
+        border: none;
+        cursor: pointer;
+        height: 4rem;
+        position: relative;
+
+        &--close {
+            right: 2rem;
+            position: absolute;
+            top: 2rem;
+        }
+
+        & img {
+            height: 4rem;
+        }
+    }
+}

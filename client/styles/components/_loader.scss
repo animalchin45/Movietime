@@ -1,0 +1,34 @@
+.loader {
+    animation: fadeIn 400ms ease-out;
+    display: grid;
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+  }
+  .loader::after,
+  .loader::before {
+    content: '';  
+    box-sizing: border-box;
+    width: 30rem;
+    height: 30rem;
+    border: 2px solid $color-primary;
+    position: absolute;
+    left: calc(50% - 15rem);
+    top: calc(50% - 15rem);
+    animation: scaleOut 2s ease-in-out infinite;
+  }
+  .loader::after {
+    border-color: $color-secondary;
+    animation-delay: 1s;
+  }
+  
+  @keyframes scaleOut {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

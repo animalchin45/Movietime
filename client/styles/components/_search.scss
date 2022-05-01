@@ -1,0 +1,36 @@
+.search {
+    align-items: end;
+    display: grid;
+    grid-column: center-start / center-end;
+    grid-template-rows: 50% 1fr;
+    justify-content: center;
+
+    &__options {
+        display: flex;
+        height: 100%;
+        padding-top: $padding-small;
+    }
+
+    & form {
+        grid-row: 1 / 2;
+
+    }
+
+    & input {
+        // border-radius: 2rem;
+        height: 3.5rem;
+        margin-right: $margin-medium;
+        padding: $padding-small;
+        width: 77.3rem;
+    }
+}
+
+@media (max-width: $first-break) {
+    .search {
+        grid-column: col-start 2 / col-end 7;
+
+        & input {
+            width: 50rem;
+        }
+    }
+}

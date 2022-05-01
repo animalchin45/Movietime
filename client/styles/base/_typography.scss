@@ -1,0 +1,111 @@
+// font sizes
+$default-font-size: 1.8rem;
+$small-font-size: 1.4rem;
+$h1-font-size: 6.5rem;
+$h1-small-font-size: 2.25rem;
+$h2-font-size: 3.6rem;
+$h3-font-size: 3rem;
+$h4-font-size: 2rem;
+
+@font-face {
+    font-family: 'Lemon/Milk';
+    src: url('../fonts/LemonMilk.eot');
+    src: url('../fonts/LemonMilk.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/LemonMilk.woff2') format('woff2'),
+        url('../fonts/LemonMilk.woff') format('woff'),
+        url('../fonts/LemonMilk.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+// @font-face {
+//     font-family: 'Righteous';
+//     src: url('../fonts/Righteous-Regular.eot');
+//     src: url('../fonts/Righteous-Regular.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/Righteous-Regular.woff2') format('woff2'),
+//         url('../fonts/Righteous-Regular.woff') format('woff'),
+//         url('../fonts/Righteous-Regular.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// font settings
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: $default-font-size;
+}
+
+h1 {
+    color: $color-primary;
+    font-family: "Lemon/Milk", sans-serif;
+    font-size: $h1-font-size;
+    letter-spacing: 6.5px;
+    line-height: 5.5rem;
+    text-shadow: 0px 0px 5px rgba($color-black,0.7);
+}
+
+.sm-h1 {
+    font-size: $h1-small-font-size;
+}
+
+h2 {
+    color: $color-white;
+    font-family: "Raleway", sans-serif;
+    font-size: $h2-font-size;
+    letter-spacing: 7.5px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-family: "Raleway", sans-serif;
+    font-size: $h3-font-size;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h4 {
+    font-family: "Raleway", sans-serif;
+    font-size: $h4-font-size;
+    letter-spacing: 1.5px;
+}
+
+.mpaa {
+
+    &--white {
+        border: 1px solid $color-white;
+        padding: 1px 2px;
+        transform: translateY(-2px);
+    }
+}
+
+.show-details {
+    &__overview {
+        color: $color-white;
+    }
+    
+}
+
+
+
+.label-text {
+    font-size: $small-font-size;
+}
+
+a {
+    color: $color-black;
+    cursor: pointer;
+    // text-decoration: underline;
+}
+
+input, textarea {
+    font-family: "Raleway", sans-serif;
+    font-size: $default-font-size;
+}
+
+@media (max-width: $mobile-break) {
+
+}

@@ -1,0 +1,23 @@
+.search-results {
+    animation: fadeIn 400ms ease-out;
+    display: grid;
+    grid-template-rows: 5rem max-content;
+
+    &--title {
+        align-items: center;
+        display: grid;
+        grid-column: center-start / center-end;
+        grid-row: 1 / 2;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: $first-break) {
+    .search-results {
+
+        &--title {
+            grid-column: 1 / -1;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+// colors
+
+$color-primary: #AE2012;
+$color-secondary: #0A9396;
+$color-tertiary: #E9D8A6;
+$color-gray-light: #d2d2d2;
+$color-gray-dark: #363636;
+$color-white: #ffffff;
+$color-black: #1d2021;
+$gradient: linear-gradient(138deg, rgba(54,54,54,0.8) 46%, rgba(10,147,150,0.8) 78%);
+
+// Layout Columns
+$layout-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+
+$layout-columns-break: [full-start] repeat(8, [col-start] minmax(min-content, 20rem) [col-end]) [full-end];
+
+// Margin
+$margin-small: 1rem;
+$margin-medium: 3rem;
+$margin-large: 5rem;
+
+// Padding
+$padding-small: 1rem;
+$padding-medium: 2rem;
+$padding-large: 5rem;
+$padding-xl: 12rem;
+
+// // Media Breaks
+$first-break: 1400px;
+$mobile-break: 800px;
+
+// Animation Timing
+$fade-in-quick: .2s;
+$fade-in-slow: .3s;
+
+$border-radius: .5rem;
