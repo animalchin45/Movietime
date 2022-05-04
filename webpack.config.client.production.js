@@ -53,6 +53,7 @@ const config = {
                 ]
             }
         ],
+    },
         plugins: [
             new MiniCssExtractPlugin({
                 filename: 'styles.[contenthash].css',
@@ -63,6 +64,5 @@ const config = {
                 ]
             })
         ]
-    },
     };
 module.exports = config
