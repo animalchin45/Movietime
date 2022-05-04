@@ -22,6 +22,10 @@ import template from './../template'
 app.use('/favorites', require('./routes/favoriteRoutes'))
 app.use('/users', require('./routes/userRoutes'))
 
+app.get('/', (req, res) => {
+    res.status(200).send(template())
+})
+
 app.get('*', (req, res) => {
     res.status(200).send(template())
 })
