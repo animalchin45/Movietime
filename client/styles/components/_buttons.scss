@@ -1,11 +1,15 @@
 .btn {
     // border-radius: 2rem;
-    cursor: pointer;
-    height: 3.5rem;
-    width: 10rem;
+    
 
     &--active {
         background-color: $color-secondary;
+    }
+
+    &--search {
+        cursor: pointer;
+        height: 3.5rem;
+        width: 10rem;
     }
 
     &--search-options {
@@ -48,6 +52,24 @@
 
         & img {
             height: 4rem;
+        }
+    }
+}
+
+@media (max-width: $mobile-break) {
+    .btn {
+
+        &--search {
+            background-color: $color-gray-light;
+            border: none;
+            height: 3.5rem;
+            margin: 0 $margin-small 0 $margin-small;
+            width: 3.5rem;
+
+            & img {
+                height: 100%;
+                width: 100%;
+            }
         }
     }
 }

@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { useMediaQuery } from 'react-responsive'
 
 import { getTrailer } from './overviewServices'
+import OverviewSummary from './OverviewSummary'
 import OverviewInfo from './OverviewInfo'
 import CastCards from './CastCards'
 import { reset, setPosition, setQuantity, setOpen, setSelectedMedia } from '../../features/modal/mediaViewerSlice'
@@ -10,6 +12,8 @@ const Overview = () => {
     const dispatch = useDispatch()
 
     const { details, posters } = useSelector((state) => state.details)
+
+    const isMobile = useMediaQuery({ query: '(max-width: 960px)'})
 
     useEffect(() => {
         // debuging - remove later
@@ -57,7 +61,8 @@ const Overview = () => {
                 <div className='show-details__backdrop__overlay'></div>
             </div>
             
-            <OverviewInfo />
+            <OverviewSummary />
+            {isMobile && <OverviewInfo />}
 
             {(details.cast && details.cast.length > 0) && <div className='show-details__cast'>
                 <h4>Cast</h4>
@@ -71,8 +76,8 @@ const Overview = () => {
                     <h4>Trailer</h4>
                     <div className='show-details__trailers-media--content'>
                         <iframe
-                            height="300"
-                            width="500"
+                            height={isMobile ? 200 : 300}
+                            width={isMobile ? 350 : 500}
                             src={`https://www.youtube.com/embed/${getTrailer()}`} 
                             title="YouTube video player" 
                             frameBorder="0" 

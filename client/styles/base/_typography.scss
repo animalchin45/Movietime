@@ -1,10 +1,17 @@
 // font sizes
 $default-font-size: 1.8rem;
 $small-font-size: 1.4rem;
+
 $h1-font-size: 6.5rem;
+$h1-mobile-font-size: 4rem;
 $h1-small-font-size: 2.25rem;
+
 $h2-font-size: 3.6rem;
+$h2-mobile-font-size: 2.25rem;
+
 $h3-font-size: 3rem;
+$h3-mobile-font-size: 2rem;
+
 $h4-font-size: 2rem;
 
 @font-face {
@@ -43,7 +50,6 @@ h1 {
     font-family: "Lemon/Milk", sans-serif;
     font-size: $h1-font-size;
     letter-spacing: 6.5px;
-    line-height: 5.5rem;
     text-shadow: 0px 0px 5px rgba($color-black,0.7);
 }
 
@@ -74,6 +80,9 @@ h4 {
 }
 
 .mpaa {
+    border: 1px solid $color-black;
+    padding: 1px 2px;
+    transform: translateY(-2px);
 
     &--white {
         border: 1px solid $color-white;
@@ -107,5 +116,15 @@ input, textarea {
 }
 
 @media (max-width: $mobile-break) {
+    h1 {
+        font-size: $h1-mobile-font-size;
+    }
 
+    h2 {
+        font-size: $h2-mobile-font-size;
+    }
+
+    h3 {
+        font-size: $h3-mobile-font-size;
+    }
 }

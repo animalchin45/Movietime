@@ -19,3 +19,12 @@
         height: calc(100vh - 19rem);
     }
 }
+
+@media (max-width: $mobile-break) {
+    .media-modal {
+
+        &__img {
+            height: calc(100vh - 30rem);
+        }
+    }
+}

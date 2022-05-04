@@ -18,7 +18,7 @@
     }
 }
 
-@media (max-width: $first-break) {
+@media (max-width: $first-break) and (min-width: $mobile-break) {
     .home {
         
         &__trending {
@@ -29,6 +29,21 @@
             grid-column: 1 / 5;
             justify-content: start;
             margin-left: $margin-small;
+        }
+    }
+}
+
+@media (max-width: $mobile-break) {
+    .home {
+
+        &__trending {
+            grid-column: 1 / -1;
+        }
+
+        &--title {
+            display: flex;
+            grid-column: 1 / -1;
+            justify-content: center;
         }
     }
 }

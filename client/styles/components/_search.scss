@@ -25,12 +25,36 @@
     }
 }
 
-@media (max-width: $first-break) {
+@media (max-width: $first-break) and (min-width: $mobile-break) {
     .search {
         grid-column: col-start 2 / col-end 7;
 
         & input {
             width: 50rem;
+        }
+    }
+}
+
+@media (max-width: $mobile-break) {
+    .search {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        grid-column: 1 / 2;
+        width: 100%;
+
+        &__options {
+            justify-content: space-around;
+        }
+
+        & form {
+            display: flex;
+            width: 100%;
+        }
+
+        & input {
+            margin: 0;
+            width: 90%;
         }
     }
 }

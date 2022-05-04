@@ -8,6 +8,7 @@ import female from './female.jpg'
 import left from './arrow-left.png'
 import right from './arrow-right.png'
 import close from './close.png'
+import searchButton from './search.png'
 
 export {
     home,
@@ -19,5 +20,6 @@ export {
     female,
     left,
     right,
-    close
+    close,
+    searchButton
 }
