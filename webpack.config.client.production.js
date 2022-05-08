@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const dotenv = require('dotenv-webpack')
 const CURRENT_WORKING_DIR = process.cwd()
 
 const config = {
@@ -64,6 +65,7 @@ const config = {
                     '**/*'
                 ]
             }),
+            new dotenv(),
             new HtmlWebpackPlugin({
                 favicon: './client/img/favicon.png'
             })
