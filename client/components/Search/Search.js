@@ -1,16 +1,13 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { useMediaQuery } from 'react-responsive'
 import { toast } from 'react-toastify'
 
-import { searchShows, setSearch, reset } from '../features/show/searchSlice'
-import { setSearchDisplay } from '../features/show/searchDisplaySlice'
-import { searchButton } from '../img/index'
+import { searchShows, setSearch, reset } from '../../features/show/searchSlice'
+import { setSearchDisplay } from '../../features/show/searchDisplaySlice'
 
 const Search = () => {
     const { isError, message, search } = useSelector((state) => state.search)
-    const isMobile = useMediaQuery({ query: '(max-width: 960px)'})
     const active = search.type
 
     const dispatch = useDispatch()
@@ -54,10 +51,7 @@ const Search = () => {
                     placeholder='What are you watching today?'
                     onChange={onChange}
                 />
-                <button type='submit' className='btn--search'>
-                    {!isMobile && 'Search'}
-                    {isMobile && <img src={searchButton} />}
-                </button>
+                <button type='submit' className='btn--search'>Search</button>
             </form>
             <div className='search__options'>
                 <button 

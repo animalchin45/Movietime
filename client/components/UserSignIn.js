@@ -1,9 +1,13 @@
 import React from 'react'
 
+import { user } from '../img/index'
+
 const UserSignIn = () => {
     return (
         <div className='user-sign-in'>
-            <a>Log In</a> <p>/</p> <a>Sign Up</a>
+            <a>
+                <img src={user} />
+            </a>
         </div>
     )
 }

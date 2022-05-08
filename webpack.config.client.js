@@ -1,5 +1,6 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const dotenv = require('dotenv-webpack')
 const CURRENT_WORKING_DIR = process.cwd()
@@ -66,7 +67,10 @@ const config={
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new dotenv()
+        new dotenv(),
+        new HtmlWebpackPlugin({
+            favicon: './client/img/favicon.png'
+        })
     ],
     resolve:{
     alias:{

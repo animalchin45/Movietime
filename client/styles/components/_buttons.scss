@@ -7,15 +7,40 @@
     }
 
     &--search {
+        border-radius: 4rem;
         cursor: pointer;
-        height: 3.5rem;
+        height: 4.4rem;
         width: 10rem;
     }
 
+    &--mobile-search {
+        background-color: rgba(0,0,0,0);
+        border: none;
+        cursor: pointer;
+        height: 3.6rem;
+        left: 2.1rem;
+        position: absolute;
+        width: 3.6rem;
+
+        & img {
+            height: 2.5rem;
+        }
+
+        &--toggle {
+            background-color: rgba(0,0,0,0);
+            border: none;
+            cursor: pointer;
+            height: 3.5rem;
+            margin: 0 $margin-small 0 $margin-small;
+            width: 3.5rem;
+        }
+    }
+
     &--search-options {
-        height: 3rem;
+        border-radius: 4rem;
+        height: 2.5rem;
         margin-right: $margin-small;
-        width: 8rem;
+        width: 7rem;
     }
 
     &--card {
@@ -56,20 +81,11 @@
     }
 }
 
-@media (max-width: $mobile-break) {
-    .btn {
+// @media (max-width: $mobile-break) {
+//     .btn {
 
-        &--search {
-            background-color: $color-gray-light;
-            border: none;
-            height: 3.5rem;
-            margin: 0 $margin-small 0 $margin-small;
-            width: 3.5rem;
-
-            & img {
-                height: 100%;
-                width: 100%;
-            }
-        }
-    }
-}
+//         &--search {
+            
+//         }
+//     }
+// }

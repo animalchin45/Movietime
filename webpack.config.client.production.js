@@ -1,6 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const CURRENT_WORKING_DIR = process.cwd()
 
@@ -62,6 +63,9 @@ const config = {
                 cleanOnceBeforeBuildPatterns: [
                     '**/*'
                 ]
+            }),
+            new HtmlWebpackPlugin({
+                favicon: './client/img/favicon.png'
             })
         ]
     };

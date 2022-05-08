@@ -9,6 +9,7 @@ import left from './arrow-left.png'
 import right from './arrow-right.png'
 import close from './close.png'
 import searchButton from './search.png'
+import user from './user.png'
 
 export {
     home,
@@ -21,5 +22,6 @@ export {
     left,
     right,
     close,
-    searchButton
+    searchButton,
+    user
 }

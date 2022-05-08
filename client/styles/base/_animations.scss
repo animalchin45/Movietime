@@ -19,3 +19,13 @@
         transform: translateY(0rem);
     }
 }
+
+@keyframes openDown {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: 10.5rem;
+    }
+}
