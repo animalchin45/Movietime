@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import Search from '../Search/Search'
-import UserSignIn from '../UserSignIn'
+// import UserSignIn from '../UserSignIn'
+import { user } from '../../img/'
 
 const Header = () => {
 
@@ -13,7 +14,12 @@ const Header = () => {
                     <h1 className='sm-h1'>MOVIETIME</h1>
                 </Link>
                 <Search />
-                <UserSignIn />
+                <div className='header__controls'>
+                    <button className='btn--small'>
+                        <img src={user} />
+                    </button>
+                </div>
+                
             </div>
         </>
         

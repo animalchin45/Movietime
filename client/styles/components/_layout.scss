@@ -14,7 +14,7 @@
 
         &--mobile {
             display: grid;
-            grid-template-columns: 10rem 1fr 10rem;
+            grid-template-columns: 9rem 1fr 9rem;
             z-index: 4;
         }
     }
@@ -54,7 +54,8 @@
 
 @media (max-width: $mobile-break) {
     .layout {
-        
+        grid-template-rows: 6rem minmax(calc(100vh - 23.5rem), max-content) 13rem;
+
         &__footer {
             grid-template-columns: $layout-columns-break;
         }

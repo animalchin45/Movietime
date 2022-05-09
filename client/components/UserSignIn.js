@@ -5,9 +5,9 @@ import { user } from '../img/index'
 const UserSignIn = () => {
     return (
         <div className='user-sign-in'>
-            <a>
+            <button className='btn--small'>
                 <img src={user} />
-            </a>
+            </button>
         </div>
     )
 }

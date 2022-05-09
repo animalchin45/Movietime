@@ -35,6 +35,7 @@
 
 @media (max-width: $mobile-break) {
     .home {
+        grid-template-rows: 45rem 5rem max-content;
 
         &__trending {
             grid-column: 1 / -1;

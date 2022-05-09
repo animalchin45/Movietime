@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import MobileSearch from '../Search/MobileSearch'
-import UserSignIn from '../UserSignIn'
-import { searchButton, close } from '../../img/'
+// import UserSignIn from '../UserSignIn'
+import { searchButton, close, user } from '../../img/'
 
 const MobileHeader = () => {
     const [openSearch, setOpenSearch] = useState(false)
@@ -16,9 +16,11 @@ const MobileHeader = () => {
                     <h1 className='sm-h1'>MOVIETIME</h1>
                 </Link>
                 <div className='header__controls'>
-                    <UserSignIn />
+                    <button className='btn--small'>
+                        <img src={user} />
+                    </button>
                     <button 
-                        className='btn--mobile-search--toggle'
+                        className='btn--small'
                         onClick={() => setOpenSearch(!openSearch)}
                     >
                         <img src={openSearch ? close : searchButton} />

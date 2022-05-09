@@ -141,6 +141,11 @@
             display: flex;
             grid-column: 1 / -1;
             justify-content: center;
+
+            & img {
+                height: 30rem;
+                width: 20rem;
+            }
             
             &__info {
                 grid-column: 1 / -1;

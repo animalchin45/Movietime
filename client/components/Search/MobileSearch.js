@@ -62,21 +62,21 @@ const MobileSearch = ({ setOpenSearch }) => {
                 <button 
                     name='movie'
                     onClick={onTypeSelect}
-                    className={active === 'movie' ? 'btn btn--active btn--search-options' : 'btn btn--search-options'}
+                    className={active === 'movie' ? 'btn btn--active btn--medium' : 'btn btn--medium'}
                 >
                     Movies
                 </button>
                 <button 
                     name='tv' 
                     onClick={onTypeSelect}
-                    className={active === 'tv' ? 'btn btn--active btn--search-options' : 'btn btn--search-options'}
+                    className={active === 'tv' ? 'btn btn--active btn--medium' : 'btn btn--medium'}
                 >
                     TV
                 </button>
                 <button 
                     name='multi' 
                     onClick={onTypeSelect}
-                    className={active === 'multi' ? 'btn btn--active btn--search-options' : 'btn btn--search-options'}
+                    className={active === 'multi' ? 'btn btn--active btn--medium' : 'btn btn--medium'}
                 >
                     All
                 </button>
