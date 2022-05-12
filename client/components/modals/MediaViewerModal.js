@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Modal from 'react-modal'
+import { useMediaQuery } from 'react-responsive'
 
 import { reset, changePosition, setSelectedMedia } from '../../features/modal/mediaViewerSlice'
 import { left, right, close } from '../../img/'
@@ -9,6 +10,7 @@ const MediaViewerModal = () => {
     const dispatch = useDispatch()
     const { posters } = useSelector((state) => state.details)
     const { quantity, position, isOpen, selectedMedia } = useSelector((state) => state.mediaViewer)
+    const isMobile = useMediaQuery({ query: '(max-width: 960px)'})
 
     const onNext = () => {
         if (position != (quantity - 1)) {
@@ -39,9 +41,11 @@ const MediaViewerModal = () => {
 
     const styles = {
         content: {
-            height: 'calc(100vh - 13.5rem',
-            position: 'fixed',
-            top: '12rem'
+            border: 'none',
+            boxShadow: '0px 0px 10px -2px #1d2021',
+            inset: `${isMobile ? '7rem' : '11.5rem'} 1rem 1rem`,
+            padding: 0,
+            position: 'fixed'
         }
     }
 

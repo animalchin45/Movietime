@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import MobileSearch from '../Search/MobileSearch'
-// import UserSignIn from '../UserSignIn'
 import { searchButton, close, user } from '../../img/'
 
 const MobileHeader = () => {

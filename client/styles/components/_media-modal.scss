@@ -5,6 +5,7 @@
 
 .ReactModal__Content {
     align-items: center;
+    border: none;
     display: flex;
 }
 
@@ -20,11 +21,23 @@
     }
 }
 
-@media (max-width: $mobile-break) {
+@media (max-width: $first-break) and (min-width: $mobile-break) {
     .media-modal {
 
         &__img {
-            height: calc(100vh - 30rem);
+            height: auto;
+            max-width: 40%;
+        }
+    }
+}
+
+@media (max-width: $mobile-break) {
+    .media-modal {
+        grid-template-columns: 3rem 1fr 3rem;
+
+        &__img {
+            height: auto;
+            max-width: 90%;
         }
     }
 }
