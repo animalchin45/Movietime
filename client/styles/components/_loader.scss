@@ -11,12 +11,12 @@
   .loader::before {
     content: '';  
     box-sizing: border-box;
-    width: 30rem;
-    height: 30rem;
+    width: 35rem;
+    height: 35rem;
     border: 2px solid $color-primary;
     position: absolute;
-    left: calc(50% - 15rem);
-    top: calc(50% - 15rem);
+    left: calc(50% - 17.5rem);
+    top: calc(50% - 17.5rem);
     animation: scaleOut 2s ease-in-out infinite;
   }
   .loader::after {

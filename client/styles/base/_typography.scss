@@ -26,17 +26,17 @@ $h4-font-size: 2rem;
     font-display: swap;
 }
 
-// @font-face {
-//     font-family: 'Righteous';
-//     src: url('../fonts/Righteous-Regular.eot');
-//     src: url('../fonts/Righteous-Regular.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/Righteous-Regular.woff2') format('woff2'),
-//         url('../fonts/Righteous-Regular.woff') format('woff'),
-//         url('../fonts/Righteous-Regular.ttf') format('truetype');
-//     font-weight: normal;
-//     font-style: normal;
-//     font-display: swap;
-// }
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway-Regular.eot');
+    src: url('../fonts/Raleway-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Raleway-Regular.woff2') format('woff2'),
+        url('../fonts/Raleway-Regular.woff') format('woff'),
+        url('../fonts/Raleway-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 // font settings
 
@@ -56,6 +56,11 @@ h1 {
 .sm-h1 {
     font-size: $h1-small-font-size;
 }
+
+// .loader-h1 {
+//     color: $color-secondary;
+//     font-size: $h2-font-size;
+// }
 
 h2 {
     color: $color-white;

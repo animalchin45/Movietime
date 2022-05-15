@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useMediaQuery } from 'react-responsive'
+import { toast } from 'react-toastify'
 
 import { getTrailer } from './overviewServices'
 import OverviewSummary from './OverviewSummary'
@@ -10,20 +11,21 @@ import { reset, setPosition, setQuantity, setOpen, setSelectedMedia } from '../.
 
 const Overview = () => {
     const dispatch = useDispatch()
-
-    const { details, posters } = useSelector((state) => state.details)
-
+    const { details, posters, isError, message } = useSelector((state) => state.details)
     const isMobile = useMediaQuery({ query: '(max-width: 960px)'})
 
     useEffect(() => {
         // debuging - remove later
         console.log(details)
+        if (isError) {
+            toast.error(message)
+        }
         
         return () => {
             dispatch(reset())
         }
 
-    }, [details, reset, dispatch])
+    }, [details, reset, isError, message, dispatch])
 
     // open image viewer modal
     const onPosterClick = (index, url) => {

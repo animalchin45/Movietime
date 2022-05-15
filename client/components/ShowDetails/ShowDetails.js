@@ -1,19 +1,27 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { toast } from 'react-toastify'
 
 import Overview from './Overview'
 import Loader from '../Loader'
 import MediaViewerModal from '../modals/MediaViewerModal'
 
 const ShowDetails = () => {
-    const { isLoading } = useSelector((state) => state.details)
+    const dispatch = useDispatch()
+    const { isLoading, isError, message } = useSelector((state) => state.details)
+
+    useEffect(() => {
+        if (isError) {
+            toast.error(message)
+        }
+
+    }, [isError, message, dispatch])
 
     if (isLoading) {
         return (
             <div className='layout__main show-details'>
                 <Loader />
             </div>
-
         )
     }
 

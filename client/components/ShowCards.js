@@ -14,8 +14,10 @@ const ShowCards = ({ results }) => {
         dispatch(reset())
         dispatch(resetSearchDisplay())
         await dispatch(showDetails({media_type, id}))
-        await dispatch(tvRatings({media_type, id}))
-        await dispatch(getPosters({media_type, id}))
+        if (media_type === 'tv') {
+            dispatch(tvRatings({media_type, id}))
+        }
+        dispatch(getPosters({media_type, id}))
         navigate('/details')
     }
 
