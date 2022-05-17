@@ -112,7 +112,8 @@ const details = async (show) => {
 const tvContentRatings = async (show) => {
     const response = await moviedb.get(`/${show.media_type}/${show.id}/content_ratings`, {
         params: {
-            api_key: KEY
+            api_key: KEY,
+            language: 'en'
         }
     })
 

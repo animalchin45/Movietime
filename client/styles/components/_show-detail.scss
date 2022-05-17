@@ -44,20 +44,17 @@
                 margin-bottom: $margin-medium;
             }
 
-            & h4, p:not(:last-child) {
+            & h4, p {
                 margin-bottom: $margin-small;
             }
 
-            &--release {
-                display: flex;
+            &__release {
+                display: grid;
+                grid-template-rows: repeat(3, max-content);
                 flex-wrap: wrap;
 
-                & p:nth-child(-n+2) {
-                    margin-right: $margin-small;
-                }
-
-                & p:last-child {
-                    margin-left: $margin-small;
+                & > div {
+                    display: flex;
                 }
             }
 

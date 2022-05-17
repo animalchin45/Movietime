@@ -8,7 +8,7 @@ import MediaViewerModal from '../modals/MediaViewerModal'
 
 const ShowDetails = () => {
     const dispatch = useDispatch()
-    const { isLoading, isError, message } = useSelector((state) => state.details)
+    const { isDetailsLoading, isTvContentLoading, isPostersLoading, isError, message } = useSelector((state) => state.details)
 
     useEffect(() => {
         if (isError) {
@@ -17,7 +17,7 @@ const ShowDetails = () => {
 
     }, [isError, message, dispatch])
 
-    if (isLoading) {
+    if (isDetailsLoading || isTvContentLoading || isPostersLoading) {
         return (
             <div className='layout__main show-details'>
                 <Loader />

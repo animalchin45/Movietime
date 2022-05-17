@@ -66,7 +66,7 @@ const Overview = () => {
             <OverviewSummary />
             {isMobile && <OverviewInfo />}
 
-            {(details.cast && details.cast.length > 0) && <div className='show-details__cast'>
+            {details.cast && <div className='show-details__cast'>
                 <h4>Cast</h4>
                 <div className='show-grid'>
                     <CastCards cast={details.cast} />
@@ -74,7 +74,7 @@ const Overview = () => {
             </div>}
 
             <div className='show-details__trailers-media'>
-                {(details.results.length > 0) && <div>
+                {details.results && <div>
                     <h4>Trailer</h4>
                     <div className='show-details__trailers-media--content'>
                         <iframe
@@ -89,7 +89,7 @@ const Overview = () => {
                         </iframe>
                     </div>
                 </div>}
-                {(details.results.length > 0) && <div></div>}
+                {details.results && <div></div>}
                 {(posters.length > 0) && <div>
                     <h4>Posters</h4>
                     <div className='show-details__trailers-media--content show-details__trailers-media--content__poster-grid'>

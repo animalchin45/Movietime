@@ -1,11 +1,10 @@
 import React from "react"
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import ShowCards from "./ShowCards"
 import Loader from "./Loader"
 
 const SearchResults = () => {
-    const dispatch = useDispatch()
     const { searchResults, isLoading } = useSelector((state) => state.search)
     const { searchDisplay } = useSelector((state) => state.display)
 
@@ -28,8 +27,6 @@ const SearchResults = () => {
             </div>
             <div className="show-grid show-grid--search-results">
                 <ShowCards results={searchResults} />
-                
-                {isLoading && <Loader />}
             </div>
         </div>
         

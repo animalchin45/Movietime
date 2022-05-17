@@ -2,29 +2,19 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { useMediaQuery } from 'react-responsive'
 
-import { getMpaa, renderedCreated } from './overviewServices'
+import { getMpaa, renderedCreated, renderedGenres, renderedCast } from './overviewServices'
 
 const OverviewInfo = () => {
-    const { details } = useSelector((state) => state.details)
+    const { isDetailsLoading, isTvContentLoading, isPostersLoading, details } = useSelector((state) => state.details)
     const isMobile = useMediaQuery({ query: '(max-width: 960px)'})
 
-    // render genres from details
-    const renderedGenres = details.genres.map((genre, index) => {
+    if (isDetailsLoading || isTvContentLoading || isPostersLoading) {
         return (
-            <p key={genre.id}>
-                {(index ? ', ' : '') + genre.name}
-            </p>
+            <div className='show-details__overview__info'>
+                <Loader />
+            </div>
         )
-    })
-
-    // render cast names from details
-    const renderedCast = details.cast.slice(0, 3).map((actor, index) => {
-        return (
-            <p key={actor.id}>
-                {(index ? ', ' : '') + actor.name}
-            </p>
-        )
-    })
+    }
 
     return (
         <>
@@ -32,11 +22,15 @@ const OverviewInfo = () => {
                 {details.original_name && <h3>{details.original_name}</h3>}
                 {details.original_title && <h3>{details.original_title}</h3>}
 
-                <div className='show-details__overview__info--release'>
-                    {details.release_date && <p>{details.release_date.substring(0,4)}</p>}
-                    {details.first_air_date && <p>{details.first_air_date.substring(0,4)}</p>}
-                    {(details.release_dates || details.results) && <p className={isMobile ? 'mpaa' : 'mpaa--white'}>{getMpaa()}</p>}
-                    {renderedGenres}
+                <div className='show-details__overview__info__release'>
+                    <div>
+                        {details.release_date && <p>{details.release_date.substring(0,4)}</p>}
+                        {details.first_air_date && <p>{details.first_air_date.substring(0,4)}</p>}
+                        {(details.release_dates || details.results) && <p className={isMobile ? 'mpaa' : 'mpaa--white'}>{getMpaa()}</p>}
+                    </div>
+                    <div>
+                        {renderedGenres()}
+                    </div>
                     {details.runtime && <p>Runtime: {details.runtime} minutes</p>}
                     {details.episode_run_time && <p>Runtime: {details.episode_run_time}</p>}
                 </div>
@@ -57,7 +51,7 @@ const OverviewInfo = () => {
                     </div>
                     {!isMobile && <div className='show-details__overview__info__crew--members'>
                         {(details.cast && details.cast.length > 0) && <p>Starring: </p>}
-                        {renderedCast}
+                        {renderedCast()}
                     </div>}
                 </div>
             </div>

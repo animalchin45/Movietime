@@ -7,7 +7,9 @@ const initialState = {
     posters: [],
     isError: false,
     isSuccess: false,
-    isLoading: false,
+    isDetailsLoading: false,
+    isTvContentLoading: false,
+    isPostersLoading: false,
     message: ''
 }
 
@@ -68,47 +70,47 @@ export const detailsSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(showDetails.pending, (state) => {
-                state.isLoading = true
+                state.isDetailsLoading = true
             })
             .addCase(showDetails.fulfilled, (state, action) => {
-                state.isLoading = false
+                state.isDetailsLoading = false
                 state.isSuccess = true
                 state.isError = false
                 state.message = ''
                 state.details = action.payload
             })
             .addCase(showDetails.rejected, (state, action) => {
-                state.isLoading = false
+                state.isDetailsLoading = false
                 state.isError = true
                 state.message = action.payload
             })
             .addCase(tvRatings.pending, (state) => {
-                state.isLoading = true
+                state.isTvContentLoading = true
             })
             .addCase(tvRatings.fulfilled, (state, action) => {
-                state.isLoading = false
+                state.isTvContentLoading = false
                 state.isSuccess = true
                 state.isError = false
                 state.message = ''
                 state.tvContent = action.payload
             })
             .addCase(tvRatings.rejected, (state, action) => {
-                state.isLoading = false
+                state.isTvContentLoading = false
                 state.isError = true
                 state.message = action.payload
             })
             .addCase(getPosters.pending, (state) => {
-                state.isLoading = true
+                state.isPostersLoading = true
             })
             .addCase(getPosters.fulfilled, (state, action) => {
-                state.isLoading = false
+                state.isPostersLoading = false
                 state.isSuccess = true
                 state.isError = false
                 state.message = ''
                 state.posters = action.payload
             })
             .addCase(getPosters.rejected, (state, action) => {
-                state.isLoading = false
+                state.isPostersLoading = false
                 state.isError = true
                 state.message = action.payload
             })

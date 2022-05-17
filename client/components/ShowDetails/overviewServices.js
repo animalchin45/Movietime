@@ -59,6 +59,34 @@ export const renderedCreated = (creators, type) => {
     }
 }
 
+// render genres from details
+export const renderedGenres = () => {
+    const { details } = useSelector((state) => state.details)
+    const genres = details.genres.map((genre, index) => {
+        return (
+            <p key={genre.id}>
+                {(index ? `, ` : '') + genre.name}
+            </p>
+        )
+    })
+
+    return genres
+}
+
+// render cast names from details
+export const renderedCast = () => {
+    const { details } = useSelector((state) => state.details)
+    const cast = details.cast.slice(0, 3).map((actor, index) => {
+        return (
+            <p key={actor.id}>
+                {(index ? ', ' : '') + actor.name}
+            </p>
+        )
+    })
+
+    return cast
+}
+
 // get trailer from videos list
 export const getTrailer = () => {
     const { details } = useSelector((state) => state.details)
@@ -70,11 +98,3 @@ export const getTrailer = () => {
     }
     return value.key
 }
-
-// get posters and backdrops
-// export const getImages = () => {
-//     const { posters } = useSelector((state) => state.details)
-
-
-
-// }
