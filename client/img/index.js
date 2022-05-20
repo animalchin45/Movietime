@@ -10,6 +10,8 @@ import right from './arrow-right.png'
 import close from './close.png'
 import searchButton from './search.png'
 import user from './user.png'
+import starLeft from './starLeft.svg'
+import starRight from './starRight.svg'
 
 export {
     home,
@@ -23,5 +25,7 @@ export {
     right,
     close,
     searchButton,
-    user
+    user,
+    starLeft,
+    starRight
 }

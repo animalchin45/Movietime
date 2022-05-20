@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { useMediaQuery } from 'react-responsive'
 
 import { getMpaa, renderedCreated, renderedGenres, renderedCast } from './overviewServices'
+import Stars from './Stars'
 
 const OverviewInfo = () => {
     const { isDetailsLoading, isTvContentLoading, isPostersLoading, details } = useSelector((state) => state.details)
@@ -37,7 +38,9 @@ const OverviewInfo = () => {
 
                 <p><i>{details.tagline}</i></p>
 
-                <p>Score: {details.vote_average}</p>
+                
+                <Stars />
+                {/*<p>Score: {details.vote_average}</p>*/}
 
                 <h4>Overview</h4>
                 <p>{details.overview}</p>

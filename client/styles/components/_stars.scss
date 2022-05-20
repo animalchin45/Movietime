@@ -1,0 +1,44 @@
+.stars {
+    
+    // Appearance Setup
+
+    cursor: pointer;
+    display: flex;
+    margin: 0 0 $margin-small 0;
+    width: max-content;
+
+    & svg:nth-child(odd) {
+        transform: translateX(1px);
+    }
+
+    & svg:nth-child(2n + 2) {
+        padding: 0 $margin-small 0 0;
+    }
+
+    // Default Appearance
+
+    &__piece {
+        fill: rgba($color-gray-light, 0);
+        height: 2.5rem;
+        transition: fill $fade-in-quick;
+    }
+
+    // Hover effects
+
+    & svg:hover:before,
+    & svg:hover:after {
+        display: none !important;
+    }
+
+    &:hover > svg {
+        fill:rgba($color-tertiary, 1) !important;
+    }
+
+    &:hover > svg:hover {
+        fill:rgba($color-tertiary, 1) !important;
+    }
+
+    & > svg:hover ~ svg {
+        fill: rgba($color-gray-light, 0) !important;
+    }
+}
