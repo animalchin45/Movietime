@@ -1,21 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { toast } from 'react-toastify'
 
 import Overview from './Overview'
 import Loader from '../Loader'
-import MediaViewerModal from '../modals/MediaViewerModal'
+import MediaViewer from '../modals/MediaViewer'
 
 const ShowDetails = () => {
-    const dispatch = useDispatch()
-    const { isDetailsLoading, isTvContentLoading, isPostersLoading, isError, message } = useSelector((state) => state.details)
-
-    useEffect(() => {
-        if (isError) {
-            toast.error(message)
-        }
-
-    }, [isError, message, dispatch])
+    const { isDetailsLoading, isTvContentLoading, isPostersLoading } = useSelector((state) => state.details)
 
     if (isDetailsLoading || isTvContentLoading || isPostersLoading) {
         return (
@@ -29,7 +20,7 @@ const ShowDetails = () => {
         <>
             <div id='show-details' className='layout__main show-details'>
                 <Overview />
-                <MediaViewerModal />
+                <MediaViewer />
             </div>
         </>
     )

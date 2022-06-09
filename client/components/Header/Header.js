@@ -1,10 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import Search from '../Search/Search'
-import { user } from '../../img/'
 
 const Header = () => {
+    const { user } = useSelector((state) => state.auth)
 
     return (
         <>
@@ -14,11 +15,22 @@ const Header = () => {
                 </Link>
                 <Search />
                 <div className='header__controls'>
-                    <button className='btn--small'>
-                        <img src={user} />
-                    </button>
+                    {!user && <>
+                        <Link to='/login' className='link-text'>
+                            Login
+                        </Link>
+                        <span>/&nbsp;</span>
+                        <Link to='/register' className='link-text'>
+                            Sign Up
+                        </Link>
+                    </>}
+                    {user && 
+                        <>
+                            <p className='label-text'>Welcome back, &nbsp;</p>
+                            <Link to='/dashboard' className='link-text'>{user.userName}</Link>
+                        </>
+                    }
                 </div>
-                
             </div>
         </>
         

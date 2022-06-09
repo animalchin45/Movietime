@@ -18,6 +18,7 @@ import searchReducer from './features/show/searchSlice'
 import searchDisplayReducer from './features/show/searchDisplaySlice'
 import detailsReducer from './features/show/detailsSlice'
 import mediaViewerReducer from './features/modal/mediaViewerSlice'
+import favoriteReducer from './features/favorite/favoriteSlice'
 
 // Combine Reducers
 const reducers = combineReducers({
@@ -26,7 +27,8 @@ const reducers = combineReducers({
     search: searchReducer,
     display: searchDisplayReducer,
     details: detailsReducer,
-    mediaViewer: mediaViewerReducer
+    mediaViewer: mediaViewerReducer,
+    favorites: favoriteReducer
 })
 
 // Configure Persist

@@ -6,6 +6,7 @@ import StarRight from '../../img/starRight.svg'
 
 const Stars = () => {
     const { details } = useSelector((state) => state.details)
+    const { user } = useSelector((state) => state.auth)
 
     let rating = Math.round(details.vote_average)
 
@@ -17,7 +18,10 @@ const Stars = () => {
         fill: 'rgba(233, 216, 166, 0)'
     }
 
-    // const handleChange = (value) => {
+    // const onRatingClick = (value) => {
+    //     if (!user) {
+
+    //     }
     //     setRating(value)
     // }
 
@@ -77,7 +81,9 @@ const Stars = () => {
                 className="stars__piece" 
                 style={rating >= 10 ? on : off}
             />
-            
+
+            {!user && <p><i>Average Score</i></p>}
+            {user && <p><i>User Score</i></p>}
 
         </div>
     )

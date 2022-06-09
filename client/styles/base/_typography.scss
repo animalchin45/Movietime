@@ -41,7 +41,7 @@ $h4-font-size: 2rem;
 // font settings
 
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-size: $default-font-size;
 }
 
@@ -56,11 +56,6 @@ h1 {
 .sm-h1 {
     font-size: $h1-small-font-size;
 }
-
-// .loader-h1 {
-//     color: $color-secondary;
-//     font-size: $h2-font-size;
-// }
 
 h2 {
     color: $color-white;
@@ -84,6 +79,14 @@ h4 {
     letter-spacing: 1.5px;
 }
 
+button {
+    font-family: "Raleway", sans-serif;
+}
+
+.small-text {
+    font-size: $small-font-size;
+}
+
 .mpaa {
     border: 1px solid $color-black;
     margin-left: $margin-small;
@@ -105,21 +108,23 @@ h4 {
     
 }
 
-
-
 .label-text {
     font-size: $small-font-size;
+}
+
+.link-text {
+    font-size: $small-font-size;
+    text-decoration: underline;
 }
 
 a {
     color: $color-black;
     cursor: pointer;
-    // text-decoration: underline;
 }
 
-input, textarea {
+input {
     font-family: "Raleway", sans-serif;
-    font-size: $default-font-size;
+    font-size: $small-font-size;
 }
 
 @media (max-width: $mobile-break) {

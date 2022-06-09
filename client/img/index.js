@@ -7,11 +7,6 @@ import male from './male.jpg'
 import female from './female.jpg'
 import left from './arrow-left.png'
 import right from './arrow-right.png'
-import close from './close.png'
-import searchButton from './search.png'
-import user from './user.png'
-import starLeft from './starLeft.svg'
-import starRight from './starRight.svg'
 
 export {
     home,
@@ -22,10 +17,5 @@ export {
     male,
     female,
     left,
-    right,
-    close,
-    searchButton,
-    user,
-    starLeft,
-    starRight
+    right
 }

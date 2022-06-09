@@ -51,7 +51,7 @@ const Search = () => {
                     placeholder='What are you watching today?'
                     onChange={onChange}
                 />
-                <button type='submit' className='btn--large'>Search</button>
+                <button type='submit' className='btn btn--large'>Search</button>
             </form>
             <div className='search__options'>
                 <button 

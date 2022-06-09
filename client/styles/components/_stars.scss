@@ -41,4 +41,10 @@
     & > svg:hover ~ svg {
         fill: rgba($color-gray-light, 0) !important;
     }
+
+    // User Label
+    & p {
+        font-size: $small-font-size;
+        transform: translateY(11px);
+    }
 }

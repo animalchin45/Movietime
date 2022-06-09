@@ -1,14 +1,34 @@
 const mongoose = require('mongoose')
 
 const favoriteSchema = mongoose.Schema({
-    user: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User'
     },
-    originalTitle: {
+    id: {
         type: String,
-        required: [true, 'Please choose a movie']
+        required: [true, 'Show ID required']
+    },
+    original_title: {
+        type: String,
+        default: ''
+    },
+    release_date: {
+        type: String,
+        default: null
+    },
+    first_air_date: {
+        type: String,
+        default: null
+    },
+    watched: {
+        type: Boolean,
+        default: false
+    },
+    poster_path: {
+        type: String,
+        default: ''
     },
     userRating: {
         type: Number,

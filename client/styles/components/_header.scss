@@ -17,6 +17,10 @@
         align-items: center;
         display: flex;
         justify-items: center;
+
+        & a {
+            margin-right: $margin-small;
+        }
     }
 }
 

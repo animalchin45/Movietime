@@ -3,10 +3,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import Modal from 'react-modal'
 import { useMediaQuery } from 'react-responsive'
 
-import { reset, changePosition, setSelectedMedia } from '../../features/modal/mediaViewerSlice'
-import { left, right, close } from '../../img/'
+import { mediaViewerReset, changePosition, setSelectedMedia } from '../../features/modal/mediaViewerSlice'
+import { left, right } from '../../img'
+import Close from '../../img/close.svg'
 
-const MediaViewerModal = () => {
+const MediaViewer = () => {
     const dispatch = useDispatch()
     const { posters } = useSelector((state) => state.details)
     const { quantity, position, isOpen, selectedMedia } = useSelector((state) => state.mediaViewer)
@@ -36,7 +37,7 @@ const MediaViewerModal = () => {
     }
 
     const onClearModal = () => {
-        dispatch(reset())
+        dispatch(mediaViewerReset())
     }
 
     const styles = {
@@ -61,7 +62,7 @@ const MediaViewerModal = () => {
         >
             <div className='media-modal'>
                 <button className='btn--media-viewer btn--media-viewer--close'>
-                    <img src={close} onClick={() => onClearModal()} />
+                    <Close onClick={() => onClearModal()} />
                 </button>
                 <button className='btn--media-viewer' onClick={() => onPrev()}>
                     <img src={left} />
@@ -76,4 +77,4 @@ const MediaViewerModal = () => {
     )
 }
 
-export default MediaViewerModal
+export default MediaViewer

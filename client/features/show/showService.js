@@ -8,12 +8,14 @@ const trending = async () => {
         moviedb.get('/trending/all/week', {
             params: {
                 api_key: KEY,
+                language: 'en',
                 page: 1
             }
         }),
         moviedb.get('/trending/all/week', {
             params: {
                 api_key: KEY,
+                language: 'en',
                 page: 2
             }
         })
@@ -28,6 +30,7 @@ const search = async (searchTerm) => {
             params: {
                 api_key: KEY,
                 query: searchTerm.term,
+                language: 'en',
                 page: 1
             }
         }),
@@ -35,6 +38,7 @@ const search = async (searchTerm) => {
             params: {
                 api_key: KEY,
                 query: searchTerm.term,
+                language: 'en',
                 page: 2
             }
         })

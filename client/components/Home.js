@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div className='layout__main home'>
             <Hero /> 
-            <div className='home--title'>
+            <div className='content-title'>
                 <h3>What's Popular</h3>
             </div>
             <div className='home__trending'>

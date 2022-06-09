@@ -1,0 +1,49 @@
+.user {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    grid-column: 4 / 7;
+    justify-content: center;
+
+    & form {
+        margin-bottom: $margin-medium;
+        width: 100%;
+    }
+
+    &__message {
+        margin-bottom: $margin-medium;
+    }
+
+    &__input {
+        display: flex;
+        flex-direction: column;
+        margin-top: $margin-small;
+
+        & input {
+            border-radius: 2rem;
+            height: 3.5rem;
+            padding: $padding-small;
+            
+        }
+
+        & label {
+            margin-top: $margin-small;
+        }
+    }
+
+    &__submit {
+        margin-top: $margin-small;
+    }
+}
+
+@media (max-width: $first-break) and (min-width: $mobile-break) {
+    .user {
+        grid-column: 4 / 6;
+    }
+}
+
+@media (max-width: $mobile-break) {
+    .user {
+        grid-column: 3 / 9;
+    }
+}

@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
-import { searchButton } from '../../img/'
 import { searchShows, setSearch, reset } from '../../features/show/searchSlice'
 import { setSearchDisplay } from '../../features/show/searchDisplaySlice'
+import SearchButton from '../../img/search.svg'
 
 const MobileSearch = ({ setOpenSearch }) => {
     const { isError, message, search } = useSelector((state) => state.search)
@@ -55,7 +55,7 @@ const MobileSearch = ({ setOpenSearch }) => {
                 > 
                 </input>
                 <button type='submit' className='btn--mobile-search'>
-                    <img src={searchButton} />
+                    <SearchButton />
                 </button>
             </form>
             <div className='search--mobile__options'>

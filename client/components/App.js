@@ -9,6 +9,9 @@ import ScrollToTop from './ScrollToTop'
 import Home from './Home'
 import SearchResults from './SearchResults'
 import ShowDetails from './ShowDetails/ShowDetails'
+import Dashboard from './Dashboard/Dashboard'
+import UserSignIn from './User/UserSignIn'
+import UserRegister from './User/UserRegister'
 
 const App = () => {
     return (
@@ -20,6 +23,9 @@ const App = () => {
                             <Route path='/' element={<Home />} />
                             <Route path='/search' element={<SearchResults />} />
                             <Route path='/details' element={<ShowDetails />} />
+                            <Route path='/login' element={<UserSignIn />} />
+                            <Route path='/register' element={<UserRegister />} />
+                            <Route path='/dashboard' element={<Dashboard />} />
                         </Routes>
                     </Layout>
                 </ScrollToTop>

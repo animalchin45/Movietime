@@ -1,0 +1,39 @@
+.dashboard {
+    animation: fadeIn 400ms ease-out;
+    display: grid;
+    grid-template-rows: 5rem max-content 5rem;
+
+    &__favorites {
+        grid-column: center-start / center-end;
+        grid-row: 2 / 3;
+    }
+
+    &__watched {
+        background-color: rgba($color-secondary, .8);
+        border-radius: 5px;
+        bottom: -3px;
+        padding: 5px;
+        position: absolute;
+        right: -2px;
+
+        & svg {
+            height: 3rem;
+            width: 3rem;
+        }
+    }
+
+    // temporary layout
+    & button {
+        grid-row: 3 / 4;
+    }
+}
+
+@media (max-width: $first-break) {
+    .dashboard {
+
+        &__favorites {
+            grid-column: 1 / -1;
+        }
+        
+    }
+}

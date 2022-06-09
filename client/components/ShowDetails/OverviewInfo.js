@@ -1,13 +1,69 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useMediaQuery } from 'react-responsive'
+import { toast } from 'react-toastify'
 
+import { createFavorite, deleteFavorite, favoriteClearError } from '../../features/favorite/favoriteSlice'
 import { getMpaa, renderedCreated, renderedGenres, renderedCast } from './overviewServices'
+import AddWhite from '../../img/addwhite.svg'
+import AddBlack from '../../img/addblack.svg'
+import DeleteWhite from '../../img/deletewhite.svg'
+import DeleteBlack from '../../img/deleteblack.svg'
+import Watched from '../../img/watched.svg'
+import NotWatched from '../../img/notwatched.svg'
 import Stars from './Stars'
 
 const OverviewInfo = () => {
+    const dispatch = useDispatch()
     const { isDetailsLoading, isTvContentLoading, isPostersLoading, details } = useSelector((state) => state.details)
+    const { favorites, isError, message } = useSelector((state) => state.favorites)
+    const { user } = useSelector((state) => state.auth)
     const isMobile = useMediaQuery({ query: '(max-width: 960px)'})
+
+    useEffect(() => {
+        if (isError) {
+            toast.error(message)
+        }
+
+        return () => {
+            dispatch(favoriteClearError())
+        }
+
+    }, [isError, message, dispatch])
+
+    // Set favorite ids for comparison
+    const favIds = favorites.map(fav => fav.id)
+    
+    // Get current favorite
+    const favId = favorites.filter(fav => {
+        return fav.id === details.id.toString()
+    })
+
+    const onAddTitle = (details) => {
+        if (details.original_name) {
+            dispatch(createFavorite({
+                id: details.id,
+                original_title: details.original_name,
+                first_air_date: details.first_air_date,
+                poster_path: details.poster_path
+            }))
+        } else {
+            dispatch(createFavorite({
+                id: details.id,
+                original_title: details.original_title,
+                release_date: details.release_date,
+                poster_path: details.poster_path
+            }))
+        }
+    }
+
+    const onDeleteTitle = (favoriteId) => {
+        dispatch(deleteFavorite(favoriteId))
+    }
+
+    const onWatched = () => {
+
+    }
 
     if (isDetailsLoading || isTvContentLoading || isPostersLoading) {
         return (
@@ -22,12 +78,43 @@ const OverviewInfo = () => {
             <div className='show-details__overview__info'>
                 {details.original_name && <h3>{details.original_name}</h3>}
                 {details.original_title && <h3>{details.original_title}</h3>}
+                
 
                 <div className='show-details__overview__info__release'>
                     <div>
                         {details.release_date && <p>{details.release_date.substring(0,4)}</p>}
                         {details.first_air_date && <p>{details.first_air_date.substring(0,4)}</p>}
                         {(details.release_dates || details.results) && <p className={isMobile ? 'mpaa' : 'mpaa--white'}>{getMpaa()}</p>}
+                        
+                        {user &&
+                            <>
+                                {!favIds.includes(details.id.toString()) &&
+                                    <button onClick={() => onAddTitle(details)} className='btn--modify'>
+                                        {isMobile && <AddBlack />}
+                                        {!isMobile && <AddWhite />}
+                                    </button>
+                                }
+
+                                {favIds.includes(details.id.toString()) &&
+                                    <button onClick={() => onDeleteTitle(favId[0]._id)} className='btn--modify'>
+                                        {isMobile && <DeleteBlack />}
+                                        {!isMobile && <DeleteWhite />}
+                                    </button>
+                                }
+
+                                {(favIds.includes(details.id.toString()) && !favId[0].watched) &&
+                                    <button className='btn--modify'>
+                                        <NotWatched />
+                                    </button>
+                                }
+
+                                {(favIds.includes(details.id.toString()) && favId[0].watched) &&
+                                    <button className='btn--modify'>
+                                        <Watched />
+                                    </button>
+                                }
+                            </>
+                        }
                     </div>
                     <div>
                         {renderedGenres()}
@@ -39,9 +126,7 @@ const OverviewInfo = () => {
                 <p><i>{details.tagline}</i></p>
 
                 
-                <Stars />
-                {/*<p>Score: {details.vote_average}</p>*/}
-
+                
                 <h4>Overview</h4>
                 <p>{details.overview}</p>
 
@@ -57,6 +142,7 @@ const OverviewInfo = () => {
                         {renderedCast()}
                     </div>}
                 </div>
+                <Stars />
             </div>
         </>
         

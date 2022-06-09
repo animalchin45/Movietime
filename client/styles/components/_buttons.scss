@@ -1,22 +1,46 @@
 .btn {
-    // border-radius: 2rem;
-    
+    cursor: pointer;
+    border: none;
+    border-radius: $border-radius;
+    box-shadow: 0px 0px 10px -2px rgba($color-black,0.7);
+    transition: all $fade-in-quick ease-in-out;
+
+    &:hover {
+        box-shadow: 0px 2px 12px -1px rgba($color-black,0.7);
+        transform: translateX(-1px) translateY(-1px);
+    }
 
     &--active {
         background-color: $color-secondary;
     }
 
-    &--small {
+    &--modify {
         background-color: rgba(0,0,0,0);
         border: none;
         cursor: pointer;
-        height: 4.4rem;
-        margin: 0 $margin-small 0 $margin-small;
-        transform: translateY(-2rem);
-        width: 4.4rem;
+        display: flex;
+        margin-left: $margin-small;
 
-        & img {
-            height: 4.4rem;
+        & svg {
+            height: 2.5rem;
+            transform: translateY(-2px);
+            transition: transform $fade-in-quick ease-in-out;
+            width: 2.5rem;
+
+            &:hover {
+                transform: translateY(-4px);
+            }
+        }
+    }
+
+    &--small {
+        border: none;
+        cursor: pointer;
+        transform: translateY(0px);
+        transition: transform $fade-in-quick ease-in-out;
+
+        &:hover {
+            transform: translateY(-2px);
         }
     }
 
@@ -51,19 +75,17 @@
     }
 
     &--card {
-        border: none;
         cursor: pointer;
         height: 21rem;
-        width: 100%;
+        overflow: hidden;
+        position: relative;
+        width: 100%; 
     }
 
     &--media-card {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        border: none;
-        border-radius: $border-radius;
-        cursor: pointer;
         height: 9rem;
         width: 15rem;
     }
@@ -80,9 +102,15 @@
             position: absolute;
             top: 2rem;
         }
-
-        & img {
+        
+        & svg, img {
             height: 3rem;
+            transform: translateY(0px);
+            transition: transform $fade-in-quick ease-in-out;
+
+            &:hover {
+                transform: translateY(-2px);
+            }
         }
     }
 }

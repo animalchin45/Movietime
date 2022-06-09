@@ -5,7 +5,8 @@
 
 .ReactModal__Content {
     align-items: center;
-    border: none;
+    border: 3px solid $color-black !important;
+    border-radius: 0px !important;
     display: flex;
 }
 

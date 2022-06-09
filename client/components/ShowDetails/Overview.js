@@ -1,31 +1,27 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useMediaQuery } from 'react-responsive'
-import { toast } from 'react-toastify'
 
 import { getTrailer } from './overviewServices'
 import OverviewSummary from './OverviewSummary'
 import OverviewInfo from './OverviewInfo'
 import CastCards from './CastCards'
-import { reset, setPosition, setQuantity, setOpen, setSelectedMedia } from '../../features/modal/mediaViewerSlice'
+import { mediaViewerReset, setPosition, setQuantity, setOpen, setSelectedMedia } from '../../features/modal/mediaViewerSlice'
 
 const Overview = () => {
     const dispatch = useDispatch()
-    const { details, posters, isError, message } = useSelector((state) => state.details)
+    const { details, posters } = useSelector((state) => state.details)
     const isMobile = useMediaQuery({ query: '(max-width: 960px)'})
 
     useEffect(() => {
         // debuging - remove later
-        console.log(details)
-        if (isError) {
-            toast.error(message)
-        }
+        // console.log(details)
         
         return () => {
-            dispatch(reset())
+            dispatch(mediaViewerReset())
         }
 
-    }, [details, reset, isError, message, dispatch])
+    }, [details, mediaViewerReset, dispatch])
 
     // open image viewer modal
     const onPosterClick = (index, url) => {
@@ -49,7 +45,7 @@ const Overview = () => {
         return (
             <button 
                 key={poster.file_path} 
-                className='btn--media-card' 
+                className='btn btn--media-card' 
                 style={{backgroundImage: `url(https://image.tmdb.org/t/p/w154${poster.file_path})`}}
                 onClick={() => onPosterClick(index, poster.file_path)}
             >
