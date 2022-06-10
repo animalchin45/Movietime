@@ -31,6 +31,17 @@ export const getFavorites = createAsyncThunk('favorites/getAll', async (_, thunk
     }
 })
 
+// Upadte User Favorite
+export const updateFavorite = createAsyncThunk('favorites/update', async (update, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.user.token
+        return await favoriteService.updateFavorite(update, token)
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
 // Delete User Favorite
 export const deleteFavorite = createAsyncThunk('favorites/delete', async (id, thunkAPI) => {
     try {
@@ -92,6 +103,21 @@ export const favoriteSlice = createSlice({
                 state.favorites = state.favorites.filter((fav) => fav._id !== action.payload.id)
             })
             .addCase(deleteFavorite.rejected, (state, action) => {
+                state.isFavoritesLoading = false
+                state.isError = true
+                state.message = action.payload
+            })
+            .addCase(updateFavorite.pending, (state) => {
+                state.isFavoritesLoading = true
+            })
+            .addCase(updateFavorite.fulfilled, (state, action) => {
+                state.isFavoritesLoading = false
+                state.isFavoritesSuccess = true
+                const foundIndex = state.favorites.findIndex(x => x._id == action.payload._id)
+                console.log(foundIndex)
+                state.favorites[foundIndex] = action.payload
+            })
+            .addCase(updateFavorite.rejected, (state, action) => {
                 state.isFavoritesLoading = false
                 state.isError = true
                 state.message = action.payload

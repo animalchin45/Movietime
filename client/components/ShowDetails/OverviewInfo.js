@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useMediaQuery } from 'react-responsive'
 import { toast } from 'react-toastify'
 
-import { createFavorite, deleteFavorite, favoriteClearError } from '../../features/favorite/favoriteSlice'
+import { createFavorite, updateFavorite, deleteFavorite, favoriteClearError } from '../../features/favorite/favoriteSlice'
 import { getMpaa, renderedCreated, renderedGenres, renderedCast } from './overviewServices'
 import AddWhite from '../../img/addwhite.svg'
 import AddBlack from '../../img/addblack.svg'
@@ -61,8 +61,17 @@ const OverviewInfo = () => {
         dispatch(deleteFavorite(favoriteId))
     }
 
-    const onWatched = () => {
-
+    const onUpdateTitle = (id, rating) => {
+        if (rating) {
+            console.log(rating)
+        } else {
+            dispatch(updateFavorite({
+                id,
+                data: {
+                    watched: !favId[0].watched
+                }
+            }))
+        }
     }
 
     if (isDetailsLoading || isTvContentLoading || isPostersLoading) {
@@ -103,13 +112,13 @@ const OverviewInfo = () => {
                                 }
 
                                 {(favIds.includes(details.id.toString()) && !favId[0].watched) &&
-                                    <button className='btn--modify'>
+                                    <button onClick={() => onUpdateTitle(favId[0]._id)} className='btn--modify'>
                                         <NotWatched />
                                     </button>
                                 }
 
                                 {(favIds.includes(details.id.toString()) && favId[0].watched) &&
-                                    <button className='btn--modify'>
+                                    <button onClick={() => onUpdateTitle(favId[0]._id)} className='btn--modify'>
                                         <Watched />
                                     </button>
                                 }

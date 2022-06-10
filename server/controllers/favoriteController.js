@@ -60,7 +60,7 @@ const updateFavorite = asyncHandler (async (req, res) => {
     }
 
     // make sure the logged in user matches the favorite user
-    if(favorite.user.toString() !== user.id) {
+    if(favorite.userId.toString() !== user.id) {
         res.status(401) 
         throw new Error('user not authorized')
     }

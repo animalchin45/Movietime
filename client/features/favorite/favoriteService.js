@@ -28,6 +28,19 @@ const getFavorites = async (token) => {
     return response.data
 }
 
+// Update User Favorite
+const updateFavorite = async (update, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    const response = await axios.put(API_URL + update.id, update.data, config)
+
+    return response.data
+}
+
 // Delete User Favorite
 const deleteFavorite = async (favoriteId, token) => {
     const config = {
@@ -44,6 +57,7 @@ const deleteFavorite = async (favoriteId, token) => {
 const favoriteService = {
     createFavorite,
     getFavorites,
+    updateFavorite,
     deleteFavorite
 }
 
