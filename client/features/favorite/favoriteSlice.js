@@ -114,7 +114,6 @@ export const favoriteSlice = createSlice({
                 state.isFavoritesLoading = false
                 state.isFavoritesSuccess = true
                 const foundIndex = state.favorites.findIndex(x => x._id == action.payload._id)
-                console.log(foundIndex)
                 state.favorites[foundIndex] = action.payload
             })
             .addCase(updateFavorite.rejected, (state, action) => {

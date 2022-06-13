@@ -62,8 +62,16 @@ const OverviewInfo = () => {
     }
 
     const onUpdateTitle = (id, rating) => {
+        if (!user || !favId) {
+            return console.log('not a user favorite')
+        }
         if (rating) {
-            console.log(rating)
+            dispatch(updateFavorite({
+                id,
+                data: {
+                    userRating: rating
+                }
+            }))
         } else {
             dispatch(updateFavorite({
                 id,
@@ -151,7 +159,10 @@ const OverviewInfo = () => {
                         {renderedCast()}
                     </div>}
                 </div>
-                <Stars />
+                <Stars 
+                    favId={favId[0]} 
+                    onUpdateTitle={onUpdateTitle}
+                />
             </div>
         </>
         

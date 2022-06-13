@@ -1,5 +1,6 @@
 .user {
     align-items: center;
+    animation: fadeIn 400ms ease-out;
     display: flex;
     flex-direction: column;
     grid-column: 4 / 7;
