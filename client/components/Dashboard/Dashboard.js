@@ -41,14 +41,25 @@ const Dashboard = () => {
 
     return (
         <div className='layout__main dashboard'>
-            <div className='content-title'>
-                <h3>{`${user.userName}'s Favorites`}</h3>
-            </div>
-            <div className='dashboard__favorites'>
-                <div className='show-grid'>
-                    <ShowCards results={favorites} />
+            {(favorites.length == 0) &&
+                <div className='dashboard__favorites'>
+                    <p>No favorites here yet...</p>
                 </div>
-            </div>
+            }
+
+            {(favorites.length > 0) && 
+                <>
+                    <div className='content-title'>
+                        <h3>{`${user.userName}'s Favorites`}</h3>
+                    </div>
+                    <div className='dashboard__favorites'>
+                        <div className='show-grid'>
+                            <ShowCards results={favorites} />
+                        </div>
+                    </div>
+                </>
+            }
+
             <button className='btn btn--large' onClick={onLogout}>
                 <p>Logout</p>
             </button>

@@ -4,7 +4,6 @@ import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { authReset, login } from '../../features/auth/authSlice'
-import Loader from '../Loader'
 
 const UserSignIn = () => {
     const [formData, setFormData] = useState({
@@ -17,7 +16,7 @@ const UserSignIn = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
+    const { user, isError, isSuccess, message } = useSelector((state) => state.auth)
 
     useEffect(() => {
         if (isError) {
@@ -49,14 +48,14 @@ const UserSignIn = () => {
             password
         }
 
-        await dispatch(login(userData))
-    }
-
-    if (isLoading) {
-        return (
-            <div className="layout__main">
-                <Loader />
-            </div> 
+        // await dispatch(login(userData))
+        toast.promise(
+            dispatch(login(userData)),
+            {
+                pending: 'Just a moment...',
+                success: `Welcome back!`,
+                error: 'Oops, something went wrong...'
+            }
         )
     }
 

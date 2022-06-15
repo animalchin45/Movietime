@@ -41,24 +41,45 @@ const OverviewInfo = () => {
 
     const onAddTitle = (details) => {
         if (details.original_name) {
-            dispatch(createFavorite({
-                id: details.id,
-                original_title: details.original_name,
-                first_air_date: details.first_air_date,
-                poster_path: details.poster_path
-            }))
+            toast.promise(
+                dispatch(createFavorite({
+                    id: details.id,
+                    original_title: details.original_name,
+                    first_air_date: details.first_air_date,
+                    poster_path: details.poster_path
+                })),
+                {
+                pending: 'Just a moment',
+                success: 'Favorite saved!',
+                error: message 
+                }
+            )
         } else {
-            dispatch(createFavorite({
-                id: details.id,
-                original_title: details.original_title,
-                release_date: details.release_date,
-                poster_path: details.poster_path
-            }))
+            toast.promise(
+                dispatch(createFavorite({
+                    id: details.id,
+                    original_title: details.original_title,
+                    first_air_date: details.first_air_date,
+                    poster_path: details.poster_path
+                })),
+                {
+                pending: 'Just a moment',
+                success: 'Favorite saved!',
+                error: message 
+                }
+            )
         }
     }
 
     const onDeleteTitle = (favoriteId) => {
-        dispatch(deleteFavorite(favoriteId))
+        toast.promise(
+            dispatch(deleteFavorite(favoriteId)),
+            {
+                pending: 'Just a moment...',
+                success: 'Favorite removed',
+                error: message
+            }
+        )
     }
 
     const onUpdateTitle = (id, rating) => {

@@ -21,7 +21,7 @@ const setFavorite = asyncHandler (async (req, res) => {
         throw new Error('Please add a Movie or Tv show')
     }
 
-    const favoriteExists = await Favorite.findOne({user: req.user.id, id: req.body.id})
+    const favoriteExists = await Favorite.findOne({userId: req.user.id, id: req.body.id})
 
     if (favoriteExists) {
         res.status(400)

@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { authReset, register } from '../../features/auth/authSlice'
-import Loader from '../Loader'
 
 const UserRegister = () => {
     const [formData, setFormData] = useState({
@@ -57,16 +56,15 @@ const UserRegister = () => {
                 password
             }
             
-            dispatch(register(userData))
+            toast.promise(
+                dispatch(register(userData)),
+                {
+                    pending: 'Just a moment...',
+                    success: `New account created!`,
+                    error: 'Oops, something went wrong...'
+                }
+            )
         }
-    }
-
-    if (isLoading) {
-        return (
-            <div className="layout__main layout__columns">
-                <Loader />
-            </div> 
-        )
     }
 
     return (
