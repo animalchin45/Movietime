@@ -1,5 +1,5 @@
 .footer {
-    padding: $padding-small;
+    // padding: $padding-small;
 
     &__copy {
         align-items: end;
@@ -10,7 +10,15 @@
     }
 
     &__tmdb {
+        display: flex;
+        flex-direction: column;
         grid-column: center-end / -1;
+        padding-top: $padding-medium;
+
+        & svg {
+            transform: translateX(2rem);
+            width: 8rem;
+        }
     }
 }
 
@@ -18,11 +26,18 @@
     .footer {
         
         &__copy {
-            grid-column: col-start 2 / col-end 7;
+            grid-column: col-start 1 / col-end 6;
         }
 
         &__tmdb {
-            grid-column: col-end 7 / -1;
+            grid-column: col-end 6 / -1;
+            padding-top: 5px;
+
+            & svg {
+                height: 5rem;
+                transform: translateX(4.5rem);
+                width: 5rem;
+            }
         }
     }
 }

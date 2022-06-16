@@ -26,7 +26,17 @@ const UserRegister = () => {
             toast.error(message)
         }
 
+        if (isLoading) {
+            toast.promise(
+                register(),
+                {
+                    pending: 'Just a moment...'
+                }
+            )
+        }
+
         if (isSuccess || user) {
+            toast.success('New account created!')
             navigate('/dashboard')
         }
 
@@ -56,14 +66,7 @@ const UserRegister = () => {
                 password
             }
             
-            toast.promise(
-                dispatch(register(userData)),
-                {
-                    pending: 'Just a moment...',
-                    success: `New account created!`,
-                    error: 'Oops, something went wrong...'
-                }
-            )
+            dispatch(register(userData))
         }
     }
 

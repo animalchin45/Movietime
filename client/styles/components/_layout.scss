@@ -56,7 +56,7 @@
 
 @media (max-width: $mobile-break) {
     .layout {
-        grid-template-rows: 6rem minmax(calc(100vh - 19rem), max-content) 13rem;
+        grid-template-rows: 6rem minmax(calc(100vh - 19rem), max-content) 8rem;
 
         &__footer {
             grid-template-columns: $layout-columns-break;

@@ -29,7 +29,10 @@ const App = () => {
                     </Layout>
                 </ScrollToTop>
             </BrowserRouter>
-            <ToastContainer />
+            <ToastContainer 
+                pauseOnFocusLoss={false} 
+                autoClose={3000}    
+            />
         </>
     )
 }

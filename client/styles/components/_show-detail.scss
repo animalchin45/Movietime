@@ -100,8 +100,8 @@
 
             &__poster-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fill, 16.75rem);
-                grid-template-rows: repeat(auto-fill, 10.75rem);
+                grid-template-columns: repeat(auto-fill, 17rem);
+                grid-template-rows: repeat(auto-fill, 10.5rem);
                 justify-items: center;
             }
         }
@@ -170,7 +170,11 @@
             flex-direction: column;
             grid-column: 1 / -1;
             grid-row: 4 / 5;
-            margin: $margin-small;
+
+            & h4 {
+                padding-left: 1rem;
+            }
+            // margin: 0 $margin-small 0 $margin-small;
         }
     }
 }

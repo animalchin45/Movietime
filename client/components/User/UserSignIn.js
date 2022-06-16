@@ -16,14 +16,24 @@ const UserSignIn = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const { user, isError, isSuccess, message } = useSelector((state) => state.auth)
+    const { user, isError, isLoading, isSuccess, message } = useSelector((state) => state.auth)
 
     useEffect(() => {
         if (isError) {
             toast.error(message)
         }
 
+        if (isLoading) {
+            toast.promise(
+                login(),
+                {
+                    pending: 'Just a moment...'
+                }
+            )
+        }
+
         if (isSuccess || user) {
+            toast.success('Welcome back!')
             navigate('/dashboard')
         } 
 
@@ -31,7 +41,7 @@ const UserSignIn = () => {
             dispatch(authReset())
         }
 
-    }, [user, isError, isSuccess, message, navigate, dispatch])
+    }, [user, isError, isLoading, isSuccess, message, navigate, dispatch])
 
     const onChange = (e) => {
         setFormData((prevState) => ({
@@ -48,15 +58,15 @@ const UserSignIn = () => {
             password
         }
 
-        // await dispatch(login(userData))
-        toast.promise(
-            dispatch(login(userData)),
-            {
-                pending: 'Just a moment...',
-                success: `Welcome back!`,
-                error: 'Oops, something went wrong...'
-            }
-        )
+        await dispatch(login(userData))
+        // toast.promise(
+        //     dispatch(login(userData)),
+        //     {
+        //         pending: 'Just a moment...',
+        //         success: `Welcome back!`,
+        //         error: message
+        //     }
+        // )
     }
 
     return (
