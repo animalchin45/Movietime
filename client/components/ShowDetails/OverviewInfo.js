@@ -59,7 +59,7 @@ const OverviewInfo = () => {
                 dispatch(createFavorite({
                     id: details.id,
                     original_title: details.original_title,
-                    first_air_date: details.first_air_date,
+                    release_date: details.release_date,
                     poster_path: details.poster_path
                 })),
                 {
