@@ -37,9 +37,9 @@ export const renderedCreated = (creators, type) => {
     if (type === 'tv') {
         const value = creators.map((create, index) => {
             return (
-                <p key={create.id}>
+                <>
                     {(index ? ', ' : '') + create.name}
-                </p>
+                </>
             )
         })
 
@@ -49,9 +49,11 @@ export const renderedCreated = (creators, type) => {
 
         const value = directors.map((direct, index) => {
             return (
-                <p key={direct.id}>
+                <>
                     {(index ? ', ' : '') + direct.name}
-                </p>
+                </>
+                    
+             
             )
         })   
         
@@ -64,9 +66,9 @@ export const renderedGenres = () => {
     const { details } = useSelector((state) => state.details)
     const genres = details.genres.map((genre, index) => {
         return (
-            <p key={genre.id}>
+            <>
                 {(index ? `, ` : '') + genre.name}
-            </p>
+            </>
         )
     })
 
@@ -78,9 +80,9 @@ export const renderedCast = () => {
     const { details } = useSelector((state) => state.details)
     const cast = details.cast.slice(0, 3).map((actor, index) => {
         return (
-            <p key={actor.id}>
+            <>
                 {(index ? ', ' : '') + actor.name}
-            </p>
+            </>
         )
     })
 

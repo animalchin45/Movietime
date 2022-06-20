@@ -11,7 +11,7 @@ export const mediaViewerSlice = createSlice({
     name: 'mediaViewer',
     initialState,
     reducers: {
-        mediaViewerReset: (state) => initialState,
+        mediaViewerReset: () => initialState,
         setPosition: (state, action) => {
             state.position = action.payload
         },

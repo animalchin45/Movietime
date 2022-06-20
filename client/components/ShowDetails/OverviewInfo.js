@@ -20,6 +20,7 @@ const OverviewInfo = () => {
     const { user } = useSelector((state) => state.auth)
     const isMobile = useMediaQuery({ query: '(max-width: 960px)'})
 
+    // ERROR HANDLING AND CLEAR FAVORITE RELATED ERRORS ON EXIT
     useEffect(() => {
         if (isError) {
             toast.error(message)
@@ -39,6 +40,7 @@ const OverviewInfo = () => {
         return fav.id === details.id.toString()
     })
 
+    // ADD TITLE TO USER FAVORITES
     const onAddTitle = (details) => {
         if (details.original_name) {
             toast.promise(
@@ -71,6 +73,7 @@ const OverviewInfo = () => {
         }
     }
 
+    // DELETE TITLE FROM USER FAVORITES
     const onDeleteTitle = (favoriteId) => {
         toast.promise(
             dispatch(deleteFavorite(favoriteId)),
@@ -82,6 +85,7 @@ const OverviewInfo = () => {
         )
     }
 
+    // UPDATE FAVORITE PROPERTIES
     const onUpdateTitle = (id, rating) => {
         if (!user || !favId) {
             return console.log('not a user favorite')
@@ -103,6 +107,7 @@ const OverviewInfo = () => {
         }
     }
 
+    // SHOW LOADER WHILE ALL CONTENT IS LOADING
     if (isDetailsLoading || isTvContentLoading || isPostersLoading) {
         return (
             <div className='show-details__overview__info'>
@@ -155,7 +160,7 @@ const OverviewInfo = () => {
                         }
                     </div>
                     <div>
-                        {renderedGenres()}
+                        <p>{renderedGenres()}</p>
                     </div>
                     {details.runtime && <p>Runtime: {details.runtime} minutes</p>}
                     {details.episode_run_time && <p>Runtime: {details.episode_run_time}</p>}
@@ -163,22 +168,17 @@ const OverviewInfo = () => {
 
                 <p><i>{details.tagline}</i></p>
 
-                
-                
                 <h4>Overview</h4>
                 <p>{details.overview}</p>
 
                 <div className='show-details__overview__info__crew'>
                     <div className='show-details__overview__info__crew--members'>
-                        {(details.created_by && details.created_by.length > 0) && <p>Created By: </p>}
-                        {details.created_by && renderedCreated(details.created_by, 'tv')}
-                        {!details.created_by && <p>Directed By: </p>}
-                        {!details.created_by && renderedCreated(details.crew, 'movie')}
+                        {(details.created_by && details.created_by.length > 0) && <p>Created By: {renderedCreated(details.created_by, 'tv')}</p>}
+                        {!details.created_by && <p>Directed By: {renderedCreated(details.crew, 'movie')}</p>}
                     </div>
-                    {!isMobile && <div className='show-details__overview__info__crew--members'>
-                        {(details.cast && details.cast.length > 0) && <p>Starring: </p>}
-                        {renderedCast()}
-                    </div>}
+                    <div className='show-details__overview__info__crew--members'>
+                        {(details.cast && details.cast.length > 0) && <p>Starring: {renderedCast()}</p>}
+                    </div>
                 </div>
                 <Stars 
                     favId={favId[0]} 

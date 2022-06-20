@@ -35,10 +35,10 @@ const MediaViewer = () => {
                 dispatch(changePosition(change))
                 dispatch(setSelectedMedia(posters[change].file_path))
                 setSlide('media-modal__img media-modal__img--next')
-            }, 300)
+            }, 200)
             setTimeout(() => {
                 setSlide('media-modal__img')
-            }, 600)
+            }, 400)
             
         } else {
             setSlide('media-modal__img--next')
@@ -46,17 +46,12 @@ const MediaViewer = () => {
                 dispatch(changePosition(0))
                 dispatch(setSelectedMedia(posters[0].file_path))
                 setSlide('media-modal__img')
-            }, 300)
-            
+            }, 200)
+            setTimeout(() => {
+                setSlide('media-modal__img')
+            }, 400)
         }
     }
-
-    // 1. slide to correct side
-    // 2. fade out during slide
-    // 3. complete slide / fade out
-    // 4. get next image
-    // 5. slide / fade in from correct side
-    // 6. complete slide / fade in
 
     // PREVIOUS POSTER
     const onPrev = () => {
@@ -67,10 +62,10 @@ const MediaViewer = () => {
                 dispatch(changePosition(change))
                 dispatch(setSelectedMedia(posters[change].file_path))
                 setSlide('media-modal__img media-modal__img--prev')
-            }, 300)
+            }, 200)
             setTimeout(() => {
                 setSlide('media-modal__img')
-            }, 600)
+            }, 400)
             
         } else {
             setSlide('media-modal__img media-modal__img--right')
@@ -79,16 +74,23 @@ const MediaViewer = () => {
                 dispatch(changePosition(change))
                 dispatch(setSelectedMedia(posters[change].file_path))
                 setSlide('media-modal__img media-modal__img--prev')
-            }, 300)
+            }, 200)
             setTimeout(() => {
                 setSlide('media-modal__img')
-            }, 600)
+            }, 400)
         }
     }
 
     // CLOSE MODAL
     const onClearModal = () => {
-        dispatch(mediaViewerReset())
+        setSlide('media-modal__img media-modal__img--close')
+        setTimeout(() => {
+            dispatch(mediaViewerReset())
+        }, 200)
+
+        setTimeout(() => {
+            setSlide('media-modal__img')
+        }, 500)
     }
 
     return (
