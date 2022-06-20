@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Modal from 'react-modal'
 import { useMediaQuery } from 'react-responsive'
@@ -13,33 +13,9 @@ const MediaViewer = () => {
     const { quantity, position, isOpen, selectedMedia } = useSelector((state) => state.mediaViewer)
     const isMobile = useMediaQuery({ query: '(max-width: 960px)'})
 
-    const onNext = () => {
-        if (position != (quantity - 1)) {
-            const change = position + 1
-            dispatch(changePosition(change))
-            dispatch(setSelectedMedia(posters[change].file_path))
-        } else {
-            dispatch(changePosition(0))
-            dispatch(setSelectedMedia(posters[0].file_path))
-        }
-    }
+    const [slide, setSlide] = useState('media-modal__img')
 
-    const onPrev = () => {
-        if (position != 0) {
-            const change = position - 1
-            dispatch(changePosition(change))
-            dispatch(setSelectedMedia(posters[change].file_path))
-        } else {
-            const change = quantity - 1
-            dispatch(changePosition(change))
-            dispatch(setSelectedMedia(posters[change].file_path))
-        }
-    }
-
-    const onClearModal = () => {
-        dispatch(mediaViewerReset())
-    }
-
+    // MODAL STYLE OVERRIDE
     const styles = {
         content: {
             border: 'none',
@@ -48,6 +24,71 @@ const MediaViewer = () => {
             padding: 0,
             position: 'fixed'
         }
+    }
+
+    // NEXT POSTER
+    const onNext = () => {
+        if (position != (quantity - 1)) {
+            setSlide('media-modal__img media-modal__img--left')
+            setTimeout(() => {
+                const change = position + 1
+                dispatch(changePosition(change))
+                dispatch(setSelectedMedia(posters[change].file_path))
+                setSlide('media-modal__img media-modal__img--next')
+            }, 300)
+            setTimeout(() => {
+                setSlide('media-modal__img')
+            }, 600)
+            
+        } else {
+            setSlide('media-modal__img--next')
+            setTimeout(() => {
+                dispatch(changePosition(0))
+                dispatch(setSelectedMedia(posters[0].file_path))
+                setSlide('media-modal__img')
+            }, 300)
+            
+        }
+    }
+
+    // 1. slide to correct side
+    // 2. fade out during slide
+    // 3. complete slide / fade out
+    // 4. get next image
+    // 5. slide / fade in from correct side
+    // 6. complete slide / fade in
+
+    // PREVIOUS POSTER
+    const onPrev = () => {
+        if (position != 0) {
+            setSlide('media-modal__img media-modal__img--right')
+            setTimeout(() => {
+                const change = position - 1
+                dispatch(changePosition(change))
+                dispatch(setSelectedMedia(posters[change].file_path))
+                setSlide('media-modal__img media-modal__img--prev')
+            }, 300)
+            setTimeout(() => {
+                setSlide('media-modal__img')
+            }, 600)
+            
+        } else {
+            setSlide('media-modal__img media-modal__img--right')
+            setTimeout(() => {
+                const change = quantity - 1
+                dispatch(changePosition(change))
+                dispatch(setSelectedMedia(posters[change].file_path))
+                setSlide('media-modal__img media-modal__img--prev')
+            }, 300)
+            setTimeout(() => {
+                setSlide('media-modal__img')
+            }, 600)
+        }
+    }
+
+    // CLOSE MODAL
+    const onClearModal = () => {
+        dispatch(mediaViewerReset())
     }
 
     return (
@@ -67,7 +108,7 @@ const MediaViewer = () => {
                 <button className='btn--media-viewer' onClick={() => onPrev()}>
                     <img src={left} />
                 </button>
-                <img className='media-modal__img' src={`https://image.tmdb.org/t/p/w780${selectedMedia}`} />
+                <img className={slide} src={`https://image.tmdb.org/t/p/w780${selectedMedia}`} />
                 <button className='btn--media-viewer' onClick={() => onNext()}>
                     <img src={right} />
                 </button>
