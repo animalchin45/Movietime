@@ -117,6 +117,14 @@ button {
     text-decoration: underline;
 }
 
+.mobile-nav {
+    color: $color-white;
+
+    & a {
+        color: $color-white;
+    }
+}
+
 a {
     color: $color-black;
     cursor: pointer;

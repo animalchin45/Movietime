@@ -122,6 +122,7 @@ const OverviewInfo = () => {
                 {details.original_name && <h3>{details.original_name}</h3>}
                 {details.original_title && <h3>{details.original_title}</h3>}
                 
+                <p><i>{details.tagline}</i></p>
 
                 <div className='show-details__overview__info__release'>
                     <div>
@@ -165,8 +166,6 @@ const OverviewInfo = () => {
                     {details.runtime && <p>Runtime: {details.runtime} minutes</p>}
                     {details.episode_run_time && <p>Runtime: {details.episode_run_time}</p>}
                 </div>
-
-                <p><i>{details.tagline}</i></p>
 
                 <h4>Overview</h4>
                 <p>{details.overview}</p>

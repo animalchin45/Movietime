@@ -14,17 +14,12 @@ const MobileHeader = () => {
     return (
         <>
             <div className='layout__header--mobile'>
-                <p className='header__hamburger'>Menu</p>
+                <div></div>
                 <Link to='/' className='header__logo'>
                     <h1 className='sm-h1'>MOVIETIME</h1>
                 </Link>
                 <div className='header__controls'>
-                    {user && <Link to='/dashboard' className='btn--modify'>
-                        <User />
-                    </Link>}
-                    {!user && <Link to='/login' className='btn--modify'>
-                        <User />
-                    </Link>}
+                    
                     <button 
                         className='btn--modify'
                         onClick={() => setOpenSearch(!openSearch)}

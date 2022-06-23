@@ -18,6 +18,7 @@
 @import "components/layout";
 @import "components/loader";
 @import "components/media-modal";
+@import "components/mobile-nav";
 @import "components/search";
 @import "components/search-results";
 @import "components/show-detail";
@@ -26,7 +27,7 @@
 @import "components/user";
 
 // Toastify
-@import "toastify/ReactToastify.css"
+@import "toastify/ReactToastify.css";
 
 // Hamburger
-// @import "hamburger/hamburgers.scss";
+@import "hamburgers/hamburgers.scss";

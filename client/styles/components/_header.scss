@@ -18,6 +18,10 @@
         display: flex;
         justify-items: center;
 
+        & button {
+            margin-left: $margin-large;
+        }
+
         & a {
             margin-right: $margin-small;
         }
