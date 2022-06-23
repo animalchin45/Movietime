@@ -11,16 +11,16 @@
   .loader::before {
     content: '';  
     box-sizing: border-box;
-    width: 35rem;
-    height: 35rem;
-    border: 2px solid $color-primary;
+    width: 45rem;
+    height: 45rem;
+    border: 60px solid rgba($color-primary, .5);
     position: absolute;
-    left: calc(50% - 17.5rem);
-    top: calc(50% - 17.5rem);
+    left: calc(50% - 22.5rem);
+    top: calc(50% - 22.5rem);
     animation: scaleOut 2s ease-in-out infinite;
   }
   .loader::after {
-    border-color: $color-secondary;
+    border-color: rgba($color-secondary, .5);
     animation-delay: 1s;
   }
   
