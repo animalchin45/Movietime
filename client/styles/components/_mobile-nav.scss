@@ -23,7 +23,7 @@
         background-color: $color-secondary;
         display: flex;
         flex-direction: column;
-        min-height: 100vh;
+        min-height: calc(100vh - 6rem);
         padding: $padding-medium;
         position: fixed;
         transition: all $fade-in-slow ease-in-out;
