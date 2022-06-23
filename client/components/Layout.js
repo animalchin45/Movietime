@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive'
 
 import Header from './Header/Header'
 import MobileHeader from './Header/MobileHeader'
-import MobileNav from './MobileNav'
+// import MobileNav from './MobileNav'
 import Footer from './Footer'
 
 const Layout = (props) => {
@@ -11,7 +11,7 @@ const Layout = (props) => {
 
     return (
         <div className='layout'>
-            <MobileNav />
+            {/*<MobileNav />*/}
             {!isMobile && <Header />}
             {isMobile && <MobileHeader />}
                 {props.children}

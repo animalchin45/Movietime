@@ -17,6 +17,7 @@ const MobileNav = () => {
     }
 
     // Mobile menu state and animation position
+    const [hamburgerOpen, setHamburgerOpen] = useState('mobile-nav mobile-nav--closed')
     const [hamburgerClass, setHamburgerClass] = useState(`hamburger hamburger--arrow`)
     const [mobileNavLinksClass, setMobileNavLinksClass] = useState({
         opacity: 0,
@@ -25,6 +26,7 @@ const MobileNav = () => {
 
     // Hamburger Menu close on click
     const handleMenuClick = () => {
+        setHamburgerOpen('mobile-nav mobile-nav--closed')
         setHamburgerClass(`hamburger hamburger--arrow`)
         setMobileNavLinksClass({
             opacity: 0,
@@ -35,12 +37,14 @@ const MobileNav = () => {
     // Hamburger open / close
     const handleHamburgerClick = () => {
         if (hamburgerClass === `hamburger hamburger--arrow`) {
+            setHamburgerOpen('mobile-nav mobile-nav--open')
             setHamburgerClass(`hamburger hamburger--arrow is-active`)
             setMobileNavLinksClass({
                 opacity: 1,
                 width: '75%'
             })
         } else {
+            setHamburgerOpen('mobile-nav mobile-nav--closed')
             setHamburgerClass(`hamburger hamburger--arrow`)
             setMobileNavLinksClass({
                 opacity: 0,
@@ -50,7 +54,7 @@ const MobileNav = () => {
     }
 
     return (
-        <div className="mobile-nav">
+        <div className={hamburgerOpen}>
             <nav className="mobile-nav__links" onClick={() => handleMenuClick()} style={mobileNavLinksClass}>
                 <div className='mobile-nav__welcome'>
                     {!user && <p>Welcome to Movietime</p>}

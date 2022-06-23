@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import MobileSearch from '../Search/MobileSearch'
-import User from '../../img/user.svg'
+import MobileNav from '../MobileNav'
 import SearchButton from '../../img/search.svg'
 import Close from '../../img/close.svg'
 
 const MobileHeader = () => {
-    const { user } = useSelector((state) => state.auth)
     const [openSearch, setOpenSearch] = useState(false)
 
     return (
         <>
             <div className='layout__header--mobile'>
-                <div></div>
+                <div>
+                    <MobileNav />
+                </div>
                 <Link to='/' className='header__logo'>
                     <h1 className='sm-h1'>MOVIETIME</h1>
                 </Link>
