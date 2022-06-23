@@ -8,6 +8,10 @@
 
     &--closed {
         position: relative;
+
+        & nav {
+            padding: 0;
+        }
     }
 
     & a {
