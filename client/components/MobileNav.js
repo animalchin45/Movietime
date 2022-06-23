@@ -21,7 +21,7 @@ const MobileNav = () => {
     const [hamburgerClass, setHamburgerClass] = useState(`hamburger hamburger--arrow`)
     const [mobileNavLinksClass, setMobileNavLinksClass] = useState({
         opacity: 0,
-        width: '0%'
+        left: '-1200px'
     })
 
     // Hamburger Menu close on click
@@ -30,7 +30,7 @@ const MobileNav = () => {
         setHamburgerClass(`hamburger hamburger--arrow`)
         setMobileNavLinksClass({
             opacity: 0,
-            width: '0%'
+            left: '-1200px'
         })
     }
 
@@ -41,14 +41,14 @@ const MobileNav = () => {
             setHamburgerClass(`hamburger hamburger--arrow is-active`)
             setMobileNavLinksClass({
                 opacity: 1,
-                width: '75%'
+                left: '0px'
             })
         } else {
             setHamburgerOpen('mobile-nav mobile-nav--closed')
             setHamburgerClass(`hamburger hamburger--arrow`)
             setMobileNavLinksClass({
                 opacity: 0,
-                width: '0%'
+                left: '-1200px'
             })
         }
     }
