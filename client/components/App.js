@@ -31,7 +31,7 @@ const App = () => {
             </BrowserRouter>
             <ToastContainer 
                 pauseOnFocusLoss={false} 
-                autoClose={3000}    
+                autoClose={1500}    
             />
         </>
     )
