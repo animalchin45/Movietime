@@ -1,16 +1,18 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { reel } from '../img/index'
 import { showDetails, tvRatings, getPosters, reset } from '../features/show/detailsSlice'
 import { resetSearchDisplay } from '../features/show/searchDisplaySlice'
+import Stars from './ShowDetails/Stars'
 import Watched from '../img/watched.svg'
 import NotWatched from '../img/notwatched.svg'
 
 const ShowCards = ({ results }) => {
     const { user } = useSelector((state) => state.auth)
 
+    let { pathname } = useLocation()
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -47,13 +49,20 @@ const ShowCards = ({ results }) => {
                         </div>
                     }
                 </button>
-                
-                <div className='u-padding-top'>
+
+                {(pathname === '/dashboard') &&
+                    <div>
+                        <Stars dashRating={show.userRating} />
+                    </div>
+                }
+        
+                <div>
                     {show.original_title && <p className='label-text'>{show.original_title}</p>}
                     {show.release_date && <p className='label-text'>{show.release_date.substring(0,4)}</p>}
                     {show.original_name && <p className='label-text'>{show.original_name}</p>}
                     {show.first_air_date && <p className='label-text'>{show.first_air_date.substring(0,4)}</p>}
                 </div>
+                
             </div>
         )
     })

@@ -1,21 +1,45 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import StarLeft from '../../img/starLeft.svg'
 import StarRight from '../../img/starRight.svg'
 
-const Stars = ({ favId, onUpdateTitle }) => {
+const Stars = ({ favId, onUpdateTitle, dashRating }) => {
     const { details } = useSelector((state) => state.details)
     const { user } = useSelector((state) => state.auth)
+    let { pathname } = useLocation()
 
-    const rating = () => {
+    const [starType, setStarType] = useState('stars')
+    const [starPieceType, setStarPieceType] = useState('stars__piece')
+
+    const [score, setScore] = useState(0)
+
+    // Determine Source of Rating
+    useEffect(() => {
         if (favId && (favId.userRating > 0)) {
-            return favId.userRating
+            // set stars if on details page and show is in user's favoritess
+            setScore(favId.userRating)
+        } else if (dashRating) {
+            // dashboard rating not interactive
+            setStarType('stars--static')
+            setScore(dashRating)
+        } else if (!user || (pathname === '/dashboard')) {
+            // no user makes stars non interactive
+            setStarType('stars--static')
+            setScore(Math.round(details.vote_average))
         } else {
-            return Math.round(details.vote_average)
+            // Show average score
+            setScore(Math.round(details.vote_average))
         }
-    }
+    })
 
+    // Determine Size of Stars
+    useEffect(() => {
+        if (pathname === '/dashboard') {
+            setStarPieceType('stars__piece--dashboard')
+        }
+    })
 
     const on = {
         fill: 'rgba(233, 216, 166, 1)'
@@ -26,65 +50,72 @@ const Stars = ({ favId, onUpdateTitle }) => {
     }
 
     return (
-        <div className='stars'>
+        <div className={starType}>
             <StarLeft 
-                className="stars__piece" 
-                style={rating() >= 1 ? on : off}
+                className={starPieceType} 
+                style={score >= 1 ? on : off}
                 onClick={favId ? () => onUpdateTitle(favId._id, 1) : undefined}
             />
             <StarRight 
-                className="stars__piece" 
-                style={rating() >= 2 ? on : off}
+                className={starPieceType} 
+                style={score >= 2 ? on : off}
                 onClick={favId ? () => onUpdateTitle(favId._id, 2) : undefined}
             />
         
             <StarLeft 
-                className="stars__piece" 
-                style={rating() >= 3 ? on : off}
+                className={starPieceType} 
+                style={score >= 3 ? on : off}
                 onClick={favId ? () => onUpdateTitle(favId._id, 3) : undefined}
             />
             <StarRight 
-                className="stars__piece" 
-                style={rating() >= 4 ? on : off}
+                className={starPieceType} 
+                style={score >= 4 ? on : off}
                 onClick={favId ? () => onUpdateTitle(favId._id, 4) : undefined}
             />
         
             <StarLeft 
-                className="stars__piece" 
-                style={rating() >= 5 ? on : off}
+                className={starPieceType} 
+                style={score >= 5 ? on : off}
                 onClick={favId ? () => onUpdateTitle(favId._id, 5) : undefined}
             />
             <StarRight 
-                className="stars__piece" 
-                style={rating() >= 6 ? on : off}
+                className={starPieceType} 
+                style={score >= 6 ? on : off}
                 onClick={favId ? () => onUpdateTitle(favId._id, 6) : undefined}
             />
         
             <StarLeft 
-                className="stars__piece" 
-                style={rating() >= 7 ? on : off}
+                className={starPieceType} 
+                style={score >= 7 ? on : off}
                 onClick={favId ? () => onUpdateTitle(favId._id, 7) : undefined}
             />
             <StarRight
-                className="stars__piece" 
-                style={rating() >= 8 ? on : off}
+                className={starPieceType} 
+                style={score >= 8 ? on : off}
                 onClick={favId ? () => onUpdateTitle(favId._id, 8) : undefined}
             />
         
             <StarLeft 
-                className="stars__piece" 
-                style={rating() >= 9 ? on : off}
+                className={starPieceType} 
+                style={score >= 9 ? on : off}
                 onClick={favId ? () => onUpdateTitle(favId._id, 9) : undefined}
             />
             <StarRight 
-                className="stars__piece" 
-                style={rating() >= 10 ? on : off}
+                className={starPieceType} 
+                style={score >= 10 ? on : off}
                 onClick={favId ? () => onUpdateTitle(favId._id, 10) : undefined}
             />
 
-            {(!user || (!favId || (favId.userRating == 0))) && <p><i>Average Score</i></p>}
-            {(favId && ((favId.userRating > 0) && user)) && <p><i>{user.userName}'s Score</i></p>}
+            {(pathname != '/dashboard') &&
+                <div>
+                    {(!user || (!favId || (favId.userRating == 0))) && <p><i>Average Score</i></p>}
+                    {(favId && ((favId.userRating > 0) && user)) && <p><i>{user.userName}'s Score</i></p>}
+                </div>
+            }
 
+
+            
+            
         </div>
     )
 }

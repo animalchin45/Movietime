@@ -7,6 +7,22 @@
     margin: 0 0 $margin-small 0;
     width: max-content;
 
+    // Static Card Appearance Setup
+    &--static {
+        display: flex;
+        margin: 0 0 $margin-small 0;
+        width: max-content;
+
+        & svg:nth-child(odd) {
+            transform: translateX(1px);
+        }
+    
+        & svg:nth-child(2n + 2) {
+            padding: 0 $margin-small 0 0;
+        }
+    }
+
+    // align star svg's 
     & svg:nth-child(odd) {
         transform: translateX(1px);
     }
@@ -20,6 +36,13 @@
     &__piece {
         fill: rgba($color-gray-light, 0);
         height: 2.5rem;
+        transition: fill $fade-in-quick;
+    }
+
+    // Dashboard Appearance
+    &__piece--dashboard {
+        fill: rgba($color-gray-light, 0);
+        height: 1.5rem;
         transition: fill $fade-in-quick;
     }
 

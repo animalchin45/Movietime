@@ -59,14 +59,6 @@ const UserSignIn = () => {
         }
 
         await dispatch(login(userData))
-        // toast.promise(
-        //     dispatch(login(userData)),
-        //     {
-        //         pending: 'Just a moment...',
-        //         success: `Welcome back!`,
-        //         error: message
-        //     }
-        // )
     }
 
     return (
