@@ -61,7 +61,7 @@ const registerUser = asyncHandler(async (req, res) => {
 // @access  Public
 const loginUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body
-    
+
     // Check for email
     const user = await User.findOne({email})
 

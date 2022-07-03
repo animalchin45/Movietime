@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { reel } from '../img/index'
-import { showDetails, tvRatings, getPosters, reset } from '../features/show/detailsSlice'
+import { showDetails, tvRatings, getPosters, detailsReset } from '../features/show/detailsSlice'
 import { resetSearchDisplay } from '../features/show/searchDisplaySlice'
 import Stars from './ShowDetails/Stars'
 import Watched from '../img/watched.svg'
@@ -17,7 +17,7 @@ const ShowCards = ({ results }) => {
     const navigate = useNavigate()
 
     const onClick = async (media_type, id) => {
-        dispatch(reset())
+        dispatch(detailsReset())
         dispatch(resetSearchDisplay())
         dispatch(showDetails({media_type, id}))
 

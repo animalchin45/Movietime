@@ -18,7 +18,7 @@ const Stars = ({ favId, onUpdateTitle, dashRating }) => {
     // Determine Source of Rating
     useEffect(() => {
         if (favId && (favId.userRating > 0)) {
-            // set stars if on details page and show is in user's favoritess
+            // set stars if on details page and show is in user's favorites
             setScore(favId.userRating)
         } else if (dashRating) {
             // dashboard rating not interactive
@@ -106,6 +106,7 @@ const Stars = ({ favId, onUpdateTitle, dashRating }) => {
                 onClick={favId ? () => onUpdateTitle(favId._id, 10) : undefined}
             />
 
+            {/* Only show type of score on when not on dashboard */}
             {(pathname != '/dashboard') &&
                 <div>
                     {(!user || (!favId || (favId.userRating == 0))) && <p><i>Average Score</i></p>}
@@ -113,7 +114,12 @@ const Stars = ({ favId, onUpdateTitle, dashRating }) => {
                 </div>
             }
 
-
+            {/* Inform user that show needs to be a favorite to rate */}
+            {((pathname != '/dashboard') && user && !favId ) &&
+                <div className='u-margin-left'>
+                    
+                </div>
+            }
             
             
         </div>

@@ -19,7 +19,6 @@ const MobileHeader = () => {
                     <h1 className='sm-h1'>MOVIETIME</h1>
                 </Link>
                 <div className='header__controls'>
-                    
                     <button 
                         className='btn--modify'
                         onClick={() => setOpenSearch(!openSearch)}

@@ -133,10 +133,13 @@ const OverviewInfo = () => {
                         {user &&
                             <>
                                 {!favIds.includes(details.id.toString()) &&
+                                    <>
                                     <button onClick={() => onAddTitle(details)} className='btn--modify'>
                                         {isMobile && <AddBlack />}
                                         {!isMobile && <AddWhite />}
                                     </button>
+                                    <p className='u-margin-left'><i>Add title to favorites to rate</i></p>
+                                    </>
                                 }
 
                                 {favIds.includes(details.id.toString()) &&
