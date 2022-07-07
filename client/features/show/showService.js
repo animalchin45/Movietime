@@ -103,6 +103,12 @@ const details = async (show) => {
                 }
             })
         ])
+        // console.log({
+        //     ...response[0].data,
+        //     ...response[1].data,
+        //     ...response[2].data,
+        //     ...response[3].data
+        // })
         return {
             ...response[0].data,
             ...response[1].data,
@@ -132,7 +138,7 @@ const posters = async (show) => {
             language: 'en'
         }
     })
-    console.log(response.data)
+    // console.log(response.data)
     return response.data.posters.slice(0, 9)
 }
 

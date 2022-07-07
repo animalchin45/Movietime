@@ -33,6 +33,7 @@ const setFavorite = asyncHandler (async (req, res) => {
         original_title: req.body.original_title,
         release_date: req.body.release_date,
         first_air_date: req.body.first_air_date,
+        genres: req.body.genres,
         poster_path: req.body.poster_path,
         userId: req.user.id
     })

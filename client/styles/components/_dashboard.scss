@@ -1,11 +1,22 @@
 .dashboard {
     animation: fadeIn 400ms ease-out;
     display: grid;
-    grid-template-rows: 5rem max-content 5rem;
+    grid-template-rows: 40rem 5rem max-content 10rem;
+
+    &__welcome {
+        display: flex;
+        flex-direction: column;
+        grid-column: center-start / center-end;
+        justify-content: center;
+    }
 
     &__favorites {
         grid-column: center-start / center-end;
-        grid-row: 2 / 3;
+        grid-row: 3 / 4;
+
+        &--title {
+            grid-row: 2 / 3;
+        }
     }
 
     &__watched {
@@ -24,12 +35,17 @@
 
     // temporary layout
     & button {
-        grid-row: 3 / 4;
+        grid-row: 4 / 5;
     }
 }
 
 @media (max-width: $first-break) {
     .dashboard {
+
+        &__welcome {
+            align-items: center;
+            grid-column: 1 / -1;
+        }
 
         &__favorites {
             grid-column: 1 / -1;

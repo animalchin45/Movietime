@@ -48,6 +48,7 @@ const OverviewInfo = () => {
                     id: details.id,
                     original_title: details.original_name,
                     first_air_date: details.first_air_date,
+                    genres: details.genres,
                     poster_path: details.poster_path
                 })),
                 {
@@ -62,6 +63,7 @@ const OverviewInfo = () => {
                     id: details.id,
                     original_title: details.original_title,
                     release_date: details.release_date,
+                    genres: details.genres,
                     poster_path: details.poster_path
                 })),
                 {
@@ -138,7 +140,7 @@ const OverviewInfo = () => {
                                         {isMobile && <AddBlack />}
                                         {!isMobile && <AddWhite />}
                                     </button>
-                                    <p className='u-margin-left'><i>Add title to favorites to rate</i></p>
+                                    <p className='u-margin-left'><i>{`(Add title to favorites to rate)`}</i></p>
                                     </>
                                 }
 

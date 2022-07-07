@@ -22,6 +22,10 @@ const favoriteSchema = mongoose.Schema({
         type: String,
         default: null
     },
+    genres: [{
+        id: {type: String, default: null},
+        name: {type: String, default: null}
+    }],
     watched: {
         type: Boolean,
         default: false
