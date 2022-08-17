@@ -31,7 +31,7 @@ const UserSignIn = () => {
       })
     }
 
-    if (user) {
+    if (isSuccess && user) {
       toast.success("Welcome back!")
       navigate("/dashboard")
     }

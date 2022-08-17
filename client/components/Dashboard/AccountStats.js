@@ -2,15 +2,6 @@ import React from "react"
 import { useSelector } from "react-redux"
 
 const AccountStats = ({ accountFavorites, currentUser }) => {
-  const { isLoading } = useSelector((state) => state.auth)
-  const { favorites, isFavoritesLoading } = useSelector(
-    (state) => state.favorites
-  )
-
-  if (isLoading || isFavoritesLoading || !favorites) {
-    return <Loader />
-  }
-
   return (
     <section className="dashboard__welcome">
       <h4 className="u-margin-bottom">{`${currentUser.name}`}</h4>

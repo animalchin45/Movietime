@@ -34,7 +34,7 @@ const UserRegister = () => {
       })
     }
 
-    if (user) {
+    if (isSuccess && user) {
       toast.success("New account created!")
       navigate("/dashboard")
     }

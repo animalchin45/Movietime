@@ -44,7 +44,7 @@ const Dashboard = () => {
     navigate("/")
   }
 
-  if (isLoading || isFavoritesLoading || !favorites) {
+  if (isLoading || isFavoritesLoading || !favorites || !user) {
     return <Loader />
   }
 
