@@ -12,7 +12,7 @@ const SearchResults = () => {
 
     if (isLoading) {
         return (
-            <div className="layout__main layout__columns">
+            <div className="layout__main search-results">
                 <div className="show-grid">
                     <Loader />
                 </div>
@@ -22,12 +22,26 @@ const SearchResults = () => {
 
     return (
         <div className="layout__main search-results">
-            <div className='search-results--title'>
-                {searchDisplay && <h3>Results for {searchDisplay}</h3>}
-            </div>
-            <div className="show-grid show-grid--search-results">
-                <ShowCards results={searchResults} />
-            </div>
+            {(searchResults.length > 0) && 
+                <>
+                    <div className='search-results--title'>
+                        {searchDisplay && <h3>Results for {searchDisplay}</h3>}
+                    </div>
+                    <div className="show-grid show-grid--search-results">
+                        <ShowCards results={searchResults} />
+                    </div>
+                </>
+            }
+            {(searchResults.length == 0) && 
+                <>
+                    <div className='search-results--title'>
+                        {searchDisplay && <h3>Results for {searchDisplay}</h3>}
+                    </div>
+                    <div className="show-grid show-grid--search-results">
+                        <p>No results! Please try something else.</p>
+                    </div>
+                </>
+            }
         </div>
         
     )

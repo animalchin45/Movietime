@@ -9,7 +9,9 @@ const {
 } = require('../controllers/favoriteController')
 const { protect } = require('../middleware/authMiddleware')
 
-router.route('/').get(protect,getFavorites).post(protect, setFavorite)
+router.route('/').get(protect, getFavorites).post(protect, setFavorite)
+
+// router.route('/dashboard').get(protect, getFavorites)
 
 router.route('/:id').put(protect, updateFavorite).delete(protect, deleteFavorite)
 

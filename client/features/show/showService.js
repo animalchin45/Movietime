@@ -68,11 +68,11 @@ const details = async (show) => {
                 }
             })
         ])
-        // console.log({
-        //     ...response[0].data,
-        //     ...response[1].data,
-        //     ...response[2].data
-        // })
+        console.log({
+            ...response[0].data,
+            ...response[1].data,
+            ...response[2].data
+        })
         return {
             ...response[0].data,
             ...response[1].data,
@@ -103,12 +103,12 @@ const details = async (show) => {
                 }
             })
         ])
-        // console.log({
-        //     ...response[0].data,
-        //     ...response[1].data,
-        //     ...response[2].data,
-        //     ...response[3].data
-        // })
+        console.log({
+            ...response[0].data,
+            ...response[1].data,
+            ...response[2].data,
+            ...response[3].data
+        })
         return {
             ...response[0].data,
             ...response[1].data,

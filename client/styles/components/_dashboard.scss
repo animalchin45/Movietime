@@ -1,55 +1,66 @@
 .dashboard {
-    animation: fadeIn 400ms ease-out;
-    display: grid;
-    grid-template-rows: 40rem 5rem max-content 10rem;
+  animation: fadeIn 400ms ease-out;
+  display: grid;
+  grid-template-rows: 40rem 5rem max-content 10rem;
 
-    &__welcome {
-        display: flex;
-        flex-direction: column;
-        grid-column: center-start / center-end;
-        justify-content: center;
+  &__welcome {
+    display: flex;
+    flex-direction: column;
+    grid-column: center-start / center-end;
+    justify-content: center;
+  }
+
+  &__favorites {
+    grid-column: center-start / center-end;
+    grid-row: 3 / 4;
+
+    &--title {
+      grid-row: 2 / 3;
     }
+  }
 
-    &__favorites {
-        grid-column: center-start / center-end;
-        grid-row: 3 / 4;
+  &__recommend {
+    grid-row: 5 / 6;
+    grid-column: center-start / center-end;
 
-        &--title {
-            grid-row: 2 / 3;
-        }
+    &--title {
+      grid-row: 4 / 5;
     }
+  }
 
-    &__watched {
-        background-color: rgba($color-secondary, .8);
-        border-radius: 5px;
-        bottom: -3px;
-        padding: 5px;
-        position: absolute;
-        right: -2px;
+  &__watched {
+    background-color: rgba($color-secondary, 0.8);
+    border-radius: 5px;
+    bottom: -3px;
+    padding: 5px;
+    position: absolute;
+    right: -2px;
 
-        & svg {
-            height: 3rem;
-            width: 3rem;
-        }
+    & svg {
+      height: 3rem;
+      width: 3rem;
     }
+  }
 
-    // temporary layout
-    & button {
-        grid-row: 4 / 5;
-    }
+  // temporary layout
+  & button {
+    grid-row: 7 / 8;
+  }
 }
 
 @media (max-width: $first-break) {
-    .dashboard {
-
-        &__welcome {
-            align-items: center;
-            grid-column: 1 / -1;
-        }
-
-        &__favorites {
-            grid-column: 1 / -1;
-        }
-        
+  .dashboard {
+    &__welcome {
+      align-items: center;
+      grid-column: 1 / -1;
     }
+
+    &__favorites {
+      grid-column: 1 / -1;
+    }
+
+    &__recommend {
+      grid-column: 1 / -1;
+    }
+  }
 }
