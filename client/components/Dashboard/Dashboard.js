@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 
@@ -11,7 +11,6 @@ import {
   recommendSeed,
   recommendShows,
 } from "../../features/recommend/recommendSlice"
-// import { getFavoriteGenre } from '../../features/favorite/getFavoriteGenre'
 import Loader from "../Loader"
 import AccountStats from "./AccountStats"
 import ShowCards from "../ShowCards"
@@ -20,9 +19,7 @@ const Dashboard = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  // const [favoriteGenre, setFavoriteGenre] = useState('')
-
-  const { user } = useSelector((state) => state.auth)
+  const { user, isLoading } = useSelector((state) => state.auth)
   const { favorites, isFavoritesLoading } = useSelector(
     (state) => state.favorites
   )
@@ -33,16 +30,12 @@ const Dashboard = () => {
       navigate("/login")
     }
 
-    await dispatch(getFavorites())
+    dispatch(getFavorites())
 
     await dispatch(recommendShows(recommendSeed(favorites)))
-    // const favGenres = favorites.flatMap((fav) => fav.genres.map((genre) => genre.name))
-    // console.log(favGenres)
-    // setFavoriteGenre(getFavoriteGenre(favGenres))
 
     return () => {
       dispatch(favoriteClearError())
-      //   setFavoriteGenre("")
     }
   }, [user, navigate, dispatch])
 
@@ -51,14 +44,14 @@ const Dashboard = () => {
     navigate("/")
   }
 
-  if (isFavoritesLoading || !favorites) {
+  if (isLoading || isFavoritesLoading || !favorites) {
     return <Loader />
   }
 
   return (
     <div className="layout__main dashboard">
       <>
-        <AccountStats user={user} favorites={favorites} />
+        <AccountStats currentUser={user} accountFavorites={favorites} />
 
         <div className="dashboard__favorites--title content-title">
           {favorites.length > 0 && <h3>Favorites</h3>}

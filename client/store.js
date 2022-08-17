@@ -38,6 +38,7 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
+  blacklist: ["auth"],
 }
 
 // Initialize Persistant Reducer
