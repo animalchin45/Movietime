@@ -51,7 +51,11 @@ const Dashboard = () => {
   return (
     <div className="layout__main dashboard">
       <>
-        <AccountStats currentUser={user} accountFavorites={favorites} />
+        <AccountStats
+          currentUser={user}
+          accountFavorites={favorites}
+          onLogout={onLogout}
+        />
 
         <div className="dashboard__favorites--title content-title">
           {favorites.length > 0 && <h3>Favorites</h3>}
@@ -78,10 +82,6 @@ const Dashboard = () => {
           )}
         </section>
       </>
-
-      <button className="btn btn--large" onClick={onLogout}>
-        <p>Logout</p>
-      </button>
     </div>
   )
 }

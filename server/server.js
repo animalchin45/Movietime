@@ -23,15 +23,15 @@ app.use('/favorites', require('./routes/favoriteRoutes'))
 app.use('/users', require('./routes/userRoutes'))
 
 app.get('*', (req, res) => {
-    res.status(200).send(template())
+  res.status(200).send(template())
 })
 
 app.use(errorHandler)
 
 let port = process.env.PORT || 3000
-app.listen(port, (err) =>{
-    if (err) {
-        console.log(err)
-    }
-    console.info('Server started on port %s.', port)
+app.listen(port, (err) => {
+  if (err) {
+    console.log(err)
+  }
+  console.info('Server started on port %s.', port)
 })

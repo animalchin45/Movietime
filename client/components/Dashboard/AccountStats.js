@@ -1,11 +1,13 @@
 import React from "react"
-import { useSelector } from "react-redux"
 
-const AccountStats = ({ accountFavorites, currentUser }) => {
+const AccountStats = ({ accountFavorites, currentUser, onLogout }) => {
   return (
     <section className="dashboard__welcome">
       <h4 className="u-margin-bottom">{`${currentUser.name}`}</h4>
       <p>{`${accountFavorites.length} favorites`}</p>
+      <button className="btn btn--large" onClick={() => onLogout()}>
+        <p>Logout</p>
+      </button>
     </section>
   )
 }
