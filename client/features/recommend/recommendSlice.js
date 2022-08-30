@@ -1,17 +1,17 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import recommendService from "./recommendService"
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import recommendService from './recommendService'
 
 const initialState = {
   recommendResults: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
-  message: "",
+  message: '',
 }
 
 // Recommend Shows
 export const recommendShows = createAsyncThunk(
-  "show/recommend",
+  'show/recommend',
   async (recommend, thunkAPI) => {
     try {
       return await recommendService.recommendations(recommend)
@@ -38,10 +38,11 @@ export const recommendSeed = (favorites) => {
   let showType
 
   if (show.release_date) {
-    showType = "movie"
+    showType = 'movie'
   } else if (show.first_air_date) {
-    showType = "tv"
+    showType = 'tv'
   }
+  // Return show type and seed id
   return {
     id: show.id,
     showType,
@@ -49,7 +50,7 @@ export const recommendSeed = (favorites) => {
 }
 
 export const recommendSlice = createSlice({
-  name: "recommend",
+  name: 'recommend',
   initialState,
   reducers: {
     reset: (state) => initialState,
@@ -63,7 +64,7 @@ export const recommendSlice = createSlice({
         state.isLoading = false
         state.isSuccess = true
         state.isError = false
-        state.message = ""
+        state.message = ''
         state.recommendResults = action.payload
       })
       .addCase(recommendShows.rejected, (state, action) => {

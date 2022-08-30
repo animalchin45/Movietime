@@ -1,19 +1,17 @@
-import React, { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { logout } from "../../features/auth/authSlice"
+import AccountStats from './AccountStats'
+import ShowCards from '../ShowCards'
+import Recommendations from './Recommendations'
+import Loader from '../Loader'
+
+import { logout } from '../../features/auth/authSlice'
 import {
   getFavorites,
   favoriteClearError,
-} from "../../features/favorite/favoriteSlice"
-import {
-  recommendSeed,
-  recommendShows,
-} from "../../features/recommend/recommendSlice"
-import Loader from "../Loader"
-import AccountStats from "./AccountStats"
-import ShowCards from "../ShowCards"
+} from '../../features/favorite/favoriteSlice'
 
 const Dashboard = () => {
   const navigate = useNavigate()
@@ -23,16 +21,13 @@ const Dashboard = () => {
   const { favorites, isFavoritesLoading } = useSelector(
     (state) => state.favorites
   )
-  const { recommendResults } = useSelector((state) => state.recommend)
 
   useEffect(async () => {
     if (!user) {
-      navigate("/login")
+      navigate('/login')
     }
 
-    dispatch(getFavorites())
-
-    await dispatch(recommendShows(recommendSeed(favorites)))
+    await dispatch(getFavorites())
 
     return () => {
       dispatch(favoriteClearError())
@@ -41,7 +36,7 @@ const Dashboard = () => {
 
   const onLogout = () => {
     dispatch(logout())
-    navigate("/")
+    navigate('/')
   }
 
   if (isLoading || isFavoritesLoading || !favorites || !user) {
@@ -49,7 +44,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="layout__main dashboard">
+    <div className='layout__main dashboard'>
       <>
         <AccountStats
           currentUser={user}
@@ -57,30 +52,20 @@ const Dashboard = () => {
           onLogout={onLogout}
         />
 
-        <div className="dashboard__favorites--title content-title">
+        <div className='dashboard__favorites--title content-title'>
           {favorites.length > 0 && <h3>Favorites</h3>}
         </div>
 
-        <section className="dashboard__favorites">
+        <section className='dashboard__favorites'>
           {favorites.length > 0 && (
-            <div className="show-grid">
+            <div className='show-grid'>
               <ShowCards results={favorites} />
             </div>
           )}
           {favorites.length == 0 && <p>No favorites here yet...</p>}
         </section>
 
-        <div className="dashboard__recommend--title content-title">
-          {recommendResults.length > 0 && <h3>More for you...</h3>}
-        </div>
-
-        <section className="dashboard__recommend">
-          {recommendResults.length > 0 && (
-            <div className="show-grid">
-              <ShowCards results={recommendResults} />
-            </div>
-          )}
-        </section>
+        {favorites.length > 0 && <Recommendations />}
       </>
     </div>
   )
