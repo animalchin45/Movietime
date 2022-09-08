@@ -1,20 +1,35 @@
 // colors
 
 $color-primary: rgb(174, 32, 18);
-$color-secondary: #0A9396;
-$color-tertiary: #E9D8A6;
+$color-secondary: #0a9396;
+$color-tertiary: #e9d8a6;
 $color-gray-light: rgb(215, 211, 211);
 $color-gray-dark: #363636;
 $color-white: #ffffff;
 $color-black: #1d2021;
-$gradient: linear-gradient(315deg, rgba(54,54,54,0.7) 46%, rgba(10,147,150,0.7) 78%);
-$gradient-head-foot: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(215, 211, 211, 0.9) 100%);
-$gradient-main: linear-gradient(120deg, rgba(255,255,255,1) 65%, rgba(54,54,54,0.9) 100%);
+$gradient: linear-gradient(
+  315deg,
+  rgba(54, 54, 54, 0.5) 20%,
+  rgba(10, 147, 150, 0.5) 80%
+);
+$gradient-head-foot: linear-gradient(
+  180deg,
+  rgba(255, 255, 255, 1) 0%,
+  rgba(215, 211, 211, 0.7) 100%
+);
+$gradient-main: linear-gradient(
+  120deg,
+  rgba(255, 255, 255, 1) 80%,
+  rgba(54, 54, 54, 0.5) 100%
+);
 
 // Layout Columns
-$layout-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+$layout-columns: [full-start] minmax(6rem, 1fr) [center-start]
+  repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end]
+  minmax(6rem, 1fr) [full-end];
 
-$layout-columns-break: [full-start] repeat(8, [col-start] minmax(min-content, 20rem) [col-end]) [full-end];
+$layout-columns-break: [full-start]
+  repeat(8, [col-start] minmax(min-content, 20rem) [col-end]) [full-end];
 
 // Margin
 $margin-small: 1rem;
@@ -32,7 +47,7 @@ $first-break: 1500px;
 $mobile-break: 960px;
 
 // Animation Timing
-$fade-in-quick: .2s;
-$fade-in-slow: .3s;
+$fade-in-quick: 0.2s;
+$fade-in-slow: 0.3s;
 
-$border-radius: .5rem;
+$border-radius: 0.5rem;

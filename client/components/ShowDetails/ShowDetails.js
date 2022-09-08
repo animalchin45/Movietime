@@ -6,7 +6,7 @@ import Overview from './Overview'
 import Cast from './Cast'
 import Trailer from './Trailer'
 import Posters from './Posters'
-import MediaViewer from './MediaViewer'
+import MediaViewer from '../MediaViewer/MediaViewer'
 
 const ShowDetails = () => {
   const { details, isDetailsLoading, isTvContentLoading, isPostersLoading } =

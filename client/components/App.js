@@ -8,6 +8,7 @@ import ScrollToTop from './ScrollToTop'
 import Home from './Home'
 import SearchResults from './SearchResults'
 import ShowDetails from './ShowDetails/ShowDetails'
+import PeopleDetails from './People/PeopleDetails'
 import UserSignIn from './User/UserSignIn'
 import UserRegister from './User/UserRegister'
 import Dashboard from './Dashboard/Dashboard'
@@ -23,6 +24,7 @@ const App = () => {
               <Route path='/' element={<Home />} />
               <Route path='/search' element={<SearchResults />} />
               <Route path='/details' element={<ShowDetails />} />
+              <Route path='/people' element={<PeopleDetails />} />
               <Route path='/login' element={<UserSignIn />} />
               <Route path='/register' element={<UserRegister />} />
               <Route path='/dashboard' element={<Dashboard />} />

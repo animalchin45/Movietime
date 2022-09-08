@@ -1,6 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit"
-import storage from "redux-persist/lib/storage"
-import { combineReducers } from "redux"
+import { configureStore } from '@reduxjs/toolkit'
+import storage from 'redux-persist/lib/storage'
+import { combineReducers } from 'redux'
 import {
   persistReducer,
   FLUSH,
@@ -9,17 +9,18 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist"
+} from 'redux-persist'
 
 // Import Reducers
-import authReducer from "./features/auth/authSlice"
-import trendingReducer from "./features/show/trendingSlice"
-import searchReducer from "./features/show/searchSlice"
-import searchDisplayReducer from "./features/show/searchDisplaySlice"
-import detailsReducer from "./features/show/detailsSlice"
-import mediaViewerReducer from "./features/modal/mediaViewerSlice"
-import favoriteReducer from "./features/favorite/favoriteSlice"
-import recommendReduer from "./features/recommend/recommendSlice"
+import authReducer from './features/auth/authSlice'
+import trendingReducer from './features/show/trendingSlice'
+import searchReducer from './features/show/searchSlice'
+import searchDisplayReducer from './features/show/searchDisplaySlice'
+import detailsReducer from './features/show/detailsSlice'
+import mediaViewerReducer from './features/mediaViewer/mediaViewerSlice'
+import favoriteReducer from './features/favorite/favoriteSlice'
+import recommendReduer from './features/recommend/recommendSlice'
+import peopleReducer from './features/people/peopleSlice'
 
 // Combine Reducers
 const reducers = combineReducers({
@@ -31,14 +32,15 @@ const reducers = combineReducers({
   mediaViewer: mediaViewerReducer,
   favorites: favoriteReducer,
   recommend: recommendReduer,
+  people: peopleReducer,
 })
 
 // Configure Persist
 const persistConfig = {
-  key: "root",
+  key: 'root',
   version: 1,
   storage,
-  blacklist: ["auth"],
+  blacklist: ['auth'],
 }
 
 // Initialize Persistant Reducer
