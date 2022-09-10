@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 
 import {
   peopleDetails,
-  // peopleImages,
+  peopleImages,
   peopleShows,
 } from '../features/people/peopleSlice'
 import { resetSearchDisplay } from '../features/show/searchDisplaySlice'
@@ -19,6 +19,7 @@ const CastCards = ({ cast }) => {
     dispatch(resetSearchDisplay())
     dispatch(peopleDetails(id))
     dispatch(peopleShows(id))
+    dispatch(peopleImages(id))
 
     navigate('/people')
   }

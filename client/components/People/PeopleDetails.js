@@ -1,19 +1,26 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Loader from '../Loader'
 import Overview from './Overview'
 import ShowCards from '../ShowCards'
-// import MediaViewer from '../MediaViewer/MediaViewer'
+import Images from './Images'
+import MediaViewer from '../MediaViewer/MediaViewer'
 
-// import {
-//   peopleDetails,
-//   peopleImages,
-//   peopleShows,
-// } from '../../features/people/peopleSlice'
+import { reset } from '../../features/people/peopleSlice'
 
 function PeopleDetails() {
-  const { isLoading, peopleShows } = useSelector((state) => state.people)
+  const dispatch = useDispatch()
+
+  const { isLoading, peopleShows, peopleImages } = useSelector(
+    (state) => state.people
+  )
+
+  useEffect(() => {
+    return () => {
+      dispatch(reset)
+    }
+  }, [dispatch])
 
   if (isLoading) {
     return (
@@ -24,7 +31,7 @@ function PeopleDetails() {
   }
 
   return (
-    <div className='layout__main people-details'>
+    <div id='media-component' className='layout__main people-details'>
       <Overview />
 
       <div className='people-details__known--title content-title'>
@@ -38,7 +45,18 @@ function PeopleDetails() {
         )}
       </section>
 
-      {/* <MediaViewer /> */}
+      <div className='people-details__images--title content-title'>
+        {peopleImages.length > 0 && <h3>More Images</h3>}
+      </div>
+      <section className='people-details__images'>
+        {peopleImages.length > 0 && (
+          <div className='people-details__image-grid'>
+            <Images />
+          </div>
+        )}
+      </section>
+
+      <MediaViewer media={peopleImages} />
     </div>
   )
 }

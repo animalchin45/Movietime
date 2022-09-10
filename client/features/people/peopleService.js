@@ -28,7 +28,7 @@ const peopleShows = async (personId) => {
 
   const allPop = cast.map((pop) => pop.popularity)
 
-  console.log(allPop)
+  // console.log(allPop)
 
   const average = allPop.reduce((a, b) => a + b, 0) / cast.length
 
@@ -36,7 +36,7 @@ const peopleShows = async (personId) => {
     return title.popularity > average
   })
 
-  console.log(knownFor)
+  // console.log(knownFor)
 
   return knownFor.slice(0, 8)
 }
@@ -48,7 +48,7 @@ const peopleImages = async (personId) => {
     },
   })
 
-  return response.data
+  return response.data.profiles
 }
 
 const peopleService = {

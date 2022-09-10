@@ -11,13 +11,13 @@ import {
 import { left, right } from '../../img'
 import Close from '../../img/close.svg'
 
-const MediaViewer = () => {
+const MediaViewer = ({ media }) => {
+  const isMobile = useMediaQuery({ query: '(max-width: 960px)' })
   const dispatch = useDispatch()
-  const { posters } = useSelector((state) => state.details)
+
   const { quantity, position, isOpen, selectedMedia } = useSelector(
     (state) => state.mediaViewer
   )
-  const isMobile = useMediaQuery({ query: '(max-width: 960px)' })
 
   const [slide, setSlide] = useState('media-modal__img')
 
@@ -39,7 +39,7 @@ const MediaViewer = () => {
       setTimeout(() => {
         const change = position + 1
         dispatch(changePosition(change))
-        dispatch(setSelectedMedia(posters[change].file_path))
+        dispatch(setSelectedMedia(media[change].file_path))
         setSlide('media-modal__img media-modal__img--next')
       }, 200)
       setTimeout(() => {
@@ -49,7 +49,7 @@ const MediaViewer = () => {
       setSlide('media-modal__img--next')
       setTimeout(() => {
         dispatch(changePosition(0))
-        dispatch(setSelectedMedia(posters[0].file_path))
+        dispatch(setSelectedMedia(media[0].file_path))
         setSlide('media-modal__img')
       }, 200)
       setTimeout(() => {
@@ -65,7 +65,7 @@ const MediaViewer = () => {
       setTimeout(() => {
         const change = position - 1
         dispatch(changePosition(change))
-        dispatch(setSelectedMedia(posters[change].file_path))
+        dispatch(setSelectedMedia(media[change].file_path))
         setSlide('media-modal__img media-modal__img--prev')
       }, 200)
       setTimeout(() => {
@@ -76,7 +76,7 @@ const MediaViewer = () => {
       setTimeout(() => {
         const change = quantity - 1
         dispatch(changePosition(change))
-        dispatch(setSelectedMedia(posters[change].file_path))
+        dispatch(setSelectedMedia(media[change].file_path))
         setSlide('media-modal__img media-modal__img--prev')
       }, 200)
       setTimeout(() => {
@@ -100,7 +100,7 @@ const MediaViewer = () => {
   return (
     <Modal
       ariaHideApp={false}
-      parentSelector={() => document.querySelector('#show-details')}
+      parentSelector={() => document.querySelector('#media-component')}
       isOpen={isOpen}
       onRequestClose={onClearModal}
       contentLabel='Selected Media'

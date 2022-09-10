@@ -9,7 +9,7 @@ $h1-small-font-size: 2.25rem;
 $h2-font-size: 3.6rem;
 $h2-mobile-font-size: 2.25rem;
 
-$h3-font-size: 3rem;
+$h3-font-size: 2.6rem;
 $h3-mobile-font-size: 2rem;
 
 $h4-font-size: 2rem;
@@ -45,6 +45,7 @@ body {
   font-size: $default-font-size;
 }
 
+// Logo
 h1 {
   color: $color-primary;
   font-family: 'Lemon/Milk', sans-serif;
@@ -61,6 +62,7 @@ h1 {
   font-size: $h1-small-font-size;
 }
 
+// Sub title
 h2 {
   color: $color-white;
   font-family: 'Raleway', sans-serif;
@@ -70,6 +72,7 @@ h2 {
   text-transform: uppercase;
 }
 
+// Section Title
 h3 {
   font-family: 'Raleway', sans-serif;
   font-size: $h3-font-size;
@@ -77,6 +80,7 @@ h3 {
   letter-spacing: 2px;
 }
 
+// Other Small Titles
 h4 {
   font-family: 'Raleway', sans-serif;
   font-size: $h4-font-size;
