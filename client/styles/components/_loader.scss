@@ -1,34 +1,35 @@
 .loader {
-    animation: fadeIn 400ms ease-out;
-    display: grid;
-    grid-column: 1 / -1;
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    position: relative;
+  animation: fadeIn 400ms ease-out;
+  background-color: rgba($color-gray-light, 0.2);
+  display: grid;
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+}
+.loader::after,
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  width: 45rem;
+  height: 45rem;
+  border: 40px solid rgba($color-primary, 0.5);
+  position: absolute;
+  left: calc(50% - 22.5rem);
+  top: calc(50% - 22.5rem);
+  animation: scaleOut 2s ease-in-out infinite;
+}
+.loader::after {
+  border-color: rgba($color-secondary, 0.5);
+  animation-delay: 1s;
+}
+
+@keyframes scaleOut {
+  0% {
+    transform: scale(0);
   }
-  .loader::after,
-  .loader::before {
-    content: '';  
-    box-sizing: border-box;
-    width: 45rem;
-    height: 45rem;
-    border: 40px solid rgba($color-primary, .5);
-    position: absolute;
-    left: calc(50% - 22.5rem);
-    top: calc(50% - 22.5rem);
-    animation: scaleOut 2s ease-in-out infinite;
+  100% {
+    transform: scale(1);
   }
-  .loader::after {
-    border-color: rgba($color-secondary, .5);
-    animation-delay: 1s;
-  }
-  
-  @keyframes scaleOut {
-    0% {
-      transform: scale(0);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
+}

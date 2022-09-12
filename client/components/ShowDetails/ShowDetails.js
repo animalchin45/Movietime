@@ -28,11 +28,7 @@ const ShowDetails = () => {
   }, [dispatch])
 
   if (isDetailsLoading || isTvContentLoading || isPostersLoading) {
-    return (
-      <div className='layout__main show-details'>
-        <Loader />
-      </div>
-    )
+    return <Loader />
   }
 
   return (

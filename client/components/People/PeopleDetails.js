@@ -23,11 +23,7 @@ function PeopleDetails() {
   }, [dispatch])
 
   if (isLoading) {
-    return (
-      <div className='layout__main people-details'>
-        <Loader />
-      </div>
-    )
+    return <Loader />
   }
 
   return (
