@@ -32,6 +32,7 @@ $layout-columns-break: [full-start]
   repeat(8, [col-start] minmax(min-content, 20rem) [col-end]) [full-end];
 
 // Margin
+$margin-xsmall: 0.25rem;
 $margin-small: 1rem;
 $margin-medium: 3rem;
 $margin-large: 5rem;

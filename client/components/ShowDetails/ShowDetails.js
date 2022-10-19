@@ -25,7 +25,7 @@ const ShowDetails = () => {
     return () => {
       dispatch(favoriteClearError)
     }
-  }, [dispatch])
+  }, [])
 
   if (isDetailsLoading || isTvContentLoading || isPostersLoading) {
     return <Loader />

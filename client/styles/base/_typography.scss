@@ -138,7 +138,8 @@ a {
   cursor: pointer;
 }
 
-input {
+input,
+label {
   font-family: 'Raleway', sans-serif;
   font-size: $small-font-size;
 }

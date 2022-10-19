@@ -1,20 +1,40 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import authService from "./authService"
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import authService from './authService'
 
 // Get user from local storage
-const user = JSON.parse(localStorage.getItem("user"))
+const user = JSON.parse(localStorage.getItem('user'))
 
 const initialState = {
   user: user ? user : null,
+  isAuthenticated: false,
   isError: false,
   isSuccess: false,
   isLoading: false,
-  message: "",
+  message: '',
 }
+
+// Validate User
+export const validate = createAsyncThunk(
+  'auth/validate',
+  async (user, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token
+      return await authService.validate(user, token)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
 
 // Resister User
 export const register = createAsyncThunk(
-  "auth/register",
+  'auth/register',
   async (user, thunkAPI) => {
     try {
       return await authService.register(user)
@@ -31,7 +51,7 @@ export const register = createAsyncThunk(
 )
 
 // Login User
-export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
+export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
   try {
     return await authService.login(user)
   } catch (error) {
@@ -44,12 +64,12 @@ export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
 })
 
 // Logout User
-export const logout = createAsyncThunk("auth/logout", async () => {
+export const logout = createAsyncThunk('auth/logout', async () => {
   await authService.logout()
 })
 
 export const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   reducers: {
     authReset: (state) => {
@@ -67,11 +87,14 @@ export const authSlice = createSlice({
         state.isLoading = false
         state.isSuccess = true
         state.user = action.payload
+        state.token = action.payload.token
+        state.isAuthenticated = true
       })
       .addCase(register.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
+        state.isAuthenticated = false
       })
       .addCase(login.pending, (state) => {
         state.isLoading = true
@@ -79,17 +102,34 @@ export const authSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.message = ""
+        state.message = ''
         state.user = action.payload
+        state.isAuthenticated = true
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
         state.user = null
+        state.isAuthenticated = false
       })
       .addCase(logout.fulfilled, (state) => {
         state.user = null
+        state.isAuthenticated = false
+      })
+      .addCase(validate.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(validate.fulfilled, (state) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.isAuthenticated = true
+        state.message = ''
+      })
+      .addCase(validate.rejected, (state) => {
+        state.isLoading = false
+        state.user = null
+        state.isAuthenticated = false
       })
   },
 })

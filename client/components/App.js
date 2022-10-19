@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import { hot } from 'react-hot-loader/root'
@@ -14,7 +15,17 @@ import UserRegister from './User/UserRegister'
 import Dashboard from './Dashboard/Dashboard'
 import PageNotFound from './PageNotFound'
 
+import { validate } from '../features/auth/authSlice'
+
 const App = () => {
+  const dispatch = useDispatch()
+
+  const { user } = useSelector((state) => state.auth)
+
+  useEffect(() => {
+    dispatch(validate(user))
+  }, [])
+
   return (
     <>
       <BrowserRouter>

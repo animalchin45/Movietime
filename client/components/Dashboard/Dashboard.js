@@ -7,23 +7,28 @@ import ShowCards from '../ShowCards'
 import Recommendations from './Recommendations'
 import Loader from '../Loader'
 
-import { logout } from '../../features/auth/authSlice'
+import { validate, logout } from '../../features/auth/authSlice'
 import {
   getFavorites,
   favoriteClearError,
+  favoriteReset,
 } from '../../features/favorite/favoriteSlice'
 
 const Dashboard = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { user, isLoading } = useSelector((state) => state.auth)
+  const { user, isAuthenticated, token, isLoading } = useSelector(
+    (state) => state.auth
+  )
   const { favorites, isFavoritesLoading } = useSelector(
     (state) => state.favorites
   )
 
   useEffect(async () => {
-    if (!user) {
+    dispatch(validate(token))
+
+    if (!isAuthenticated) {
       navigate('/login')
     }
 
@@ -32,10 +37,11 @@ const Dashboard = () => {
     return () => {
       dispatch(favoriteClearError())
     }
-  }, [user, navigate, dispatch])
+  }, [dispatch, validate, isAuthenticated])
 
   const onLogout = () => {
     dispatch(logout())
+    dispatch(favoriteReset())
     navigate('/')
   }
 

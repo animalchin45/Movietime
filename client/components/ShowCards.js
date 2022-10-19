@@ -19,12 +19,14 @@ const ShowCards = ({ results }) => {
   const { user } = useSelector((state) => state.auth)
 
   let { pathname } = useLocation()
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const onClick = async (media_type, id) => {
     dispatch(detailsReset())
     dispatch(resetSearchDisplay())
+
     await dispatch(showDetails({ media_type, id }))
 
     if (media_type === 'tv') {
