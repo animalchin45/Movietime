@@ -17,7 +17,7 @@ app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-import template from './../template'
+import template from '../template'
 
 app.use('/favorites', require('./routes/favoriteRoutes'))
 app.use('/users', require('./routes/userRoutes'))

@@ -1,3 +1,5 @@
+import { favicon } from './client/img'
+
 export default () => {
   return `
     <!doctype html>
@@ -7,7 +9,7 @@ export default () => {
         <title>Movietime! - Millions of movies and tv shows ready to be discovered.</title>
         <meta name="description" content="Millions of titles ready to be discovered">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="favicon.png">
+        <link rel="shortcut icon" href=${favicon}>
     </head>
     <body>
         <div id="root"></div>
