@@ -54,10 +54,6 @@ h1 {
   text-shadow: 0px 0px 5px rgba($color-black, 0.7);
 }
 
-.sm-p {
-  font-size: $small-font-size;
-}
-
 .sm-h1 {
   font-size: $h1-small-font-size;
 }
@@ -85,6 +81,10 @@ h4 {
   font-family: 'Raleway', sans-serif;
   font-size: $h4-font-size;
   letter-spacing: 1.5px;
+}
+
+.sm-p {
+  font-size: $small-font-size;
 }
 
 button {

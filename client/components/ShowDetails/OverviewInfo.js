@@ -179,14 +179,15 @@ const OverviewInfo = () => {
                   </button>
                 )}
 
-                {favIds.includes(details.id.toString()) && !favId[0].watched && (
-                  <button
-                    onClick={() => onUpdateTitle(favId[0]._id)}
-                    className='btn--modify'
-                  >
-                    <NotWatched />
-                  </button>
-                )}
+                {favIds.includes(details.id.toString()) &&
+                  !favId[0].watched && (
+                    <button
+                      onClick={() => onUpdateTitle(favId[0]._id)}
+                      className='btn--modify'
+                    >
+                      <NotWatched />
+                    </button>
+                  )}
 
                 {favIds.includes(details.id.toString()) && favId[0].watched && (
                   <button

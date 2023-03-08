@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useMediaQuery } from 'react-responsive'
-import { toast } from 'react-toastify'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 import Loader from '../Loader'
 
 const OverviewInfo = () => {
   const { peopleDetails, isLoading } = useSelector((state) => state.people)
-  const isMobile = useMediaQuery({ query: '(max-width: 960px)' })
 
   // SHOW LOADER WHILE ALL CONTENT IS LOADING
   if (isLoading) {
@@ -25,7 +22,7 @@ const OverviewInfo = () => {
         <p>Born: {peopleDetails.birthday}</p>
         <p>From: {peopleDetails.place_of_birth}</p>
         <h4>Biography</h4>
-        <p>{peopleDetails.biography.slice(0, 800)}... More</p>
+        <p>{peopleDetails.biography.slice(0, 600)}... More</p>
       </div>
     </>
   )
