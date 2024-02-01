@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-// import { hero } from '../img';
+import Loader from './Loader';
 
 const Hero = () => {
-  const { trendingResults } = useSelector((state) => state.show);
+  const { trendingResults, isLoading } = useSelector((state) => state.show);
   const [background, setBackGround] = useState('');
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const Hero = () => {
         ? trendingResults[pick].backdrop_path
         : 'Coming Soon...'
     );
-  }, []);
+  }, [trendingResults]);
 
   return (
     <div
@@ -28,11 +28,10 @@ const Hero = () => {
       <h2 className='hero__text'>
         Millions of movies and tv shows ready to be discovered
       </h2>
-      <div className='hero__overlay'></div>
+      {isLoading && <Loader />}
+      <div className='hero__overlay' />
     </div>
   );
 };
 
 export default Hero;
-
-// style={{ backgroundImage: `url(${hero})` }}

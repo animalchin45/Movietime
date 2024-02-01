@@ -1,6 +1,6 @@
-import moviedb from '../../apis/moviedb'
+import moviedb from '../../apis/moviedb';
 
-const KEY = process.env.MOVIE_API_KEY
+const KEY = process.env.MOVIE_API_KEY;
 
 // Fetch Trending
 const trending = async () => {
@@ -19,9 +19,9 @@ const trending = async () => {
         page: 2,
       },
     }),
-  ])
-  return response[0].data.results.concat(response[1].data.results)
-}
+  ]);
+  return response[0].data.results.concat(response[1].data.results);
+};
 
 // Search
 const search = async (searchTerm) => {
@@ -42,9 +42,9 @@ const search = async (searchTerm) => {
         page: 2,
       },
     }),
-  ])
-  return response[0].data.results.concat(response[1].data.results)
-}
+  ]);
+  return response[0].data.results.concat(response[1].data.results);
+};
 
 // fetch details
 const details = async (show) => {
@@ -67,7 +67,7 @@ const details = async (show) => {
           language: 'en',
         },
       }),
-    ])
+    ]);
     // console.log({
     //     ...response[0].data,
     //     ...response[1].data,
@@ -77,7 +77,7 @@ const details = async (show) => {
       ...response[0].data,
       ...response[1].data,
       ...response[2].data,
-    }
+    };
   } else if (show.media_type === 'tv') {
     const response = await Promise.all([
       moviedb.get(`/${show.media_type}/${show.id}`, {
@@ -102,21 +102,21 @@ const details = async (show) => {
           language: 'en',
         },
       }),
-    ])
+    ]);
     console.log({
       ...response[0].data,
       ...response[1].data,
       ...response[2].data,
       ...response[3].data,
-    })
+    });
     return {
       ...response[0].data,
       ...response[1].data,
       ...response[2].data,
       ...response[3].data,
-    }
+    };
   }
-}
+};
 
 // get tv content ratings
 const tvContentRatings = async (show) => {
@@ -128,10 +128,10 @@ const tvContentRatings = async (show) => {
         language: 'en',
       },
     }
-  )
+  );
 
-  return response.data
-}
+  return response.data;
+};
 
 // get tv and movie posters and backdrops
 const posters = async (show) => {
@@ -140,10 +140,10 @@ const posters = async (show) => {
       api_key: KEY,
       language: 'en',
     },
-  })
+  });
   // console.log(response.data)
-  return response.data.posters.slice(0, 9)
-}
+  return response.data.posters.slice(0, 9);
+};
 
 const showService = {
   trending,
@@ -151,6 +151,6 @@ const showService = {
   details,
   tvContentRatings,
   posters,
-}
+};
 
-export default showService
+export default showService;
